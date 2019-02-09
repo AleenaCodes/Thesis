@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{blindtext}
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={150mm,257mm},
+ left=30mm,
+ top=20mm,
+ }
+ \renewcommand{\baselinestretch}{1.3}
+
+\usepackage[backend=biber,style=numeric,sorting=ynt]{biblatex}
+\addbibresource{citations.bib}
+
+%-----------------------------------------------------------------------
+% Main
+%-----------------------------------------------------------------------
+
+\title{Background Chapter}
+\author{Aleena Baig }
+\date{February 2019}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+When HTML was first created in 1990, 
+
+
+\subsection{This}
+Hello this is my citing \cite{collier2004greed}
+\blindtext
+
+%-----------------------------------------------------------------------
+% Bibliography
+%-----------------------------------------------------------------------
+
+\newpage
+
+\printbibliography
+\end{document}
+
+%-----------------------------------------------------------------------
+% Notes/Plan
+%-----------------------------------------------------------------------
+% Different types of accessibility
+% Stats on who this affects
+% ARIA/WARIA standards
+% Accessibility is law!
+% What is AOM?
+% Idea - make graphs accessible - tool for developers
+% Current tools - Ally.js, HTML already accessible etc.
+% Possible solutions - framework, linter-type thing to add to components
+% Technical - making a solution that works for both accessible and normal users out of the box
