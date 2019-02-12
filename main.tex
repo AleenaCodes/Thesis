@@ -11,7 +11,7 @@
  }
  \renewcommand{\baselinestretch}{1.3}
 
-\usepackage[backend=biber,style=numeric,sorting=ynt]{biblatex}
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
 \addbibresource{citations.bib}
 
 %-----------------------------------------------------------------------
@@ -27,12 +27,114 @@
 \maketitle
 
 \section{Introduction}
-When HTML was first created in 1990, 
+When HTML was first conceived in 1990, there were only 2.6 million users worldwide (in comparison to the several billion that there are now). \cite{ourworldindata:internet}. The simple markup language served the needs of the early web well - anyone could easily pick it up and translate a document into HTML, ready for it to be viewed in a browser.
+
+Within a few years, it had already become clear that HTML was extremely limiting for developers, and innovation had to take place in order to keep it relevant - in 1993 the browser Mosaic was shipped with support for the \texttt{<img>} tag, and many more new tags followed in order to accommodate for the ever-growing content types. \cite{historyofhtml}
+
+As time went on, both the number of the users on the web and the type of content being published changed drastically, and HTML went through a variety of iterations, eventually resulting on HTML5 which, combined with CSS4 and Javascript, forms the core of the internet,
+
+However, as the number of users has grown, so have the amount of internet users with differing accessibility needs, including visual, motor and cognitive needs. As HTML has become more complex, so have the website layouts, due in no small part to the need for websites to work on a much larger variety of devices and screen sizes than before. Whereas the simplistic "document-style" websites of the early internet were easily accessible to most users, this is no longer the case.
+
+% Try to find stat of how many sites are not accessible
+
+\section{Why is Accessibility Important?}
+
+The idea of web accessibility can often not even cross the mind of a developer if they've never had to use assistive technologies, and for those who do consider it, it can often seem like a minor part of website design, as the perception is that a very small percentage of web users have accessibility needs. However, the statistics paint a very different story - the World Health Organisation estimates that around 15\% of people worldwide live with some sort of a disability. \cite{WHOdisability}
+
+Thus, it is clear the accessibility should be a strong consideration when developing websites, but there are some main barriers for developers when doing this
+
+\begin{itemize}
+    \item Lack of knowledge about web accessibility standards
+    \item There are not many tools to test and fix accessibility issues
+    \item User testing with differently-abled users can be expensive and time-consuming
+    \item Some development tools (such as drag-and-drop) don't support accessibility
+    \item Content may be provided by a 3rd party, so accessibility isn't guaranteed
+\end{itemize}
+
+\subsection{Use Cases}
+
+\paragraph{Web accessibility encompasses a lot of different use cases, including}
+
+\begin{itemize}
+    \item Visual - blind or partially-blind users, who may use a screen-reader or require larger text
+    \item Auditory - 
+    \item Cognitive - 
+    \item Neurological - 
+    \item Physical - 
+    \item Speech - 
+\end{itemize}
+% TODO add more detail here. Add pictures?
+
+\paragraph{However there are also lots of other cases to consider \cite{WAIaccessibilityintro}}
+
+\begin{itemize}
+    \item "Temporary disabilities" - for example a broken arm, operating single-handed (such as holding a baby in one arm), lost glasses
+    \item People using devices in different input modes such as on a TV screen
+    \item "Situational limits" - seeing a screen in bright sunlight, or not being able to hear audio in a loud environment
+    \item Older people with changing abilities
+    \item People with slower or limited internet access
+\end{itemize}
+
+\paragraph{Through this we can see that web accessibility support the including or people with disabilities, older people, people in rural areas and people in developing countries}
+
+\subsection{The Business Case for Accessibility}
+
+% SEO
+% Bigger user base
+% Better for multiple devices
+% Reduced maintenance costs
+% Demonstrate corporate social responsibility
+% Required by law
+% People with disabilities are a protect class (check if gloablly though)
 
 
-\subsection{This}
-Hello this is my citing \cite{collier2004greed}
-\blindtext
+
+
+% Give stats - number of users
+% Use cases - blind, motor, cognitive, person holding a baby
+% Graph - accessibility needs
+
+\section{The Current State of Accessibility}
+
+
+% Standards -     
+%     Section 508 — specific to the United States
+%     Web Content Accessibility Guidelines (WCAG) 2.1
+%     Web Accessibility Initiative (WAI-ARIA)
+
+% ARIA/WARIA standards
+% W3C made ARIA guidelines for each (?) version of HTML in order to combat this - also part of the law
+% Accessibility is law!
+% Access to information and communications technologies, including the Web, is defined as a basic human right in the United Nations Convention on the Rights of Persons with Disabilities (UN CRPD).
+% HTML5 is accessible out of the box, but is now combined with many other things - CSS, JS - now not accessible
+% Components of the web (w3 page seemed to have good bit on this)
+% Why is web such a mess? Layouts aren't linear anymore, JS complicated - custom components
+
+\section{Current Tooling}
+
+% Current tools - Ally.js, HTML already accessible etc.
+% What is AOM?
+
+\section{Solutions}
+
+% Idea - make graphs accessible - tool for developers - make it easier for developers to be accessible then more will do it
+% Possible solutions - framework, linter-type thing to add to components
+% "in this paper we will explore the creation of a fully functioning framework that will allow developers to generate fully accessible SVG graphics (to ARIA standards) with minimal work"
+% "we will also explore some other possible solutions, including the currently experimental AOM"
+
+\section{Technical Challenges}
+
+% Technical - making a solution that works for both accessible and normal users out of the box
+% Accessibility challenges - hard to truly get every use case, the W3C guidelines are many research - will use those as a good indicator
+
+\section{Glossary}
+
+% A11y
+% Assistive Technologies
+% HTML
+% CSS
+% Gif
+% Keyboard focus
 
 %-----------------------------------------------------------------------
 % Bibliography
@@ -46,12 +148,8 @@ Hello this is my citing \cite{collier2004greed}
 %-----------------------------------------------------------------------
 % Notes/Plan
 %-----------------------------------------------------------------------
-% Different types of accessibility
-% Stats on who this affects
-% ARIA/WARIA standards
-% Accessibility is law!
-% What is AOM?
-% Idea - make graphs accessible - tool for developers
-% Current tools - Ally.js, HTML already accessible etc.
-% Possible solutions - framework, linter-type thing to add to components
-% Technical - making a solution that works for both accessible and normal users out of the box
+
+% "The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect." = Tim Berners-Lee, W3C Director and inventor of the World Wide Web
+
+
+
