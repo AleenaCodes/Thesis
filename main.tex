@@ -19,12 +19,16 @@
 %-----------------------------------------------------------------------
 
 \title{Background Chapter}
-\author{Aleena Baig }
+\author{Aleena Baig}
 \date{February 2019}
 
 \begin{document}
 
 \maketitle
+
+\tableofcontents
+
+\newpage
 
 \section{Introduction}
 When HTML was first conceived in 1990, there were only 2.6 million users worldwide (in comparison to the several billion that there are now). \cite{ourworldindata:internet}. The simple markup language served the needs of the early web well - anyone could easily pick it up and translate a document into HTML, ready for it to be viewed in a browser.
@@ -52,21 +56,23 @@ Thus, it is clear the accessibility should be a strong consideration when develo
 \end{itemize}
 
 \subsection{Use Cases}
-
-\paragraph{Web accessibility encompasses a lot of different use cases, including}
-
+%
+Web accessibility encompasses a lot of different use cases, including
+%
 \begin{itemize}
-    \item Visual - blind or partially-blind users, who may use a screen-reader or require larger text
+    \item Visual - blind or partially-blind users, who may use a screen-reader or require larger text; colour-blind users
     \item Auditory - 
-    \item Cognitive - 
+    \item Cognitive - users who may need simpler language to be used, such as those with learning disabilities, or non-native speakers of a language
     \item Neurological - 
     \item Physical - 
     \item Speech - 
 \end{itemize}
 % TODO add more detail here. Add pictures?
-
-\paragraph{However there are also lots of other cases to consider \cite{WAIaccessibilityintro}}
-
+% w3 site on "diverse abilities" will give info for here
+% RSI
+%
+However there are also lots of other cases to consider \cite{WAIaccessibilityintro}
+%
 \begin{itemize}
     \item "Temporary disabilities" - for example a broken arm, operating single-handed (such as holding a baby in one arm), lost glasses
     \item People using devices in different input modes such as on a TV screen
@@ -74,10 +80,12 @@ Thus, it is clear the accessibility should be a strong consideration when develo
     \item Older people with changing abilities
     \item People with slower or limited internet access
 \end{itemize}
-
-\paragraph{Through this we can see that web accessibility support the including or people with disabilities, older people, people in rural areas and people in developing countries}
-
+%
+Through this we can see that web accessibility support the including or people with disabilities, older people, people in rural areas and people in developing countries
+%
 \subsection{The Business Case for Accessibility}
+
+While it can be argued that web accessibility is matter of equality (
 
 % SEO
 % Bigger user base
@@ -85,28 +93,55 @@ Thus, it is clear the accessibility should be a strong consideration when develo
 % Reduced maintenance costs
 % Demonstrate corporate social responsibility
 % Required by law
-% People with disabilities are a protect class (check if gloablly though)
+% People with disabilities are a protect class (check if globally though)
 
 
 
 
 % Give stats - number of users
-% Use cases - blind, motor, cognitive, person holding a baby
 % Graph - accessibility needs
 
 \section{The Current State of Accessibility}
 
+When the internet began, the idea of accessibility was at its core - 
 
-% Standards -     
-%     Section 508 — specific to the United States
-%     Web Content Accessibility Guidelines (WCAG) 2.1
-%     Web Accessibility Initiative (WAI-ARIA)
+\begin{quote} 
+\centering 
+"The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect."
 
-% ARIA/WARIA standards
-% W3C made ARIA guidelines for each (?) version of HTML in order to combat this - also part of the law
+- Tim Berners-Lee, W3C Director and inventor of the World Wide Web
+\end{quote}
+%
+And this idea is still followed in recent iterations of HTML. Pure HTML webpages were accessible out-of-the-box when HTML was first made, and this continues to be the case today - sites made in basic HTML5 are still largely accessible. However the current web is not pure HTML - CSS that originally changed superficial styling is now also commonly-used for layout and interaction, and Javascript has become the de facto language of the internet, with many new frameworks being made often and used by popular sites such as Facebook and Netflix.
+
+Whereas web pages used to be static and have a linear layout, they are now much more dynamic with changing content (such as social media platforms with a livestream) and can be displayed in a variety of different layouts depending on device and screen size. While this satisfies consumers needs to access current information on a variety of devices, it has resulted in a decrease in accessibility for some users. Changing layouts can mean that a screen-reader reads out information in a completely different order than it is displayed visually, and moving interfaces can become overloaded and confusing for users with cognitive and physical disabilities.
+
+\subsection{Web Accessibility Guidelines}
+With the growing complexity of websites, and more web developers than ever, the World Wide Web Consortium (W3C) publish some guidelines and specifications around building accessibility into webpages
+
+\subsubsection{WCAG}
+
+The Web Content Accessibility Guidelines (WCAG) \cite{WCAG} are part of a series of web accessibility guidelines published by the Web Accessibility Initiative (WAI) of the World Wide Web Consortium (W3C). WCAG 2.1 was published in 2018, and provides a much-needed update to the previous version published a decade earlier - mobile phone web browsing especially has increased a lot in the last 10 years and requires a new set of accessibility guidelines.
+
+% breakdown of what it focusses on
+
+\subsubsection{WAI-ARIA}
+
+The WAI-ARIA \cite{WAIARIA} is a technical specification for making webpages accessible. 
+
+\subsubsection{Others}
+
+% Kuch likhlo?
+% Section 508?
+
+\subsection{Laws}
+
 % Accessibility is law!
+% Section 508?
 % Access to information and communications technologies, including the Web, is defined as a basic human right in the United Nations Convention on the Rights of Persons with Disabilities (UN CRPD).
-% HTML5 is accessible out of the box, but is now combined with many other things - CSS, JS - now not accessible
+
+\subsection{The Changing Web}
+
 % Components of the web (w3 page seemed to have good bit on this)
 % Why is web such a mess? Layouts aren't linear anymore, JS complicated - custom components
 
@@ -114,6 +149,8 @@ Thus, it is clear the accessibility should be a strong consideration when develo
 
 % Current tools - Ally.js, HTML already accessible etc.
 % What is AOM?
+% Web overlays
+% Current examples of accessibility libraries (inc graphs)
 
 \section{Solutions}
 
@@ -129,12 +166,20 @@ Thus, it is clear the accessibility should be a strong consideration when develo
 
 \section{Glossary}
 
+When talking about web accessibility, it is useful to highlight some key terms
+
 % A11y
 % Assistive Technologies
 % HTML
 % CSS
 % Gif
 % Keyboard focus
+
+\section{Related work}
+
+% Highcharts
+% Amcharts
+% Tink blog
 
 %-----------------------------------------------------------------------
 % Bibliography
@@ -146,10 +191,17 @@ Thus, it is clear the accessibility should be a strong consideration when develo
 \end{document}
 
 %-----------------------------------------------------------------------
-% Notes/Plan
+% Notes
 %-----------------------------------------------------------------------
 
-% "The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect." = Tim Berners-Lee, W3C Director and inventor of the World Wide Web
 
 
+%-----------------------------------------------------------------------
+% Plan
+%-----------------------------------------------------------------------
 
+% WAI-ARIA compliant
+% Screen-reader
+% Insight on stats?
+% Able to tab through (each bar/bubble?)
+% Different patterns for colour-blind users
