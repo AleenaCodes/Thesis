@@ -1,6 +1,9 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
-\usepackage{blindtext}
+\usepackage[titletoc,title]{appendix}
+% \usepackage[nopostdot,nonumberlist,numberedsection]{glossaries}
+\usepackage{glossaries}
+\renewcommand{\glossarysection}[2][]{}
 
 \usepackage{geometry}
  \geometry{
@@ -13,6 +16,13 @@
 
 \usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
 \addbibresource{citations.bib}
+
+
+%
+\makeglossaries
+\loadglsentries{defs}
+%
+
 
 %-----------------------------------------------------------------------
 % Main
@@ -43,7 +53,8 @@ However, as the number of users has grown, so have the amount of internet users 
 
 \section{Why is Accessibility Important?}
 
-The idea of web accessibility can often not even cross the mind of a developer if they've never had to use assistive technologies, and for those who do consider it, it can often seem like a minor part of website design, as the perception is that a very small percentage of web users have accessibility needs. However, the statistics paint a very different story - the World Health Organisation estimates that around 15\% of people worldwide live with some sort of a disability. \cite{WHOdisability}
+The idea of web accessibility can often not even cross the mind of a developer if they've never had to use assistive technologies, and for those who do consider it, it can often seem like a minor part of website design, as the perception is that a very small percentage of web users have accessibility needs.
+However, the statistics paint a very different story - the World Health Organisation estimates that around 15\% of people worldwide live with some sort of a disability. \cite{WHOdisability}
 
 Thus, it is clear the accessibility should be a strong consideration when developing websites, but there are some main barriers for developers when doing this
 
@@ -85,15 +96,11 @@ Through this we can see that web accessibility support the including or people w
 %
 \subsection{The Business Case for Accessibility}
 
-While it can be argued that web accessibility is matter of equality (
+With so many disabled users worldwide, disregarding the need for a site to be accessible to such a large group of users does not make sense from a business standpoint, and will result in a larger overall possible market.
 
-% SEO
-% Bigger user base
-% Better for multiple devices
-% Reduced maintenance costs
-% Demonstrate corporate social responsibility
-% Required by law
-% People with disabilities are a protect class (check if globally though)
+Increasing site accessibility often involves structuring and labelling things better, and so can result in much better SEO for a site. It also means that the site will be easier to view on multiple devices, and there will be reduced maintenance cost over time.\cite{WAIaccessibilityintro}
+
+Focusing on site accessibility not only demonstrates corporate social responsibility, but in many parts of the world certain sites (such as government services) are required by law. This includes the Equality Act of 2010 \cite{eqa2010} in the UK and Section 508 \cite{section508} in the USA. Access to information and communications technologies, including the web, is also defined as a basic human right in the United Nations Convention on the Rights of Persons with Disabilities (UN CRPD). \cite{accessibilityUN}
 
 
 
@@ -101,7 +108,7 @@ While it can be argued that web accessibility is matter of equality (
 % Give stats - number of users
 % Graph - accessibility needs
 
-\section{The Current State of Accessibility}
+\section{The Current State of Web Accessibility}
 
 When the internet began, the idea of accessibility was at its core - 
 
@@ -116,8 +123,28 @@ And this idea is still followed in recent iterations of HTML. Pure HTML webpages
 
 Whereas web pages used to be static and have a linear layout, they are now much more dynamic with changing content (such as social media platforms with a livestream) and can be displayed in a variety of different layouts depending on device and screen size. While this satisfies consumers needs to access current information on a variety of devices, it has resulted in a decrease in accessibility for some users. Changing layouts can mean that a screen-reader reads out information in a completely different order than it is displayed visually, and moving interfaces can become overloaded and confusing for users with cognitive and physical disabilities.
 
+\subsection{The Changing Web}
+
+A key idea that has been on the rise in the last few years, has been component-based design. With HTML5 having a finite (and mainly quite simple) type of element, web development has moved towards generating custom HTML elements which can provide new and novel types of interactivity on web pages.
+
+While this has allowed for more re-usability in web development by allowing encapsulation, websites that are heavily component-based can have greatly decreased accessibility if components are not built with accessibility in mind.
+
+Responsive layouts are a necessity in a world where the internet is accessed on mobile as often as desktop (if not more) \cite{mobileusestudy}. With websites needing to support both desktop and mobile users with one site, there is more re-ordering and hiding of page contents than before, which won't have an impact on sighted users but can result in screen-readers providing an un-ordered view of the contents of a web page or missing out important information.
+
+Many are turning towards frameworks to provide out-of-the-box responsiveness rather than manually providing different layouts for each screen size, and these can be a good solution. For example Bootstrap provides a framework for responsive sites that can be used to make accessible websites, but it is down to the developer to ensure WCAG compliancy, as there are many aspects that shouldn't be used, such as default button colours and carousels \cite{bootstrapaccessibility}. Others, such as Turret, allow for things like screen-reader only content to be defined \cite{turretaccessibility}.
+
+Recent years have also seen Flexbox and CSS Grid being used for arranging elements on a page. These decouple the source order (i.e. the order of the elements declared in HTML) and their visual order on the screen. This is another thing that has little repercussions on average web users, but can mean that keyboard or screen-reader users are unable to access content in the right order.
+
+% TODO provide pic of unordered page
+
+With web development, there are many parts involved in the making and viewing of sites \cite{w3components} - developers use authoring and evaluation tools to make content, and then users use browsers, and optionally assistive technologies, to interact with the content. For an accessibility feature to become widely-used, it is crucial for it to be implemented in many or all of these parts - developers will have less motivation to use a feature if it is not implemented consistently across browsers, or hard to do in a language.
+
+% TODO provide pic of process
+
 \subsection{Web Accessibility Guidelines}
-With the growing complexity of websites, and more web developers than ever, the World Wide Web Consortium (W3C) publish some guidelines and specifications around building accessibility into webpages
+With the growing complexity of websites, and more web developers than ever, the World Wide Web Consortium (W3C) publish some guidelines and specifications around building accessibility into webpages.
+These provide some guidelines in terms of the semantics to use, and how to define interactions, but even by following all of these there is still always a need to test on real users to ensure a website really is accessible to a range of people.
+
 
 \subsubsection{WCAG}
 
@@ -138,12 +165,7 @@ The WAI-ARIA \cite{WAIARIA} is a technical specification for making webpages acc
 
 % Accessibility is law!
 % Section 508?
-% Access to information and communications technologies, including the Web, is defined as a basic human right in the United Nations Convention on the Rights of Persons with Disabilities (UN CRPD).
-
-\subsection{The Changing Web}
-
-% Components of the web (w3 page seemed to have good bit on this)
-% Why is web such a mess? Layouts aren't linear anymore, JS complicated - custom components
+% 
 
 \section{Current Tooling}
 
@@ -156,7 +178,7 @@ The WAI-ARIA \cite{WAIARIA} is a technical specification for making webpages acc
 
 % Idea - make graphs accessible - tool for developers - make it easier for developers to be accessible then more will do it
 % Possible solutions - framework, linter-type thing to add to components
-% "in this paper we will explore the creation of a fully functioning framework that will allow developers to generate fully accessible SVG graphics (to ARIA standards) with minimal work"
+% "in this paper we will explore the creation of a fully functioning javascript library that will allow developers to generate fully accessible graphics (to ARIA standards) with minimal work"
 % "we will also explore some other possible solutions, including the currently experimental AOM"
 
 \section{Technical Challenges}
@@ -167,13 +189,10 @@ The WAI-ARIA \cite{WAIARIA} is a technical specification for making webpages acc
 \section{Glossary}
 
 When talking about web accessibility, it is useful to highlight some key terms
-
-% A11y
-% Assistive Technologies
-% HTML
-% CSS
-% Gif
-% Keyboard focus
+\hfill \break
+%
+\glsaddall 
+\printglossary[nonumberlist]
 
 \section{Related work}
 
