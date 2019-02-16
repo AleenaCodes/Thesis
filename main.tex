@@ -1,7 +1,6 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[titletoc,title]{appendix}
-% \usepackage[nopostdot,nonumberlist,numberedsection]{glossaries}
 \usepackage{glossaries}
 \renewcommand{\glossarysection}[2][]{}
 
@@ -17,12 +16,8 @@
 \usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
 \addbibresource{citations.bib}
 
-
-%
 \makeglossaries
 \loadglsentries{defs}
-%
-
 
 %-----------------------------------------------------------------------
 % Main
@@ -49,7 +44,7 @@ As time went on, both the number of the users on the web and the type of content
 
 However, as the number of users has grown, so have the amount of internet users with differing accessibility needs, including visual, motor and cognitive needs. As HTML has become more complex, so have the website layouts, due in no small part to the need for websites to work on a much larger variety of devices and screen sizes than before. Whereas the simplistic "document-style" websites of the early internet were easily accessible to most users, this is no longer the case.
 
-% Try to find stat of how many sites are not accessible
+% TODO Try to find stat of how many sites are not accessible
 
 \section{Why is Accessibility Important?}
 
@@ -80,7 +75,9 @@ Web accessibility encompasses a lot of different use cases, including
 \end{itemize}
 % TODO add more detail here. Add pictures?
 % w3 site on "diverse abilities" will give info for here
-% RSI
+% RSI under physical?
+% Give stats - number of users
+% Graph - accessibility needs
 %
 However there are also lots of other cases to consider \cite{WAIaccessibilityintro}
 %
@@ -101,12 +98,6 @@ With so many disabled users worldwide, disregarding the need for a site to be ac
 Increasing site accessibility often involves structuring and labelling things better, and so can result in much better SEO for a site. It also means that the site will be easier to view on multiple devices, and there will be reduced maintenance cost over time.\cite{WAIaccessibilityintro}
 
 Focusing on site accessibility not only demonstrates corporate social responsibility, but in many parts of the world certain sites (such as government services) are required by law. This includes the Equality Act of 2010 \cite{eqa2010} in the UK and Section 508 \cite{section508} in the USA. Access to information and communications technologies, including the web, is also defined as a basic human right in the United Nations Convention on the Rights of Persons with Disabilities (UN CRPD). \cite{accessibilityUN}
-
-
-
-
-% Give stats - number of users
-% Graph - accessibility needs
 
 \section{The Current State of Web Accessibility}
 
@@ -145,36 +136,63 @@ With web development, there are many parts involved in the making and viewing of
 With the growing complexity of websites, and more web developers than ever, the World Wide Web Consortium (W3C) publish some guidelines and specifications around building accessibility into webpages.
 These provide some guidelines in terms of the semantics to use, and how to define interactions, but even by following all of these there is still always a need to test on real users to ensure a website really is accessible to a range of people.
 
-
 \subsubsection{WCAG}
 
 The Web Content Accessibility Guidelines (WCAG) \cite{WCAG} are part of a series of web accessibility guidelines published by the Web Accessibility Initiative (WAI) of the World Wide Web Consortium (W3C). WCAG 2.1 was published in 2018, and provides a much-needed update to the previous version published a decade earlier - mobile phone web browsing especially has increased a lot in the last 10 years and requires a new set of accessibility guidelines.
 
-% breakdown of what it focusses on
+The WCAG are organised under 4 principles
+
+\begin{itemize}
+    \item Perceivable - users must be able to perceive the information being presented (it can't be invisible to all of their senses)
+    \item Operable - users must be able to operate the interface (all interactions be able to be performed by the user)
+    \item Understandable - users must be able to understand the information presented and how to operate the interface
+    \item Robust - users must be able to access the content from a variety of user agents, including current assistive technologies
+\end{itemize}
+%
+Each of these principles has a set of testable criteria, and these can be met at 3 levels - A, AA and AAA.
 
 \subsubsection{WAI-ARIA}
 
-The WAI-ARIA \cite{WAIARIA} is a technical specification for making webpages accessible. 
+The WAI-ARIA \cite{WAIARIA} is a technical specification for making webpages accessible. WAI-ARIA defines some extra attributes \cite{WAIARIAspec}
 
-\subsubsection{Others}
+\begin{itemize}
+    \item Roles - these define common structural roles on a web page such as \texttt{button}, \texttt{navigation}, \texttt{banner} and \texttt{tabgroup}, with a lot of overlap with HTML5 semantic elements
+    \item Properties - these define the properties of elements that are important for meaning or semantics, such as \texttt{aria-required} to indicate if a form input is compulsory, or \texttt{aria-modal} to indicate that an element is modal when displayed
+    \item States - these define a specific property type which indicate the current state of an element (these can be changed over time as opposed to properties), such as \texttt{aria-disabled} to indicate that a form input is visible but not editable
+\end{itemize}
 
-% Kuch likhlo?
-% Section 508?
+\subsection{Current Tooling}
 
-\subsection{Laws}
+\subsubsection{Tools for Development}
 
-% Accessibility is law!
-% Section 508?
-% 
+% HTML
+% Guidelines
+% Ally.js
 
-\section{Current Tooling}
+\subsubsection{Tools for Evaluation}
 
-% Current tools - Ally.js, HTML already accessible etc.
+% http://squizlabs.github.io/HTML_CodeSniffer/- linter
+% http://www.checkmycolours.com/ - contrast checker
+% http://colororacle.org/ - colour blindness simulator
+% http://pa11y.org/ - suite of tools to test accessibility
+% find screenreaders for testing - voiceover for Mac, ? for Windows
+% http://wave.webaim.org - accessibility evaluator
+
+\subsubsection{Other}
+
 % What is AOM?
 % Web overlays
 % Current examples of accessibility libraries (inc graphs)
 
-\section{Solutions}
+\section{Accessible Visuals}
+
+Visuals are hard cos...
+
+\subsection{Current Solutions}
+
+% Mainly have alt text atm
+
+\subsection{Solutions}
 
 % Idea - make graphs accessible - tool for developers - make it easier for developers to be accessible then more will do it
 % Possible solutions - framework, linter-type thing to add to components
@@ -199,6 +217,8 @@ When talking about web accessibility, it is useful to highlight some key terms
 % Highcharts
 % Amcharts
 % Tink blog
+% Some papers
+% Some books
 
 %-----------------------------------------------------------------------
 % Bibliography
@@ -213,6 +233,7 @@ When talking about web accessibility, it is useful to highlight some key terms
 % Notes
 %-----------------------------------------------------------------------
 
+% "longdesc" can provide an alternative to graphs-  a whole page with description - a clunky solution!
 
 
 %-----------------------------------------------------------------------
@@ -224,3 +245,4 @@ When talking about web accessibility, it is useful to highlight some key terms
 % Insight on stats?
 % Able to tab through (each bar/bubble?)
 % Different patterns for colour-blind users
+% Stick to few types - bars, pie, line
