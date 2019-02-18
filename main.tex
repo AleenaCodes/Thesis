@@ -44,7 +44,7 @@ As time went on, both the number of the users on the web and the type of content
 
 However, as the number of users has grown, so have the amount of internet users with differing accessibility needs, including visual, motor and cognitive needs. As HTML has become more complex, so have the website layouts, due in no small part to the need for websites to work on a much larger variety of devices and screen sizes than before. Whereas the simplistic "document-style" websites of the early internet were easily accessible to most users, this is no longer the case.
 
-% TODO Try to find stat of how many sites are not accessible
+% LATER Try to find stat of how many sites are not accessible
 
 \section{Why is Accessibility Important?}
 
@@ -67,13 +67,12 @@ Web accessibility encompasses a lot of different use cases, including
 %
 \begin{itemize}
     \item Visual - blind or partially-blind users, who may use a screen-reader or require larger text; colour-blind users
-    \item Auditory - 
-    \item Cognitive - users who may need simpler language to be used, such as those with learning disabilities, or non-native speakers of a language
-    \item Neurological - 
-    \item Physical - 
-    \item Speech - 
+    \item Auditory - deaf or partially-deaf users, who may rely on captions for all audio or audio with a lot of background noise
+    \item Cognitive and Neurological - users who may need simpler language to be used, such as those with learning disabilities, or non-native speakers of a language. This also includes people with neurological disorders such as ADHD who need content that is easy to process on a short attention-span
+    \item Physical - people with disabilities that affect them physical such as for hand movement. There are many different mice and keyboard types to help with this, and custom technologies such as foot pumps and sip-and-puff machines
+    \item Speech - People who are unable to speak clearly or at all, they may struggle with voice commands so interfaces should not be voice control-only
 \end{itemize}
-% TODO add more detail here. - RSI under physical?
+% LATER add more detail here?
 % LATER Add pictures?
 % w3 site on "diverse abilities" will give info for here
 % LATER number of users
@@ -82,7 +81,7 @@ Web accessibility encompasses a lot of different use cases, including
 However there are also lots of other cases to consider \cite{WAIaccessibilityintro}
 %
 \begin{itemize}
-    \item "Temporary disabilities" - for example a broken arm, operating single-handed (such as holding a baby in one arm), lost glasses
+    \item "Temporary disabilities" - for example a broken arm, operating single-handed (such as holding a baby in one arm), lost glasses, RSI
     \item People using devices in different input modes such as on a TV screen
     \item "Situational limits" - seeing a screen in bright sunlight, or not being able to hear audio in a loud environment
     \item Older people with changing abilities
@@ -133,7 +132,7 @@ With web development, there are many parts involved in the making and viewing of
 % LATER provide pic of process
 
 \subsection{Web Accessibility Guidelines}
-With the growing complexity of websites, and more web developers than ever, the World Wide Web Consortium (W3C) publish some guidelines and specifications around building accessibility into webpages.
+With the growing complexity of websites, and more web developers than ever, the World Wide Web Consortium (W3C) publish some guidelines and specifications around building accessibility into web pages.
 These provide some guidelines in terms of the semantics to use, and how to define interactions, but even by following all of these there is still always a need to test on real users to ensure a website really is accessible to a range of people.
 
 \subsubsection{WCAG}
@@ -153,7 +152,7 @@ Each of these principles has a set of testable criteria, and these can be met at
 
 \subsubsection{WAI-ARIA}
 
-The WAI-ARIA \cite{WAIARIA} is a technical specification for making webpages accessible. WAI-ARIA defines some extra attributes \cite{WAIARIAspec}
+The WAI-ARIA \cite{WAIARIA} is a technical specification for making web pages accessible. WAI-ARIA defines some extra attributes \cite{WAIARIAspec}
 
 \begin{itemize}
     \item Roles - these define common structural roles on a web page such as \texttt{button}, \texttt{navigation}, \texttt{banner} and \texttt{tabgroup}, with a lot of overlap with HTML5 semantic elements
@@ -171,13 +170,13 @@ As HTML5 is designed to be accessible, it is key to try and keep things as simpl
 
 Many web frameworks are built with accessibility considered, and so using something like Bootstrap, Turret, Foundation or Vanilla for building the site and then evaluating and fixing any accessibility issues can also be a good idea.
 
-A useful Javascript library that is available is Ally.js \cite{allyjs}, which can be loaded into a JS project and provides a set of modules to help simplify accessibility challenges, such as setting specific ordering for tab focusses.
+A useful Javascript library that is available is Ally.js \cite{allyjs}, which can be loaded into a JS project and provides a set of modules to help simplify accessibility challenges, such as setting specific ordering for tab focuses.
 
 There are many tools that can also be used to evaluate a site's accessibility or even give live feedback to the developer while they are coding, these are discussed below.
 
 \subsubsection{Tools for Evaluation}
 
-Several well-made tools are available freely online to test and fix accessibility issues. Pa11y \cite{pa11y} provides a suite of tools to flag up accessibility issues, including tools that can be integrated into a CI workflow and provide live feedback on issues. HTML\_CodeSniffer \cite{codesniffer} is a linter that allows different standards, such as WCAG, to be checked against code. WAVE \cite{wave} is another web accessibility evaluation tool that simply takes a URL and evaluates missing accesibility features.
+Several well-made tools are available freely online to test and fix accessibility issues. Pa11y \cite{pa11y} provides a suite of tools to flag up accessibility issues, including tools that can be integrated into a CI workflow and provide live feedback on issues. HTML\_CodeSniffer \cite{codesniffer} is a linter that allows different standards, such as WCAG, to be checked against code. WAVE \cite{wave} is another web accessibility evaluation tool that simply takes a URL and evaluates missing accessibility features.
 
 It can be useful during development for a developer to simulate different disabilities to test the sight, as this can flag up larger issues before testing on people who use assistive technologies. Testing with a screen reader is a good way to understand how a site will sound , JAWS and NVDA are two of the most commonly-used screen readers. Most platforms also have native screen-readers that can be tested with - Voiceover for Mac and iOS, Narrator for Windows, TalkBack for Android. 
 
@@ -207,7 +206,7 @@ With each of these approaches, they require the developer to give correct layout
  \hline
  Technology & Usage & Developer Notes \\ [0.5ex] 
  \hline \hline
- Screen Reader & Processes content on desktops and browsers, and converts it to audio or braille & Content needs to be structured properly and include labels and descriptions where needed \\ 
+ Screen Reader & Processes content on desktops and browsers, and converts it to audio or braille & Content needs to be structured properly and include labels and descriptions where needed, semantic HTML should be used as far as possible \\ 
  \hline
  Pop-up/Animation Blocker & Stops automatic pop-ups and redirection & Important info should not be included in pop-ups, and site browsing flow should not include redirection \\
  \hline
@@ -229,22 +228,22 @@ With each of these approaches, they require the developer to give correct layout
 \paragraph{Adaptive Strategies}
 
 \begin{center}
-\begin{tabular}{||l l l||} 
+\begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
  \hline
  Technology & Usage & Developer Notes \\ [0.5ex] 
  \hline \hline
- Captions & 6 & 87837 \\ 
+ Captions & Text with verbatim recording of any speech or audio & Video platforms should be built to allow simultaneous captioning files to be run alongside video files \\ 
  \hline
- Screen Magnifier/Bigger Fonts & 7 & 78 \\
+ Screen Magnifier/Bigger Fonts & Pages can be magnified either be magnifying small sections or increasing font sizes overall & Page layouts should support text changes by using relative units for measurements and allow re-flow of text \\
  \hline
- Higher Contrast & 545 & 778 \\
+ Higher Contrast & Colours with significant contrast are easier to view for less-sighted and colour-blind users & Colour palettes should be decided in advance and tested via WCAG guidelines \\
  \hline
- Volume Control & 545 & 18744 \\ [1ex] 
+ Volume Control & Audio may need to be volume-adjusted or turned off altogether & Audio should not autoplay in order to not interfere with audio technologies, and options to adjust volume (including to 0) should be visible and accessible to both mouse and keyboard technologies \\ [1ex] 
  \hline
 \end{tabular}
 \end{center}
 
-% TODO - write
+% LATER - write more?
 
 \subsubsection{Accessibility APIs}
 
@@ -258,7 +257,11 @@ Accessibility APIs represent objects in a UI, with each object able to be querie
 
 There are accessibility APIs on all major operating systems (both desktop and mobile), and browsers typically support the accessibility API for the platform they're running on, passing information about the browser and the rendered content onto the API.
 
-% TODO What is AOM?
+One of the problems developers face is not being able to add to accessibility APIs, they can only write in semantics that will work well with an API but not directly influence the accessibility tree that an assistive technology will form.
+
+A new (and still experimental) technology currently being worked on is the Accessibility Object Model (AOM). This aims to allow developers to directly provide information to assistive technology APIs via adding custom fields to elements on a page.
+
+% LATER - add more to AOM bit?
 
 \section{Accessible Visuals}
 
@@ -273,25 +276,32 @@ Making pictures and graphs accessible on the web is often done by adding alt-tex
 \begin{itemize}
     \item "Graph showing stock price over time" - does not convey any actual information about the data in the graph
     \item "Graph showing upward trend of stock price" - conveys a bit more information about the data, but does not allow the user to get any sense of prices
-    \item "Graph showing upward trend of stock price from \pounds 60 to \pounds 180 over 2 years" - gives some idea of prices and how fast they climbed but does not allow the user to see smaller details such as any dips in price
+    \item "Graph showing upward trend of stock price from $\pounds$ 60 to $\pounds$ 180 over 2 years" - gives some idea of prices and how fast they climbed but does not allow the user to see smaller details such as any dips in price
 \end{itemize}
-
+%
 It is clear that in order for a text-based web user to have anywhere close to the insight that a sighted user would have from a graph, a large amount of long-winded description would need to be included with any graphs, which can be hard and long for a developer to write. Many developers try to account for this by also including the data in tabular form, which screen-readers can access and read. However, this is a clunky solution, especially as if the data was displayed graphically in the first place, it was likely not very easily consumable in tabular form.
 
 \subsection{Current Solutions}
 
-There are many javascript graphing libraries available for the web, most notably libraries such as 
+There are many JavaScript graphing libraries available for the web, most notably libraries such as Chart.js, D3.js, Highcharts and Google Charts.
 
-% TODO - write
-% Mainly have alt text atm
+Most of these libraries have some accessibility in mind in terms of alt-text and navigating via keyboard, but a big problem is consistency among browsers. Libraries like D3 and AmCharts use SVG to form the images, and the \texttt{tabindex} property (specifying order for the TAB key to move through shapes) is not implemented in all main browsers yet.
+
+The Highcharts library offers some accessibility in terms of a custom module that can be loaded in. This provides the ability to show screen reader users the data in raw form, and to use high-contrast patterns in the graph. However, this still relies on the user to add sufficient alt-text to the graph, and requires some custom set up from the user in terms of turning on a lot of different settings to enable keyboard navigation and other accessibility features.
+
+% LATER - write more
 % Highcharts
 % Amcharts
 % Kendo UI
 % Evocharts
 
-\subsection{Solutions}
+\subsection{Aim}
 
-% TODO - write
+In this paper, we will explore the creation of a fully-functioning Javascript graphing library that comes with accessibility out-of-the-box.
+
+This library will provide key accessibility features for several different types of graphs, with minimal work from the developer. In order to focus on accessibility and functionality, this library will be limited to a few common types of graphs.
+
+% LATER - write more
 % Idea - make graphs accessible - tool for developers - make it easier for developers to be accessible then more will do it
 % Possible solutions - framework, linter-type thing to add to components
 % "in this paper we will explore the creation of a fully functioning javascript library that will allow developers to generate fully accessible graphics (to ARIA standards) with minimal work"
@@ -299,7 +309,15 @@ There are many javascript graphing libraries available for the web, most notably
 
 \subsection{Technical Challenges}
 
-% TODO - write
+One of the main technical challenges is making a solution that creates graphs that are usable for people browsing with and without assistive technologies.
+
+It is also key to note that while the WCAG provides some clear guidelines on making content accessible, it is still hard to get every use case due to the diverse needs of people using the internet.
+
+When trying to provide all the information that sighted users would see via audio, it will also be important to keep a balance between providing relevant information and overloading the user.
+
+From a usability standpoint, it will also need to be easy for developers to use, but still be able to be customised enough that developers can create custom graphics to their liking, while maintaining the same level of accessibility.
+
+% LATER - write more
 % Technical - making a solution that works for both accessible and normal users out of the box
 % Accessibility challenges - hard to truly get every use case, the W3C guidelines are many research - will use those as a good indicator
 % Need the balance between providing relevant info and overloading the user (as per cognitive guideline)
@@ -307,7 +325,7 @@ There are many javascript graphing libraries available for the web, most notably
 
 \section{Glossary}
 
-% TODO - write
+% LATER - add more
 
 When talking about web accessibility, it is useful to highlight some key terms
 \hfill \break
@@ -317,7 +335,9 @@ When talking about web accessibility, it is useful to highlight some key terms
 
 \section{Related work}
 
-% TODO - write
+\{TODO\}
+
+% LATER - write
 % Some papers
 % Some books
 
@@ -335,6 +355,7 @@ When talking about web accessibility, it is useful to highlight some key terms
 %-----------------------------------------------------------------------
 
 % "longdesc" can provide an alternative to graphs-  a whole page with description - a clunky solution!
+% Comparisons - load times, getting same info from seeing and hearing?
 
 
 %-----------------------------------------------------------------------
@@ -347,3 +368,4 @@ When talking about web accessibility, it is useful to highlight some key terms
 % Able to tab through (each bar/bubble?)
 % Different patterns for colour-blind users
 % Stick to few types - bars, pie, line, stacked bars?
+% For line talk about trends, for bar/pie talk about most "X is most, do you want to hear more?"
