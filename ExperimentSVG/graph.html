@@ -4,26 +4,53 @@
   <meta charset="utf-8">
   <title>Tester Page for Graph</title>
   <!-- <meta name="description" content="The HTML5 Herald"> -->
+  <style>
+    svg {
+      border: 3px solid black;
+    }
+
+    .hide-element {
+      border: 0;
+      clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+      clip; rect(1px, 1px, 1px, 1px);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+  </style>
 </head>
 <body>
 
 <h1>My First Heading</h1>
 <p>My first paragraph.</p>
+<a href="#paraToSkipTo"
+    aria-label="Graph with some data, select link to skip graph, or use tab to explore graph"
+    class="hide-element">First skip link</a>
 
-<div role="region">
-  <svg style="overflow: visible">
-    <rect x="0.5cm" y="0.5cm" width="5cm" height="1cm" tabindex="0" aria-label="bar1" fill="#90ee90"/>
-    <rect x="0.5cm" y="2cm" width="2cm" height="1cm" tabindex="0" aria-label="bar2" fill="#90ee90"/>
-    <rect x="0.5cm" y="3.5cm" width="4cm" height="1cm" tabindex="0" aria-label="bar3" fill="#90ee90"/>
-    <rect x="0.5cm" y="5cm" width="3cm" height="1cm" tabindex="0" aria-label="bar4" fill="#90ee90"/>
+<div role="figure">
+  <svg style="overflow: visible" height="6.5cm">
+    <text x="0.5cm" y="1cm" aria-hidden="true">5</text>
+    <rect x="2cm" y="0.5cm" width="5cm" height="1cm" tabindex="0" aria-label="bar 1 of 4, value 5" fill="#90ee90"/>
+    <text x="0.5cm" y="2.5cm" aria-hidden="true">12</text>
+    <rect x="2cm" y="2cm" width="2cm" height="1cm" tabindex="0" aria-label="bar 2 of 4, value 2" fill="#90ee90"/>
+    <text x="0.5cm" y="4cm" aria-hidden="true">3.5</text>
+    <rect x="2cm" y="3.5cm" width="4cm" height="1cm" tabindex="0" aria-label="bar 3 of 4, value of 3.5" fill="#90ee90"/>
+    <text x="0.5cm" y="5.5cm" aria-hidden="true">5</text>
+    <rect x="2cm" y="5cm" width="3cm" height="1cm" tabindex="0" aria-label="bar 4 of 4, value of 5" fill="#90ee90"/>
   </svg>
-  <p>
+  <p id="paraToSkipTo">
     This is the paragraph after the first graph
+  </p>
+  <p id="paraToSkipTo">
+    This is the second paragraph after the first graph
   </p>
 </div>
 
-<div role="region">
-  <svg style="overflow: visible">
+<!-- <div role="region">
+  <svg style="overflow: visible" height="6cm">
     <rect x="0.5cm" y="0.5cm" width="5cm" height="1cm" tabindex="0" aria-label="bar1" fill="#90ee90"/>
     <rect x="0.5cm" y="2cm" width="2cm" height="1cm" tabindex="0" aria-label="bar2" fill="#90ee90"/>
     <rect x="0.5cm" y="3.5cm" width="4cm" height="1cm" tabindex="0" aria-label="bar3" fill="#90ee90"/>
@@ -32,7 +59,7 @@
   <p>
     This is the paragraph after the second graph
   </p>
-</div>
+</div> -->
 
 
 
