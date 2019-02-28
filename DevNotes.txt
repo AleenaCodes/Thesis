@@ -4,3 +4,11 @@ aria-labelledby for title
 aria-describedby for description - but not on all platforms, can double-up on labelledby instead (but not ideal!)
 
 Something with aria role figure?
+
+
+
+
+Features
+
+Skip over graph description
+Think of basic descripton "upward trend" etc.
