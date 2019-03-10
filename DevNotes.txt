@@ -8,7 +8,13 @@ Something with aria role figure?
 
 
 
-Features
+==== Features ====
 
 Skip over graph description
 Think of basic descripton "upward trend" etc.
+Hover mouse to show info+read out info?
+
+=== Library implementation notes ===
+
+Specify type of graph, dataset, id of div to put it in
+  Might need to think carefully about this
