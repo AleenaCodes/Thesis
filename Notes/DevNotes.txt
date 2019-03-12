@@ -13,6 +13,8 @@ Something with aria role figure?
 Skip over graph description
 Think of basic descripton "upward trend" etc.
 Hover mouse to show info+read out info?
+Use SVG title and desc
+Does this need "focusable:false"? See accessible SVG icons article
 
 === Library implementation notes ===
 
@@ -23,3 +25,5 @@ Hover mouse to show info+read out info?
 == Other Notes ==
 
 In thesis, provide table showing WCAG guidelines are met? Will probs be long so for the appendix
+
+"Inlining the SVG provides more predictable results and control than if it is added with <use> or <img> because the SVG source is directly available in the DOM which is exposed to the accessibility API that is used by AT." - from https://css-tricks.com/accessible-svgs/

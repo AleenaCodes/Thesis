@@ -20,8 +20,18 @@
       position: absolute;
       width: 1px;
     }
+    /* svg text {display: none;} Use this to add hovering
+    svg g:hover text {display: block;} */
     body {
       font-family: "Arial", sans-serif;
+    }
+    .bar:hover {
+      fill: #ec008c;
+      opacity: 1;
+    }
+    .bar:focus {
+      fill: #ec008c;
+      opacity: 1;
     }
   </style>
 </head>
@@ -63,13 +73,13 @@
     <line x1="13cm" y1="1cm" x2="13cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1" aria-hidden="true"/>
     <!-- Actual bars -->
     <text x="0.5cm" y="1.5cm" aria-hidden="true">Apples</text>
-    <rect x="2cm" y="1cm" width="10cm" height="1cm" tabindex="0" aria-label="bar 1 of 4, apples, value 10, this is the largest value" fill="#6A5ACD"/>
+    <rect x="2cm" y="1cm" width="10cm" height="1cm" tabindex="0" class="bar" aria-label="bar 1 of 4, apples, value 10, this is the largest value" fill="#6A5ACD"/>
     <text x="0.5cm" y="3cm" aria-hidden="true">Grapes</text>
-    <rect x="2cm" y="2.5cm" width="8.5cm" height="1cm" tabindex="0" aria-label="bar 3 of 4, grapes, value 8.5" fill="#6A5ACD"/>
+    <rect x="2cm" y="2.5cm" width="8.5cm" height="1cm" tabindex="0" class="bar" aria-label="bar 2 of 4, grapes, value 8.5" fill="#6A5ACD"/>
     <text x="0.5cm" y="4.5cm" aria-hidden="true">Plums</text>
-    <rect x="2cm" y="4cm" width="6cm" height="1cm" tabindex="0" aria-label="bar 4 of 4, plums value 6" fill="#6A5ACD"/>
+    <rect x="2cm" y="4cm" width="6cm" height="1cm" tabindex="0" class="bar" aria-label="bar 3 of 4, plums value 6" fill="#6A5ACD"/>
     <text x="0.5cm" y="6cm" aria-hidden="true">Pears</text>
-    <rect x="2cm" y="5.5cm" width="5cm" height="1cm" tabindex="0" aria-label="bar 2 of 4, pears, value 5, this is the smallest value" fill="#6A5ACD"/>
+    <rect x="2cm" y="5.5cm" width="5cm" height="1cm" tabindex="0" class="bar" aria-label="bar 4 of 4, pears, value 5, this is the smallest value" fill="#6A5ACD"/>
   </svg>
 </div>
 <p id="paraToSkipTo">
@@ -108,19 +118,19 @@
     <text x="12cm" y="7.5cm" text-anchor="middle" aria-hidden="true">Sat</text>
     <text x="14cm" y="7.5cm" text-anchor="middle" aria-hidden="true">Sun</text>
     <!-- Actual lines -->
-    <circle cx="2cm" cy="5.5cm" r="2" stroke="#6A5ACD" stroke-width="3" aria-label="point 1 of 7, Monday, value 2"/>
+    <circle cx="2cm" cy="5.5cm" r="2" stroke="#6A5ACD" stroke-width="3" tabindex="0" aria-label="point 1 of 7, Monday, value 2"/>
     <line x1="2cm" y1="5.5cm" x2="4cm" y2="4.5cm" stroke="#6A5ACD" stroke-width="2" aria-hidden="true"/>
-    <circle cx="4cm" cy="4.5cm" r="2" stroke="#6A5ACD" stroke-width="3" aria-label="point 1 of 7, Tuesday, value 4"/>
+    <circle cx="4cm" cy="4.5cm" r="2" stroke="#6A5ACD" stroke-width="3" tabindex="0" aria-label="point 2 of 7, Tuesday, value 4"/>
     <line x1="4cm" y1="4.5cm" x2="6cm" y2="4cm" stroke="#6A5ACD" stroke-width="2" aria-hidden="true"/>
-    <circle cx="6cm" cy="4cm" r="2" stroke="#6A5ACD" stroke-width="3" aria-label="point 1 of 7, Wednesday, value 5"/>
+    <circle cx="6cm" cy="4cm" r="2" stroke="#6A5ACD" stroke-width="3" tabindex="0" aria-label="point 3 of 7, Wednesday, value 5"/>
     <line x1="6cm" y1="4cm" x2="8cm" y2="3cm" stroke="#6A5ACD" stroke-width="2" aria-hidden="true"/>
-    <circle cx="8cm" cy="3cm" r="2" stroke="#6A5ACD" stroke-width="3" aria-label="point 1 of 7, Thursday, value 7"/>
+    <circle cx="8cm" cy="3cm" r="2" stroke="#6A5ACD" stroke-width="3" tabindex="0" aria-label="point 4 of 7, Thursday, value 7"/>
     <line x1="8cm" y1="3cm" x2="10cm" y2="3.5cm" stroke="#6A5ACD" stroke-width="2" aria-hidden="true"/>
-    <circle cx="10cm" cy="3.5cm" r="2" stroke="#6A5ACD" stroke-width="3" aria-label="point 1 of 7, Friday, value 6"/>
+    <circle cx="10cm" cy="3.5cm" r="2" stroke="#6A5ACD" stroke-width="3" tabindex="0" aria-label="point 5 of 7, Friday, value 6"/>
     <line x1="10cm" y1="3.5cm" x2="12cm" y2="2.5cm" stroke="#6A5ACD" stroke-width="2" aria-hidden="true"/>
-    <circle cx="12cm" cy="2.5cm" r="2" stroke="#6A5ACD" stroke-width="3" aria-label="point 1 of 7, Saturday, value 8"/>
+    <circle cx="12cm" cy="2.5cm" r="2" stroke="#6A5ACD" stroke-width="3" tabindex="0" aria-label="point 6 of 7, Saturday, value 8"/>
     <line x1="12cm" y1="2.5cm" x2="14cm" y2="2cm" stroke="#6A5ACD" stroke-width="2" aria-hidden="true"/>
-    <circle cx="14cm" cy="2cm" r="2" stroke="#6A5ACD" stroke-width="3" aria-label="point 1 of 7, Sunday, value 9"/>
+    <circle cx="14cm" cy="2cm" r="2" stroke="#6A5ACD" stroke-width="3" tabindex="0" aria-label="point 7 of 7, Sunday, value 9"/>
   </svg>
 </div>
 <p id="paraToSkipTo2">
@@ -129,57 +139,6 @@
 <p>
   This is the second paragraph after the second graph
 </p>
-
-<!-- <div role="region">
-  <svg style="overflow: visible" height="6cm">
-    <rect x="0.5cm" y="0.5cm" width="5cm" height="1cm" tabindex="0" aria-label="bar1" fill="#6A5ACD"/>
-    <rect x="0.5cm" y="2cm" width="2cm" height="1cm" tabindex="0" aria-label="bar2" fill="#6A5ACD"/>
-    <rect x="0.5cm" y="3.5cm" width="4cm" height="1cm" tabindex="0" aria-label="bar3" fill="#6A5ACD"/>
-    <rect x="0.5cm" y="5cm" width="3cm" height="1cm" tabindex="0" aria-label="bar4" fill="#6A5ACD"/>
-  </svg>
-  <p>
-    This is the paragraph after the second graph
-  </p>
-</div> -->
-
-
-
-<!-- <div role="figure" aria-labelledby="caption">
-  <img src="cat.jpg" alt="picture of cat">
-  <p id="caption">This is a great cat</p>
-</div>
-
-<figure aria-labelledby="figure name">
-    <img src="cat.jpg"
-         alt="Pic of cat">
-    <figcaption>Some text about cat</figcaption>
-    <img src="cat.jpg"
-         alt="Pic of cat">
-    <figcaption>Some text about cat</figcaption>
-</figure> -->
-
-
-
-
-<!-- <div role="img" aria-label="Graph 1">
-  <p>
-    Paragraph 1
-  </p>
-  <img src="cat.jpg" alt="pic1">
-  <img src="cat.jpg" alt="pic2">
-  <img src="cat.jpg" alt="pic3">
-</div>
-
-<svg version="2.0" width="300" height="200" aria-labelledby="title desc">
-<title id="title">Aleena's Title</title>
-<desc>A light green rectangle with rounded corners and a dark green border</desc>
-<a xlink:href="http://example.com" tabindex="0" role="link">
-<rect width="75" height="50" rx="20" ry="20" fill="#6A5ACD" stroke="#228b22" stroke-fill="1" />
-<text x="35" y="30" font-size="1em" text-anchor="middle" fill="#000000">Best caption</text></a>
-<a xlink:href="http://twitter.com" tabindex="0" role="link">
-<rect width="75" height="50" x="70" y="50" fill="#8B0000" stroke="#228b22" stroke-fill="1" />
-<text x="70" y="50" font-size="1em" text-anchor="middle" fill="#000000">Second caption</text></a>
-</svg> -->
 
 </body>
 </html>
