@@ -44,7 +44,9 @@
     class="hide-element">First skip link</a>
 
 <div>
-  <svg style="overflow: visible" height="8.5cm" width="15cm">
+  <svg role="figure" height="8.5cm" width="15cm" aria-labelledby="graphTitle1 graphDesc1">
+    <title id="graphTitle1">This is the graph title</title>
+    <desc id="graphDesc1">This is the graph description</desc>
     <!-- Y and X axis -->
     <line x1="2cm" y1="0.5cm" x2="2cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1" aria-label="y axis showing 4 bars" />
     <line x1="2cm" y1="7cm" x2="14cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1" aria-label="x axis ranging from 0 to 10" />
@@ -90,7 +92,7 @@
 </p>
 <a href="#paraToSkipTo2"
     aria-label="Accessible line graph showing price over time, there is an upward trend from 2 to 9 from Monday to Friday, select link to skip graph, or use tab to explore graph"
-    class="hide-element">First skip link</a>
+    class="hide-element">Second skip link</a>
 <div>
   <svg style="overflow: visible" height="8cm" width="15cm">
     <!-- Y and X axis -->
@@ -138,6 +140,53 @@
 </p>
 <p>
   This is the second paragraph after the second graph
+</p>
+
+<a href="#paraToSkipTo3"
+    aria-label="Accessible pie graph with some data, select link to skip graph, or use tab to explore graph"
+    class="hide-element">Third skip link</a>
+<div>
+  <svg style="overflow: visible" height="10cm" width="15cm" viewBox="0 0 150 100">
+    <path d="M78.3 70.6
+            A 35 35, 0, 0, 0, 50 15
+            L 50 50 Z
+           " fill="#6A5ACD" tabindex="0" aria-label="segment 1 of 4, Pears, value 14"/>
+    <path d="M16.7 60.8
+            A 35 35, 0, 0, 0, 78.3 70.6
+            L 50 50 Z
+           " fill="#4682B4" tabindex="0" aria-label="segment 2 of 4, Bananas, value 10"/>
+    <path d="M21.7 29.4
+            A 35 35, 0, 0, 0, 16.7 60.8
+            L 50 50 Z
+           " fill="#DA70D6" tabindex="0" aria-label="segment 3 of 4, Apples, value 7"/>
+    <path d="M50 15
+            A 35 35, 0, 0, 0, 21.7 29.4
+            L 50 50 Z
+           " fill="#B0E0E6" tabindex="0" aria-label="segment 4 of 4, Oranges, value 4"/>
+
+    <g>
+      <rect x="100" y="20" width="3" height="3" style="fill:#6A5ACD ;stroke-width:0.1; stroke:#6A5ACD"/>
+      <text x="110" y="23" text-anchor="start" font-size = "4" aria-hidden="true">Pears</text>
+    </g>
+    <g>
+      <rect x="100" y="30" width="3" height="3" style="fill:#4682B4 ;stroke-width:0.1; stroke:#4682B4"/>
+      <text x="110" y="33" text-anchor="start" font-size = "4" aria-hidden="true">Bananas</text>
+    </g>
+    <g>
+      <rect x="100" y="40" width="3" height="3" style="fill:#DA70D6 ;stroke-width:0.1; stroke:#DA70D6"/>
+      <text x="110" y="43" text-anchor="start" font-size = "4" aria-hidden="true">Apples</text>
+    </g>
+    <g>
+      <rect x="100" y="50" width="3" height="3" style="fill:#B0E0E6 ;stroke-width:0.1; stroke:#B0E0E6"/>
+      <text x="110" y="53" text-anchor="start" font-size = "4" aria-hidden="true">Oranges</text>
+    </g>
+  </svg>
+</div>
+<p id="paraToSkipTo3">
+  This is the paragraph after the third graph
+</p>
+<p>
+  This is the second paragraph after the third graph
 </p>
 
 </body>
