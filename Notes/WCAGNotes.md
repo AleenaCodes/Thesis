@@ -7,7 +7,7 @@
   - Sensory characteristics (!)
   - Orientation (need to make it responsive?)
   - Identify purpose
-4. Distinguisable
+4. Distinguishable
   - Use of colour
   - Contrast
   - Resize Text
