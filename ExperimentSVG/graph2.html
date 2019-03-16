@@ -14,11 +14,11 @@
         clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
         clip; rect(1px, 1px, 1px, 1px);
         height: 1px;
+        width: 1px;
         margin: -1px;
         overflow: hidden;
         padding: 0;
         position: absolute;
-        width: 1px;
       }
       /* svg text {display: none;} Use this to add hovering
       svg g:hover text {display: block;} */
@@ -42,39 +42,46 @@
         aria-label="Accessible bar graph with some data, select link to skip graph, or use tab to explore graph"
         class="hide-element">First skip link</a>
 
-    <div>
+    <figure>
       <svg role="figure" height="8.5cm" width="15cm" aria-labelledby="graphTitle1 graphDesc1">
-        <title id="graphTitle1">This is the graph title</title>
-        <desc id="graphDesc1">Bar graph showing prices of fruits</desc>
+        <title id="graphTitle1">Bar graph showing prices of fruits</title>
+        <desc id="graphDesc1">Y axis showing 4 bars, X axis ranging from £0 to £10</desc>
         <!-- Y and X axis -->
-        <line x1="2cm" y1="0.5cm" x2="2cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1" aria-label="y axis showing 4 bars" />
-        <line x1="2cm" y1="7cm" x2="14cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1" aria-label="x axis ranging from 0 to 10" />
+        <g aria-hidden="true">
+          <line x1="2cm" y1="0.5cm" x2="2cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1" aria-label="y axis showing 4 bars" />
+          <line x1="2cm" y1="7cm" x2="14cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1" aria-label="x axis ranging from 0 to 10" />
+        </g>
         <!-- Marker lines -->
-        <text x="3cm" y="7.5cm" text-anchor="middle" aria-hidden="true">1</text>
-        <line x1="3cm" y1="1cm" x2="3cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1" aria-hidden="true"/>
-        <text x="4cm" y="7.5cm" text-anchor="middle" aria-hidden="true">2</text>
-        <line x1="4cm" y1="1cm" x2="4cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1" aria-hidden="true"/>
-        <text x="5cm" y="7.5cm" text-anchor="middle" aria-hidden="true">3</text>
-        <line x1="5cm" y1="1cm" x2="5cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1" aria-hidden="true"/>
-        <text x="6cm" y="7.5cm" text-anchor="middle" aria-hidden="true">4</text>
-        <line x1="6cm" y1="1cm" x2="6cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1" aria-hidden="true"/>
-        <text x="7cm" y="7.5cm" text-anchor="middle" aria-hidden="true">5</text>
-        <line x1="7cm" y1="1cm" x2="7cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1" aria-hidden="true"/>
-        <text x="8cm" y="7.5cm" text-anchor="middle" aria-hidden="true">6</text>
-        <line x1="8cm" y1="1cm" x2="8cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1" aria-hidden="true"/>
-        <text x="9cm" y="7.5cm" text-anchor="middle" aria-hidden="true">7</text>
-        <line x1="9cm" y1="1cm" x2="9cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1" aria-hidden="true"/>
-        <text x="10cm" y="7.5cm" text-anchor="middle" aria-hidden="true">8</text>
-        <line x1="10cm" y1="1cm" x2="10cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1" aria-hidden="true"/>
-        <text x="11cm" y="7.5cm" text-anchor="middle" aria-hidden="true">9</text>
-        <line x1="11cm" y1="1cm" x2="11cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1" aria-hidden="true"/>
-        <text x="12cm" y="7.5cm" text-anchor="middle" aria-hidden="true">10</text>
-        <line x1="12cm" y1="1cm" x2="12cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1" aria-hidden="true"/>
-        <text x="13cm" y="7.5cm" text-anchor="middle" aria-hidden="true">11</text>
-        <line x1="13cm" y1="1cm" x2="13cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1" aria-hidden="true"/>
+        <g aria-hidden="true">
+          <text x="3cm" y="7.5cm" text-anchor="middle">1</text>
+          <line x1="3cm" y1="1cm" x2="3cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1"/>
+          <text x="4cm" y="7.5cm" text-anchor="middle">2</text>
+          <line x1="4cm" y1="1cm" x2="4cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1"/>
+          <text x="5cm" y="7.5cm" text-anchor="middle">3</text>
+          <line x1="5cm" y1="1cm" x2="5cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1"/>
+          <text x="6cm" y="7.5cm" text-anchor="middle">4</text>
+          <line x1="6cm" y1="1cm" x2="6cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1"/>
+          <text x="7cm" y="7.5cm" text-anchor="middle">5</text>
+          <line x1="7cm" y1="1cm" x2="7cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1"/>
+          <text x="8cm" y="7.5cm" text-anchor="middle">6</text>
+          <line x1="8cm" y1="1cm" x2="8cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1"/>
+          <text x="9cm" y="7.5cm" text-anchor="middle">7</text>
+          <line x1="9cm" y1="1cm" x2="9cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1"/>
+          <text x="10cm" y="7.5cm" text-anchor="middle">8</text>
+          <line x1="10cm" y1="1cm" x2="10cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1"/>
+          <text x="11cm" y="7.5cm" text-anchor="middle">9</text>
+          <line x1="11cm" y1="1cm" x2="11cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1"/>
+          <text x="12cm" y="7.5cm" text-anchor="middle">10</text>
+          <line x1="12cm" y1="1cm" x2="12cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1"/>
+          <text x="13cm" y="7.5cm" text-anchor="middle">11</text>
+          <line x1="13cm" y1="1cm" x2="13cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1"/>
+        </g>
+        <!-- <circle cx="0cm" cy="0cm" r="0" stroke="#6A5ACD" stroke-width="3" tabindex="0"></circle> -->
         <!-- Actual bars -->
+        <g tabindex="0"> <!--when you tab back it shows blank?-->
+        </g>
         <g role="list">
-          <title>This is the list title</title>
+          <title>4 bars showing prices of fruits</title>
           <g role="listitem" tabindex="0">
             <text x="0.5cm" y="1.5cm" aria-hidden="true">Apples</text>
             <rect x="2cm" y="1cm" width="10cm" height="1cm" class="bar" fill="#6A5ACD">
@@ -99,14 +106,11 @@
               <title>Bar 4 of 4, Pears, value 5, this is the smallest value</title>
             </rect>
           </g>
-          <!-- <rect x="2cm" y="1cm" width="10cm" height="1cm" tabindex="0" class="bar" aria-label="bar 1 of 4, apples, value 10, this is the largest value" fill="#6A5ACD"/> -->
-          <!-- <rect x="2cm" y="2.5cm" width="8.5cm" height="1cm" tabindex="0" role="listitem" class="bar" aria-label="bar 2 of 4, grapes, value 8.5" fill="#6A5ACD"/> -->
-          <!-- <text x="0.5cm" y="4.5cm" aria-hidden="true">Plums</text>
-          <rect x="2cm" y="4cm" width="6cm" height="1cm" tabindex="0" role="listitem" class="bar" aria-label="bar 3 of 4, plums value 6" fill="#6A5ACD"/>
-          <text x="0.5cm" y="6cm" aria-hidden="true">Pears</text>
-          <rect x="2cm" y="5.5cm" width="5cm" height="1cm" tabindex="0" role="listitem" class="bar" aria-label="bar 4 of 4, pears, value 5, this is the smallest value" fill="#6A5ACD"/> -->
         </g>
       </svg>
-    </div>
+    </figure>
+    <p id="paraToSkipTo">
+      End of graph
+    </p>
   </body>
 </html>
