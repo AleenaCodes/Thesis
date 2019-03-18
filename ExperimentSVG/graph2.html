@@ -42,14 +42,14 @@
         aria-label="Accessible bar graph with some data, select link to skip graph, or use tab to explore graph"
         class="hide-element">First skip link</a>
 
-    <figure>
+    <figure id="barGraph">
       <svg role="figure" height="8.5cm" width="15cm" aria-labelledby="graphTitle1 graphDesc1">
         <title id="graphTitle1">Bar graph showing prices of fruits</title>
         <desc id="graphDesc1">Y axis showing 4 bars, X axis ranging from £0 to £10</desc>
         <!-- Y and X axis -->
         <g aria-hidden="true">
-          <line x1="2cm" y1="0.5cm" x2="2cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1" aria-label="y axis showing 4 bars" />
-          <line x1="2cm" y1="7cm" x2="14cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1" aria-label="x axis ranging from 0 to 10" />
+          <line x1="2cm" y1="0.5cm" x2="2cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1"/>
+          <line x1="2cm" y1="7cm" x2="14cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1"/>
         </g>
         <!-- Marker lines -->
         <g aria-hidden="true">
@@ -78,8 +78,6 @@
         </g>
         <!-- <circle cx="0cm" cy="0cm" r="0" stroke="#6A5ACD" stroke-width="3" tabindex="0"></circle> -->
         <!-- Actual bars -->
-        <g tabindex="0"> <!--when you tab back it shows blank?-->
-        </g>
         <g role="list">
           <title>4 bars showing prices of fruits</title>
           <g role="listitem" tabindex="0">
@@ -110,6 +108,162 @@
       </svg>
     </figure>
     <p id="paraToSkipTo">
+      End of graph
+    </p>
+
+    <a href="#paraToSkipTo2"
+        aria-label="Accessible line graph with some data, select link to skip graph, or use tab to explore graph"
+        class="hide-element">Second skip link</a>
+
+    <figure id="lineGraph">
+      <svg role="figure" height="8cm" width="15cm" aria-labelledby="graphTitle2 graphDesc2">
+        <title id="graphTitle2">Line graph showing prices over time</title>
+        <desc id="graphDesc2">X axis showing 7 points from Monday to Friday, Y axis ranging from £0 to £10</desc>
+        <!-- Y and X axis -->
+        <g aria-hidden="true">
+          <line x1="2cm" y1="0.5cm" x2="2cm" y2="6.5cm" style="stroke:rgb(211,211,211);stroke-width:1"/>
+          <text x=0.5cm y=0.5cm aria-hidden="true">Price</text>
+          <line x1="2cm" y1="6.5cm" x2="14cm" y2="6.5cm" style="stroke:rgb(211,211,211);stroke-width:1"/>
+        </g>
+        <!-- Marker lines -->
+        <g aria-hidden="true">
+          <text x="1cm" y="6.5cm" text-anchor="middle">0</text>
+          <text x="1cm" y="5.5cm" text-anchor="middle">2</text>
+          <line x1="2cm" y1="5.5cm" x2="14cm" y2="5.5cm" style="stroke:rgb(211,211,211);stroke-width:1"/>
+          <text x="1cm" y="4.5cm" text-anchor="middle">4</text>
+          <line x1="2cm" y1="4.5cm" x2="14cm" y2="4.5cm" style="stroke:rgb(211,211,211);stroke-width:1"/>
+          <text x="1cm" y="3.5cm" text-anchor="middle">6</text>
+          <line x1="2cm" y1="3.5cm" x2="14cm" y2="3.5cm" style="stroke:rgb(211,211,211);stroke-width:1"/>
+          <text x="1cm" y="2.5cm" text-anchor="middle">8</text>
+          <line x1="2cm" y1="2.5cm" x2="14cm" y2="2.5cm" style="stroke:rgb(211,211,211);stroke-width:1"/>
+          <text x="1cm" y="1.5cm" text-anchor="middle">10</text>
+          <line x1="2cm" y1="1.5cm" x2="14cm" y2="1.5cm" style="stroke:rgb(211,211,211);stroke-width:1"/>
+
+
+          <line x1="2cm" y1="5.5cm" x2="4cm" y2="4.5cm" stroke="#6A5ACD" stroke-width="2"/>
+          <line x1="4cm" y1="4.5cm" x2="6cm" y2="4cm" stroke="#6A5ACD" stroke-width="2"/>
+          <line x1="6cm" y1="4cm" x2="8cm" y2="3cm" stroke="#6A5ACD" stroke-width="2"/>
+          <line x1="8cm" y1="3cm" x2="10cm" y2="3.5cm" stroke="#6A5ACD" stroke-width="2"/>
+          <line x1="10cm" y1="3.5cm" x2="12cm" y2="2.5cm" stroke="#6A5ACD" stroke-width="2"/>
+          <line x1="12cm" y1="2.5cm" x2="14cm" y2="2cm" stroke="#6A5ACD" stroke-width="2"/>
+        </g>
+        <!-- Actual points -->
+        <g role="list">
+          <title>7 points showing prices</title>
+          <g role="listitem" tabindex="0">
+            <text x="2cm" y="7.5cm" text-anchor="middle" aria-hidden="true">Mon</text>
+            <circle cx="2cm" cy="5.5cm" r="2" stroke="#6A5ACD" stroke-width="3">
+              <title>Point 1 of 7, Monday, value 2, this is the smallest value</title>
+            </circle>
+          </g>
+          <g role="listitem" tabindex="0">
+            <text x="4cm" y="7.5cm" text-anchor="middle" aria-hidden="true">Tue</text>
+            <circle cx="4cm" cy="4.5cm" r="2" stroke="#6A5ACD" stroke-width="3">
+              <title>Point 2 of 7, Tuesday, value 4</title>
+            </circle>
+          </g>
+          <g role="listitem" tabindex="0">
+            <text x="6cm" y="7.5cm" text-anchor="middle" aria-hidden="true">Wed</text>
+            <circle cx="6cm" cy="4cm" r="2" stroke="#6A5ACD" stroke-width="3">
+              <title>Point 3 of 7, Wednesday, value 5</title>
+            </circle>
+          </g>
+          <g role="listitem" tabindex="0">
+            <text x="8cm" y="7.5cm" text-anchor="middle" aria-hidden="true">Thu</text>
+            <circle cx="8cm" cy="3cm" r="2" stroke="#6A5ACD" stroke-width="3">
+              <title>Point 4 of 7, Thursday, value 7</title>
+            </circle>
+          </g>
+          <g role="listitem" tabindex="0">
+            <text x="10cm" y="7.5cm" text-anchor="middle" aria-hidden="true">Fri</text>
+            <circle cx="10cm" cy="3.5cm" r="2" stroke="#6A5ACD" stroke-width="3">
+              <title>Point 5 of 7, Friday, value 6</title>
+            </circle>
+          </g>
+          <g role="listitem" tabindex="0">
+            <text x="12cm" y="7.5cm" text-anchor="middle" aria-hidden="true">Sat</text>
+            <circle cx="12cm" cy="2.5cm" r="2" stroke="#6A5ACD" stroke-width="3">
+              <title>Point 6 of 7, Saturday, value 8, this is the largest value</title>
+            </circle>
+          </g>
+          <g role="listitem" tabindex="0">
+            <text x="14cm" y="7.5cm" text-anchor="middle" aria-hidden="true">Sun</text>
+            <circle cx="14cm" cy="2cm" r="2" stroke="#6A5ACD" stroke-width="3">
+              <title>Point 7 of 7, Sunday, value 9</title>
+            </circle>
+          </g>
+        </g>
+      </svg>
+    </figure>
+    <p id="paraToSkipTo2">
+      End of graph
+    </p>
+
+    <a href="#paraToSkipTo3"
+        aria-label="Accessible pie graph with some data, select link to skip graph, or use tab to explore graph"
+        class="hide-element">Third skip link</a>
+
+    <figure id="pieGraph">
+      <svg role="figure" height="10cm" width="15cm" viewBox="0 0 150 100" aria-labelledby="graphTitle3 graphDesc3">
+        <title id="graphTitle3">Pie graph showing prices of fruits</title>
+        <desc id="graphDesc3">4 segments</desc>
+        <!-- Legend -->
+        <g aria-hidden="true">
+          <g>
+            <rect x="100" y="20" width="3" height="3" style="fill:#6A5ACD ;stroke-width:0.1; stroke:#6A5ACD"/>
+            <text x="110" y="23" text-anchor="start" font-size = "4" aria-hidden="true">Pears</text>
+          </g>
+          <g>
+            <rect x="100" y="30" width="3" height="3" style="fill:#4682B4 ;stroke-width:0.1; stroke:#4682B4"/>
+            <text x="110" y="33" text-anchor="start" font-size = "4" aria-hidden="true">Bananas</text>
+          </g>
+          <g>
+            <rect x="100" y="40" width="3" height="3" style="fill:#DA70D6 ;stroke-width:0.1; stroke:#DA70D6"/>
+            <text x="110" y="43" text-anchor="start" font-size = "4" aria-hidden="true">Apples</text>
+          </g>
+          <g>
+            <rect x="100" y="50" width="3" height="3" style="fill:#B0E0E6 ;stroke-width:0.1; stroke:#B0E0E6"/>
+            <text x="110" y="53" text-anchor="start" font-size = "4" aria-hidden="true">Oranges</text>
+          </g>
+        </g>
+        <!-- Actual bars -->
+        <g role="list">
+          <title>4 bars showing prices of fruits</title>
+          <g role="listitem" tabindex="0">
+            <path d="M78.3 70.6
+                    A 35 35, 0, 0, 0, 50 15
+                    L 50 50 Z
+                   " fill="#6A5ACD">
+              <title>Segment 1 of 4, Pears, value 14</title>
+            </path>
+          </g>
+          <g role="listitem" tabindex="0">
+            <path d="M16.7 60.8
+                    A 35 35, 0, 0, 0, 78.3 70.6
+                    L 50 50 Z
+                   " fill="#4682B4">
+              <title>Segment 2 of 4, Bananas, value 10</title>
+            </path>
+          </g>
+          <g role="listitem" tabindex="0">
+            <path d="M21.7 29.4
+                    A 35 35, 0, 0, 0, 16.7 60.8
+                    L 50 50 Z
+                   " fill="#DA70D6">
+              <title>Segment 3 of 4, Apples, value 7</title>
+            </path>
+          </g>
+          <g role="listitem" tabindex="0">
+            <path d="M50 15
+                    A 35 35, 0, 0, 0, 21.7 29.4
+                    L 50 50 Z
+                   " fill="#B0E0E6">
+              <title>Segment 4 of 4, Oranges, value 4</title>
+            </path>
+          </g>
+      </svg>
+    </figure>
+    <p id="paraToSkipTo3">
       End of graph
     </p>
   </body>
