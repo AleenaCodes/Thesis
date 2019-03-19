@@ -9,7 +9,7 @@ Something with aria role figure?
 ==== Features ====
 
 Skip over graph description
-Think of basic descripton "upward trend" etc.
+Think of basic description "upward trend" etc.
 Hover mouse to show info+read out info?
 Does this need "focusable:false"? See accessible SVG icons article
 
