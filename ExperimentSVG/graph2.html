@@ -26,11 +26,16 @@
         font-family: "Arial", sans-serif;
       }
       .bar:hover {
-        fill: #ec008c;
+        fill: #f4d03f;
         opacity: 1;
       }
       .bar:focus {
-        fill: #ec008c;
+        fill: #f4d03f;
+        opacity: 1;
+      }
+      .point:hover {
+        fill: #f4d03f;
+        stroke: #f4d03f;
         opacity: 1;
       }
     </style>
@@ -156,43 +161,43 @@
           <title>7 points showing prices</title>
           <g role="listitem" tabindex="0">
             <text x="2cm" y="7.5cm" text-anchor="middle" aria-hidden="true">Mon</text>
-            <circle cx="2cm" cy="5.5cm" r="2" stroke="#7562e0" stroke-width="3" fill="#7562e0">
+            <circle cx="2cm" cy="5.5cm" r="2" stroke="#7562e0" stroke-width="3" fill="#7562e0" class="point">
               <title>Point 1 of 7, Monday, value 2, this is the smallest value</title>
             </circle>
           </g>
           <g role="listitem" tabindex="0">
             <text x="4cm" y="7.5cm" text-anchor="middle" aria-hidden="true">Tue</text>
-            <circle cx="4cm" cy="4.5cm" r="2" stroke="#7562e0" stroke-width="3" fill="#7562e0">
+            <circle cx="4cm" cy="4.5cm" r="2" stroke="#7562e0" stroke-width="3" fill="#7562e0" class="point">
               <title>Point 2 of 7, Tuesday, value 4</title>
             </circle>
           </g>
           <g role="listitem" tabindex="0">
             <text x="6cm" y="7.5cm" text-anchor="middle" aria-hidden="true">Wed</text>
-            <circle cx="6cm" cy="4cm" r="2" stroke="#7562e0" stroke-width="3" fill="#7562e0">
+            <circle cx="6cm" cy="4cm" r="2" stroke="#7562e0" stroke-width="3" fill="#7562e0" class="point">
               <title>Point 3 of 7, Wednesday, value 5</title>
             </circle>
           </g>
           <g role="listitem" tabindex="0">
             <text x="8cm" y="7.5cm" text-anchor="middle" aria-hidden="true">Thu</text>
-            <circle cx="8cm" cy="3cm" r="2" stroke="#7562e0" stroke-width="3" fill="#7562e0">
+            <circle cx="8cm" cy="3cm" r="2" stroke="#7562e0" stroke-width="3" fill="#7562e0" class="point">
               <title>Point 4 of 7, Thursday, value 7</title>
             </circle>
           </g>
           <g role="listitem" tabindex="0">
             <text x="10cm" y="7.5cm" text-anchor="middle" aria-hidden="true">Fri</text>
-            <circle cx="10cm" cy="3.5cm" r="2" stroke="#7562e0" stroke-width="3" fill="#7562e0">
+            <circle cx="10cm" cy="3.5cm" r="2" stroke="#7562e0" stroke-width="3" fill="#7562e0" class="point">
               <title>Point 5 of 7, Friday, value 6</title>
             </circle>
           </g>
           <g role="listitem" tabindex="0">
             <text x="12cm" y="7.5cm" text-anchor="middle" aria-hidden="true">Sat</text>
-            <circle cx="12cm" cy="2.5cm" r="2" stroke="#7562e0" stroke-width="3" fill="#7562e0">
+            <circle cx="12cm" cy="2.5cm" r="2" stroke="#7562e0" stroke-width="3" fill="#7562e0" class="point">
               <title>Point 6 of 7, Saturday, value 8, this is the largest value</title>
             </circle>
           </g>
           <g role="listitem" tabindex="0">
             <text x="14cm" y="7.5cm" text-anchor="middle" aria-hidden="true">Sun</text>
-            <circle cx="14cm" cy="2cm" r="2" stroke="#7562e0" stroke-width="3" fill="#7562e0">
+            <circle cx="14cm" cy="2cm" r="2" stroke="#7562e0" stroke-width="3" fill="#7562e0" class="point">
               <title>Point 7 of 7, Sunday, value 9</title>
             </circle>
           </g>
@@ -240,7 +245,7 @@
             <path d="M78.3 70.6
                     A 35 35, 0, 0, 0, 50 15
                     L 50 50 Z
-                   " fill="#7562e0">
+                   " fill="#7562e0" stroke-width="0.5" stroke="#fff" class="segment">
               <title>Segment 1 of 4, Pears, value 14</title>
             </path>
           </g>
@@ -248,7 +253,7 @@
             <path d="M16.7 60.8
                     A 35 35, 0, 0, 0, 78.3 70.6
                     L 50 50 Z
-                   " fill="#00008b">
+                   " fill="#00008b" stroke-width="0.5" stroke="#fff" class="segment">
               <title>Segment 2 of 4, Bananas, value 10</title>
             </path>
           </g>
@@ -256,7 +261,7 @@
             <path d="M21.7 29.4
                     A 35 35, 0, 0, 0, 16.7 60.8
                     L 50 50 Z
-                   " fill="#f4d03f">
+                   " fill="#f4d03f" stroke-width="0.5" stroke="#fff" class="segment">
               <title>Segment 3 of 4, Apples, value 7</title>
             </path>
           </g>
@@ -264,7 +269,7 @@
             <path d="M50 15
                     A 35 35, 0, 0, 0, 21.7 29.4
                     L 50 50 Z
-                   " fill="#870325">
+                   " fill="#870325" stroke-width="0.5" stroke="#fff" class="segment">
               <title>Segment 4 of 4, Oranges, value 4</title>
             </path>
           </g>
