@@ -12,6 +12,7 @@ Skip over graph description
 Think of basic description "upward trend" etc.
 Hover mouse to show info+read out info?
 Does this need "focusable:false"? See accessible SVG icons article
+Make some sort of background element first, so that graph info (axis etc.) don't read out in first bar
 
 === Dev Implementation Notes
 
