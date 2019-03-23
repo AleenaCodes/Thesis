@@ -1,0 +1,455 @@
+% The document class supplies options to control rendering of some standard
+% features in the result.  The goal is for uniform style, so some attention 
+% to detail is *vital* with all fields.  Each field (i.e., text inside the
+% curly braces below, so the MEng text inside {MEng} for instance) should 
+% take into account the following:
+%
+% - author name       should be formatted as "FirstName LastName"
+%   (not "Initial LastName" for example),
+% - supervisor name   should be formatted as "Title FirstName LastName"
+%   (where Title is "Dr." or "Prof." for example),
+% - degree programme  should be "BSc", "MEng", "MSci", "MSc" or "PhD",
+% - dissertation title should be correctly capitalised (plus you can have
+%   an optional sub-title if appropriate, or leave this field blank),
+% - dissertation type should be formatted as one of the following:
+%   * for the MEng degree programme either "enterprise" or "research" to
+%     reflect the stream,
+%   * for the MSc  degree programme "$X/Y/Z$" for a project deemed to be
+%     X%, Y% and Z% of type I, II and III.
+% - year              should be formatted as a 4-digit year of submission
+%   (so 2014 rather than the accademic year, say 2013/14 say).
+
+\documentclass[ % the name of the author
+                    author={Student name},
+                % the name of the supervisor
+                supervisor={Supervisor name},
+                % the degree programme
+                    degree={BSc},
+                % the dissertation    title (which cannot be blank)
+                     title={Title},
+                % the dissertation subtitle (which can    be blank)
+                  subtitle={},
+                % the dissertation     type
+                %  type={enterprise},
+                % the year of submission
+                      year={2017} ]{dissertation}
+
+\usepackage[utf8]{inputenc}
+\setcounter{tocdepth}{3}
+
+\usepackage{glossaries}
+\renewcommand{\glossarysection}[2][]{}
+
+% \usepackage{geometry}
+%  \geometry{
+%  a4paper,
+%  total={150mm,257mm},
+%  left=30mm,
+%  top=20mm,
+%  }
+%  \renewcommand{\baselinestretch}{1.3}
+
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\addbibresource{citations.bib}
+
+\makeglossaries
+\loadglsentries{defs}
+
+\begin{document}
+
+% =============================================================================
+
+% This section simply introduces the structural guidelines.  It can clearly
+% be deleted (or commented out) if you use the file as a template for your
+% own dissertation: everything following it is in the correct order to use 
+% as is.
+
+\iffalse
+\section*{Prelude}
+\thispagestyle{empty}
+
+A typical dissertation will be structured according to (somewhat) standard 
+sections, described in what follows.  However, it is hard and perhaps even 
+counter-productive to generalise: the goal is {\em not} to be prescriptive, 
+but simply to act as a guideline.  In particular, each page count given is
+important but {\em not} absolute: their aim is simply to highlight that a 
+clear, concise description is better than a rambling alternative that makes
+it hard to separate important content and facts from trivia.
+
+You can use this document as a \LaTeX-based~\cite{latexbook1,latexbook2} 
+template for your own dissertation by simply deleting extraneous sections
+and content; keep in mind that the associated {\tt Makefile} could be of
+use, in particular because it automatically executes \mbox{BibTeX} to 
+deal with the associated bibliography.  
+
+You can, on the other hand, opt {\em not} to use this template; this is a 
+perfectly acceptable approach.  Note that a standard cover and declaration 
+of authorship may still be produced online via
+\[
+\mbox{\url{http://www.cs.bris.ac.uk/Teaching/Resources/cover.html}}
+\]
+
+\fi
+% =============================================================================
+
+% This macro creates the standard UoB title page by using information drawn
+% from the document class (meaning it is vital you select the correct degree 
+% title and so on).
+
+\maketitle
+
+% After the title page (which is a special case in that it is not numbered)
+% comes the front matter or preliminaries; this macro signals the start of
+% such content, meaning the pages are numbered with Roman numerals.
+
+\frontmatter
+
+% This macro creates the standard UoB declaration; on the printed hard-copy,
+% this must be physically signed by the author in the space indicated.
+
+\makedecl
+
+\tableofcontents
+
+% LaTeX automatically generates a table of contents, plus associated lists 
+% of figures, tables and algorithms.  The former is a compulsory part of the
+% dissertation, but if you do not require the latter they can be suppressed
+% by simply commenting out the associated macro.
+
+\mainmatter
+
+\chapter{Abstract}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id hendrerit libero. In in cursus leo, sit amet tristique risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris nec arcu at elit tincidunt interdum sit amet at sem. Etiam ultrices, metus id pulvinar cursus, massa est fermentum nunc, vitae facilisis lectus turpis non dolor. Fusce a egestas lorem. In a orci vitae nunc pulvinar sodales ut nec odio. Nunc eu cursus orci, at tempus orci. Nullam consequat neque a hendrerit luctus. Etiam ut turpis augue. Nunc iaculis, tellus eget semper lobortis, sem velit euismod sapien, at lacinia ligula sem a urna. 
+
+\chapter{Background}
+
+\section{Introduction}
+When HTML was first conceived in 1990, there were only 2.6 million users worldwide (in comparison to the several billion that there are now). \cite{ourworldindata:internet}. The simple markup language served the needs of the early web well - anyone could easily pick it up and translate a document into HTML, ready for it to be viewed in a browser.
+
+Within a few years, it had already become clear that HTML was extremely limiting for developers, and innovation had to take place in order to keep it relevant - in 1993 the browser Mosaic was shipped with support for the \texttt{<img>} tag, and many more new tags followed in order to accommodate for the ever-growing content types. \cite{historyofhtml}
+
+As time went on, both the number of the users on the web and the type of content being published changed drastically, and HTML went through a variety of iterations, eventually resulting on HTML5 which, combined with CSS4 and Javascript, forms the core of the internet,
+
+However, as the number of users has grown, so have the amount of internet users with differing accessibility needs, including visual, motor and cognitive needs. As HTML has become more complex, so have the website layouts, due in no small part to the need for websites to work on a much larger variety of devices and screen sizes than before. Whereas the simplistic "document-style" websites of the early internet were easily accessible to most users, this is no longer the case.
+
+% LATER Try to find stat of how many sites are not accessible
+
+\section{Why is Accessibility Important?}
+
+The idea of web accessibility can often not even cross the mind of a developer if they've never had to use assistive technologies, and for those who do consider it, it can often seem like a minor part of website design, as the perception is that a very small percentage of web users have accessibility needs.
+However, the statistics paint a very different story - the World Health Organisation estimates that around 15\% of people worldwide live with some sort of a disability. \cite{WHOdisability}
+
+Thus, it is clear the accessibility should be a strong consideration when developing websites, but there are some main barriers for developers when doing this
+
+\begin{itemize}
+    \item Lack of knowledge about web accessibility standards
+    \item There are not many tools to test and fix accessibility issues
+    \item User testing with differently-abled users can be expensive and time-consuming
+    \item Some development tools (such as drag-and-drop) don't support accessibility
+    \item Content may be provided by a 3rd party, so accessibility isn't guaranteed
+\end{itemize}
+
+\subsection{Use Cases}
+%
+Web accessibility encompasses a lot of different use cases, including
+%
+\begin{itemize}
+    \item Visual - blind or partially-blind users, who may use a screen-reader or require larger text; colour-blind users
+    \item Auditory - deaf or partially-deaf users, who may rely on captions for all audio or audio with a lot of background noise
+    \item Cognitive and Neurological - users who may need simpler language to be used, such as those with learning disabilities, or non-native speakers of a language. This also includes people with neurological disorders such as ADHD who need content that is easy to process on a short attention-span
+    \item Physical - people with disabilities that affect them physical such as for hand movement. There are many different mice and keyboard types to help with this, and custom technologies such as foot pumps and sip-and-puff machines
+    \item Speech - People who are unable to speak clearly or at all, they may struggle with voice commands so interfaces should not be voice control-only
+\end{itemize}
+% LATER add more detail here?
+% LATER Add pictures?
+% w3 site on "diverse abilities" will give info for here
+% LATER number of users
+% LATER - accessibility needs
+%
+However there are also lots of other cases to consider \cite{WAIaccessibilityintro}
+%
+\begin{itemize}
+    \item "Temporary disabilities" - for example a broken arm, operating single-handed (such as holding a baby in one arm), lost glasses, RSI
+    \item People using devices in different input modes such as on a TV screen
+    \item "Situational limits" - seeing a screen in bright sunlight, or not being able to hear audio in a loud environment
+    \item Older people with changing abilities
+    \item People with slower or limited internet access
+\end{itemize}
+%
+Through this we can see that web accessibility support the including or people with disabilities, older people, people in rural areas and people in developing countries
+%
+\subsection{The Business Case for Accessibility}
+
+With so many disabled users worldwide, disregarding the need for a site to be accessible to such a large group of users does not make sense from a business standpoint, and will result in a larger overall possible market.
+
+Increasing site accessibility often involves structuring and labelling things better, and so can result in much better SEO for a site. It also means that the site will be easier to view on multiple devices, and there will be reduced maintenance cost over time.\cite{WAIaccessibilityintro}
+
+Focusing on site accessibility not only demonstrates corporate social responsibility, but in many parts of the world certain sites (such as government services) are required by law. This includes the Equality Act of 2010 \cite{eqa2010} in the UK and Section 508 \cite{section508} in the USA. Access to information and communications technologies, including the web, is also defined as a basic human right in the United Nations Convention on the Rights of Persons with Disabilities (UN CRPD). \cite{accessibilityUN}
+
+\section{The Current State of Web Accessibility}
+
+When the internet began, the idea of accessibility was at its core - 
+
+\begin{quote} 
+\centering 
+"The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect."
+
+- Tim Berners-Lee, W3C Director and inventor of the World Wide Web
+\end{quote}
+%
+And this idea is still followed in recent iterations of HTML. Pure HTML webpages were accessible out-of-the-box when HTML was first made, and this continues to be the case today - sites made in basic HTML5 are still largely accessible. However the current web is not pure HTML - CSS that originally changed superficial styling is now also commonly-used for layout and interaction, and Javascript has become the de facto language of the internet, with many new frameworks being made often and used by popular sites such as Facebook and Netflix.
+
+Whereas web pages used to be static and have a linear layout, they are now much more dynamic with changing content (such as social media platforms with a livestream) and can be displayed in a variety of different layouts depending on device and screen size. While this satisfies consumers needs to access current information on a variety of devices, it has resulted in a decrease in accessibility for some users. Changing layouts can mean that a screen-reader reads out information in a completely different order than it is displayed visually, and moving interfaces can become overloaded and confusing for users with cognitive and physical disabilities.
+
+\subsection{The Changing Web}
+
+A key idea that has been on the rise in the last few years, has been component-based design. With HTML5 having a finite (and mainly quite simple) type of element, web development has moved towards generating custom HTML elements which can provide new and novel types of interactivity on web pages.
+
+While this has allowed for more re-usability in web development by allowing encapsulation, websites that are heavily component-based can have greatly decreased accessibility if components are not built with accessibility in mind.
+
+Responsive layouts are a necessity in a world where the internet is accessed on mobile as often as desktop (if not more) \cite{mobileusestudy}. With websites needing to support both desktop and mobile users with one site, there is more re-ordering and hiding of page contents than before, which won't have an impact on sighted users but can result in screen-readers providing an un-ordered view of the contents of a web page or missing out important information.
+
+Many are turning towards frameworks to provide out-of-the-box responsiveness rather than manually providing different layouts for each screen size, and these can be a good solution. For example Bootstrap provides a framework for responsive sites that can be used to make accessible websites, but it is down to the developer to ensure WCAG compliancy, as there are many aspects that shouldn't be used, such as default button colours and carousels \cite{bootstrapaccessibility}. Others, such as Turret, allow for things like screen-reader only content to be defined \cite{turretaccessibility}.
+
+Recent years have also seen Flexbox and CSS Grid being used for arranging elements on a page. These decouple the source order (i.e. the order of the elements declared in HTML) and their visual order on the screen. This is another thing that has little repercussions on average web users, but can mean that keyboard or screen-reader users are unable to access content in the right order.
+
+% LATER provide pic of unordered page
+
+With web development, there are many parts involved in the making and viewing of sites \cite{w3components} - developers use authoring and evaluation tools to make content, and then users use browsers, and optionally assistive technologies, to interact with the content. For an accessibility feature to become widely-used, it is crucial for it to be implemented in many or all of these parts - developers will have less motivation to use a feature if it is not implemented consistently across browsers, or hard to do in a language.
+
+% LATER provide pic of process
+
+\subsection{Web Accessibility Guidelines}
+With the growing complexity of websites, and more web developers than ever, the World Wide Web Consortium (W3C) publish some guidelines and specifications around building accessibility into web pages.
+These provide some guidelines in terms of the semantics to use, and how to define interactions, but even by following all of these there is still always a need to test on real users to ensure a website really is accessible to a range of people.
+
+\subsubsection{WCAG}
+
+The Web Content Accessibility Guidelines (WCAG) \cite{WCAG} are part of a series of web accessibility guidelines published by the Web Accessibility Initiative (WAI) of the World Wide Web Consortium (W3C). WCAG 2.1 was published in 2018, and provides a much-needed update to the previous version published a decade earlier - mobile phone web browsing especially has increased a lot in the last 10 years and requires a new set of accessibility guidelines.
+
+The WCAG are organised under 4 principles
+
+\begin{itemize}
+    \item Perceivable - users must be able to perceive the information being presented (it can't be invisible to all of their senses)
+    \item Operable - users must be able to operate the interface (all interactions be able to be performed by the user)
+    \item Understandable - users must be able to understand the information presented and how to operate the interface
+    \item Robust - users must be able to access the content from a variety of user agents, including current assistive technologies
+\end{itemize}
+%
+Each of these principles has a set of testable criteria, and these can be met at 3 levels - A, AA and AAA.
+
+\subsubsection{WAI-ARIA}
+
+The WAI-ARIA \cite{WAIARIA} is a technical specification for making web pages accessible. WAI-ARIA defines some extra attributes \cite{WAIARIAspec}
+
+\begin{itemize}
+    \item Roles - these define common structural roles on a web page such as \texttt{button}, \texttt{navigation}, \texttt{banner} and \texttt{tabgroup}, with a lot of overlap with HTML5 semantic elements
+    \item Properties - these define the properties of elements that are important for meaning or semantics, such as \texttt{aria-required} to indicate if a form input is compulsory, or \texttt{aria-modal} to indicate that an element is modal when displayed
+    \item States - these define a specific property type which indicate the current state of an element (these can be changed over time as opposed to properties), such as \texttt{aria-disabled} to indicate that a form input is visible but not editable
+\end{itemize}
+
+\subsection{Current Tooling}
+
+\subsubsection{Tools for Development}
+
+When aiming to develop an accessible website, there is no easy route - instead, it is important to keep accessibility in mind throughout the design and development process. The WCAG should be consulted when designing the site, and WAI-ARIA for guidelines on the semantics to use when developing the site. 
+
+As HTML5 is designed to be accessible, it is key to try and keep things as simple as possible, and not try to do "hacky" things when developing a site, such as using CSS to change the ordering of how elements show on a page. It is also important to use the designated HTML elements for each component on a page, such as using a \texttt{<button>} tag for a button instead of adding a \texttt{<span>} and styling it into a button.
+
+Many web frameworks are built with accessibility considered, and so using something like Bootstrap, Turret, Foundation or Vanilla for building the site and then evaluating and fixing any accessibility issues can also be a good idea.
+
+A useful Javascript library that is available is Ally.js \cite{allyjs}, which can be loaded into a JS project and provides a set of modules to help simplify accessibility challenges, such as setting specific ordering for tab focuses.
+
+There are many tools that can also be used to evaluate a site's accessibility or even give live feedback to the developer while they are coding, these are discussed below.
+
+\subsubsection{Tools for Evaluation}
+
+Several well-made tools are available freely online to test and fix accessibility issues. Pa11y \cite{pa11y} provides a suite of tools to flag up accessibility issues, including tools that can be integrated into a CI workflow and provide live feedback on issues. HTML\_CodeSniffer \cite{codesniffer} is a linter that allows different standards, such as WCAG, to be checked against code. WAVE \cite{wave} is another web accessibility evaluation tool that simply takes a URL and evaluates missing accessibility features.
+
+It can be useful during development for a developer to simulate different disabilities to test the sight, as this can flag up larger issues before testing on people who use assistive technologies. Testing with a screen reader is a good way to understand how a site will sound , JAWS and NVDA are two of the most commonly-used screen readers. Most platforms also have native screen-readers that can be tested with - Voiceover for Mac and iOS, Narrator for Windows, TalkBack for Android. 
+
+It can also be useful to check how a sight looks for Some tools for this include Check My Colours \cite{colourchecker} to check colour contrast, and Color Oracle \cite{colororacle} to simulate colour blindness.
+
+A recent project from IBM is the Va11ys project \cite{va11ys}, which provides a range of code samples that allow a developer to test out different assistive technologies. These provide a good idea of how different accessible features should look in code and how they should be interpreted by different assistive technologies.
+
+Overall, we can see that there is a wide range of tools that are designed to help developers evaluate accessibility on their site and recognise issues before testing with real users.
+
+%LATER- add some pics of the evaluating tools
+
+\subsubsection{Tools for Viewing Sites}
+
+Users with disabilities tend to have two different approaches to interactions with the web
+
+\begin{itemize}
+    \item Assistive Technologies - using tools like screen readers and voice recognition software to turn parts or all of websites into an understandable format
+    \item Adaptive Strategies - making small changes to a site's format to make it easier to process, such as making fonts larger or turning captions on for videos
+\end{itemize}
+
+With each of these approaches, they require the developer to give correct layout/prompts on the site for them to work - the tables below detail this
+
+\paragraph{Assistive Technologies}
+
+\begin{center}
+\begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|} 
+ \hline
+ Technology & Usage & Developer Notes \\ [0.5ex] 
+ \hline \hline
+ Screen Reader & Processes content on desktops and browsers, and converts it to audio or braille & Content needs to be structured properly and include labels and descriptions where needed, semantic HTML should be used as far as possible \\ 
+ \hline
+ Pop-up/Animation Blocker & Stops automatic pop-ups and redirection & Important info should not be included in pop-ups, and site browsing flow should not include redirection \\
+ \hline
+ Reading Assistant & Software that changes content presentation to make it more readable - this can include changing font and space, hiding parts of the page and reading text aloud & Different sections on a page should be used and labelled correctly, layouts should be responsive to font changes \\
+ \hline
+ Keyboard/Mechanical Inputs & Many different custom keyboards are available - those with larger or illuminated keys, on-screen keyboard, sip-and-puff switches  & Content should be able to all be accessed via keyboard, and grouped together to allow fast navigation through a page \\
+ \hline
+ Mouse & Many different mice are available - touchpads, trackballs, joysticks & Different sections should be labelled, and clickable areas should be large enough to accommodate error margins\\
+ \hline
+ Eye Tracking & Monitors eye movements to control the mouse pointer, and blinking to click the mouse & Clickable areas on the page should not be too small \\
+ \hline
+ Voice Tracking & Uses voice commands to dictate text and issue commands & Different sections and clickable areas should be labelled well \\ [1ex] 
+ \hline
+\end{tabular}
+\end{center}
+
+% Left off - voice browser, braille display
+
+\paragraph{Adaptive Strategies}
+
+\begin{center}
+\begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
+ \hline
+ Technology & Usage & Developer Notes \\ [0.5ex] 
+ \hline \hline
+ Captions & Text with verbatim recording of any speech or audio & Video platforms should be built to allow simultaneous captioning files to be run alongside video files \\ 
+ \hline
+ Screen Magnifier/Bigger Fonts & Pages can be magnified either be magnifying small sections or increasing font sizes overall & Page layouts should support text changes by using relative units for measurements and allow re-flow of text \\
+ \hline
+ Higher Contrast & Colours with significant contrast are easier to view for less-sighted and colour-blind users & Colour palettes should be decided in advance and tested via WCAG guidelines \\
+ \hline
+ Volume Control & Audio may need to be volume-adjusted or turned off altogether & Audio should not autoplay in order to not interfere with audio technologies, and options to adjust volume (including to 0) should be visible and accessible to both mouse and keyboard technologies \\ [1ex] 
+ \hline
+\end{tabular}
+\end{center}
+
+% LATER - write more?
+
+\subsubsection{Accessibility APIs}
+
+In the early 1990's, assistive technologies would read what was on the screen and try to guess the functions of different elements and their states, e.g. by looking at class names of objects and seeing if they were highlighted. However, this was not always accurate and there was often some delay time between new features being introduced and assistive technologies being developed to recognise them. \cite{smashingAPIs}
+
+In the late 1990's, accessibility APIs were introduced as an alternative that provided a more reliable way to pass information to assistive technologies. For the first time, developers had the ability to provide information to assistive technologies in a consistent way.
+
+Although this was a step up from the previous way of simply guessing information about pages, many early accessibility APIs still did not provide much structural information for the page, making it hard to understand how objects related to each other. New APIs were developed over the next decade, which were then able to provide information on page structure and rich text formatting.
+
+Accessibility APIs represent objects in a UI, with each object able to be queried for information, including its role, name and current state. UI's are represented as a hierarchical tree, and many different elements are now able to be recognised, such as tabular layouts, and event notifications.
+
+There are accessibility APIs on all major operating systems (both desktop and mobile), and browsers typically support the accessibility API for the platform they're running on, passing information about the browser and the rendered content onto the API.
+
+One of the problems developers face is not being able to add to accessibility APIs, they can only write in semantics that will work well with an API but not directly influence the accessibility tree that an assistive technology will form.
+
+A new (and still experimental) technology currently being worked on is the Accessibility Object Model (AOM). This aims to allow developers to directly provide information to assistive technology APIs via adding custom fields to elements on a page.
+
+% LATER - add more to AOM bit?
+
+\section{Accessible Visuals}
+
+Visuals are often used to quickly and easily convey large amounts of information to a reader. Data in tabular form can be hard to dig through, and graphs allow viewers to spot both simple and complex trends across many fields in one go, and also draw their own conclusions about the data without having to see a large amount of raw data.
+
+% LATER say something more about visuals
+
+\subsection{Challenge with Creating Accessible Visuals}
+
+Making pictures and graphs accessible on the web is often done by adding alt-text attributes to detail what an image shows. But it is easy to see why it would be hard to encompass the same level of detail in words for a graph than a viewer would be able to get visually
+
+\begin{itemize}
+    \item "Graph showing stock price over time" - does not convey any actual information about the data in the graph
+    \item "Graph showing upward trend of stock price" - conveys a bit more information about the data, but does not allow the user to get any sense of prices
+    \item "Graph showing upward trend of stock price from $\pounds$ 60 to $\pounds$ 180 over 2 years" - gives some idea of prices and how fast they climbed but does not allow the user to see smaller details such as any dips in price
+\end{itemize}
+%
+It is clear that in order for a text-based web user to have anywhere close to the insight that a sighted user would have from a graph, a large amount of long-winded description would need to be included with any graphs, which can be hard and long for a developer to write. Many developers try to account for this by also including the data in tabular form, which screen-readers can access and read. However, this is a clunky solution, especially as if the data was displayed graphically in the first place, it was likely not very easily consumable in tabular form.
+
+\subsection{Current Solutions}
+
+There are many JavaScript graphing libraries available for the web, most notably libraries such as Chart.js, D3.js, Highcharts and Google Charts.
+
+Most of these libraries have some accessibility in mind in terms of alt-text and navigating via keyboard, but a big problem is consistency among browsers. Libraries like D3 and AmCharts use SVG to form the images, and the \texttt{tabindex} property (specifying order for the TAB key to move through shapes) is not implemented in all main browsers yet.
+
+The Highcharts library offers some accessibility in terms of a custom module that can be loaded in. This provides the ability to show screen reader users the data in raw form, and to use high-contrast patterns in the graph. However, this still relies on the user to add sufficient alt-text to the graph, and requires some custom set up from the user in terms of turning on a lot of different settings to enable keyboard navigation and other accessibility features.
+
+% LATER - write more
+% Highcharts
+% Amcharts
+% Kendo UI
+% Evocharts
+
+\subsection{Aim}
+
+In this paper, we will explore the creation of a fully-functioning Javascript graphing library that comes with accessibility out-of-the-box.
+
+This library will provide key accessibility features for several different types of graphs, with minimal work from the developer. In order to focus on accessibility and functionality, this library will be limited to a few common types of graphs.
+
+% LATER - write more
+% Idea - make graphs accessible - tool for developers - make it easier for developers to be accessible then more will do it
+% Possible solutions - framework, linter-type thing to add to components
+% "in this paper we will explore the creation of a fully functioning javascript library that will allow developers to generate fully accessible graphics (to ARIA standards) with minimal work"
+% "we will also explore some other possible solutions, including the currently experimental AOM"
+
+\subsection{Technical Challenges}
+
+One of the main technical challenges is making a solution that creates graphs that are usable for people browsing with and without assistive technologies.
+
+It is also key to note that while the WCAG provides some clear guidelines on making content accessible, it is still hard to get every use case due to the diverse needs of people using the internet.
+
+When trying to provide all the information that sighted users would see via audio, it will also be important to keep a balance between providing relevant information and overloading the user.
+
+From a usability standpoint, it will also need to be easy for developers to use, but still be able to be customised enough that developers can create custom graphics to their liking, while maintaining the same level of accessibility.
+
+% LATER - write more
+% Technical - making a solution that works for both accessible and normal users out of the box
+% Accessibility challenges - hard to truly get every use case, the W3C guidelines are many research - will use those as a good indicator
+% Need the balance between providing relevant info and overloading the user (as per cognitive guideline)
+% Need it to be plug-and-play for developers - as easy as other libraries
+
+\section{Related Work}
+
+% {TODO}
+
+% LATER - write
+% Some papers
+% Some books
+
+\chapter{Design}
+
+\chapter{Implementation}
+
+\chapter{Study}
+
+\chapter{Conclusion and Future Work}
+
+\chapter{Glossary}
+
+% LATER - add more
+
+When talking about web accessibility, it is useful to highlight some key terms
+\hfill \break
+%
+\glsaddall 
+\printglossary[nonumberlist]
+
+\printbibliography
+
+\end{document}
+
+%-----------------------------------------------------------------------
+% Plan
+%-----------------------------------------------------------------------
+
+% WAI-ARIA compliant
+% Screen-reader
+% Insight on stats?
+% Able to tab through (each bar/bubble?)
+% Different patterns for colour-blind users
+% Stick to few types - bars, pie, line, stacked bars?
+% For line talk about trends, for bar/pie talk about most "X is most, do you want to hear more?"
