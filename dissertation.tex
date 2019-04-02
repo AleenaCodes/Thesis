@@ -35,7 +35,7 @@
                       year={2019} ]{dissertation}
 
 \usepackage[utf8]{inputenc}
-\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{2}
 
 \usepackage{glossaries}
 \renewcommand{\glossarysection}[2][]{}
@@ -47,7 +47,7 @@
 %  left=30mm,
 %  top=20mm,
 %  }
-%  \renewcommand{\baselinestretch}{1.3}
+ \renewcommand{\baselinestretch}{1.4}
 
 \usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
 \addbibresource{citations.bib}
@@ -119,6 +119,8 @@ of authorship may still be produced online via
 \mainmatter
 
 \chapter{Abstract}
+
+% TODO - write
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id hendrerit libero. In in cursus leo, sit amet tristique risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris nec arcu at elit tincidunt interdum sit amet at sem. Etiam ultrices, metus id pulvinar cursus, massa est fermentum nunc, vitae facilisis lectus turpis non dolor. Fusce a egestas lorem. In a orci vitae nunc pulvinar sodales ut nec odio. Nunc eu cursus orci, at tempus orci. Nullam consequat neque a hendrerit luctus. Etiam ut turpis augue. Nunc iaculis, tellus eget semper lobortis, sem velit euismod sapien, at lacinia ligula sem a urna. 
 
@@ -386,7 +388,7 @@ The Highcharts library offers some accessibility in terms of a custom module tha
 
 \subsection{Aim}
 
-In this paper, we will explore the creation of a fully-functioning Javascript graphing library that comes with accessibility out-of-the-box.
+In this paper, I will explore the creation of a fully-functioning Javascript graphing library that comes with accessibility out-of-the-box.
 
 This library will provide key accessibility features for several different types of graphs, with minimal work from the developer. In order to focus on accessibility and functionality, this library will be limited to a few common types of graphs.
 
@@ -422,23 +424,102 @@ From a usability standpoint, it will also need to be easy for developers to use,
 
 \chapter{Design}
 
+\section{Basics}
+
 When thinking about the implementation, there were 3 main areas to think about
 
 \begin{itemize}
     \item Types of Graphs
+    \begin{itemize}
+        \item I decided to focus on 3 different graph types - bar graphs, line graphs and pie charts
+        \item These chart types are some of the more commonly-used ones, and are different enough to provide a varied proof of concept
+    \end{itemize}
     \item Information to present
+    \begin{itemize}
+        \item Screen-reader users don't tend to listen to the full web page, instead scrolling through quickly to find information that they need
+        \item In order to accommodate this, I aimed to create labels that weren't too verbose, and that had the most pertinent information at the start of the line
+        \item I felt that the key information to present was the headings and values, and also to highlight some broader trends without overloading the user with too much detail
+    \end{itemize}
     \item Colours and Patterns
+    \begin{itemize}
+        \item Use of colour and pattern is important for users who are partially-sighted, or colourblind
+        \item The WCAG required a minimum levels of contrast of 4.5:1 between colours to fulfil criteria \textit{1.4.3}, so I used this as a guideline to select colours
+        \item I wanted to also add different patterns for different colours, as these can help users distinguish between different sections, and also allow some which space between corresponding bars and segments
+    \end{itemize}
 \end{itemize}
+
+\section{Accessibility Tree}
+
+When looking at web accessibility, a key concept is the accessibility tree - a tree structure created from a web page's DOM, which assistive technologies are then able to interact with.
+
+% TODO - diagram of how assistive tech uses accessibility trees?
+
+Many browsers, such as Mozilla Firefox, provide tools to directly view the accessibility tree, and so I aimed to use syntax to create as clean an accessibility tree as possible (and by extension the DOM would also be clean).
+
+The WAI-ARIA standards provide a set of roles, states and properties that can be given to HTML elements, along with a way to label these, and so I aimed to use these extensively to build an accessibility tree with correct elements and labels
+
+% Literally want like 4 more pages on this!
 
 \chapter{Implementation}
 
-\chapter{Study}
+\section{Implementation of syntax}
+
+% - "Inlining the SVG provides more predictable results and control than if it is added with <use> or <img> because the SVG source is directly available in the DOM which is exposed to the accessibility API that is used by AT." - from https://css-tricks.com/accessible-svgs/
+
+% - SVG 2
+%     - Newer
+%     - Implements things like tabindex (important for keyboard focus), whereas previously people used <a> tag for keyboard focus
+%     - Not yet implemented everywhere
+%     - Trying to use some new SVG attributes (such as tabindex) but lots of SVG2 is not yet implemented, even in accessibility-forward browsers like Firefox (https://developer.mozilla.org/en-US/docs/Web/SVG/SVG_2_support_in_Mozilla)
+
+% - Using <figure> is good as it's a sectioning root - it's children don't contribute to the outline of its ancestor
+
+% - Couldn't seem to get describedby working, doubled-up on labelledby
+
+% - Used SVG title and desc properties
+
+% - Used aria-hidden for extra parts (axis etc.)
+
+% - Needed skip link to satisfy WCAG and stop people being forced to scroll through loads
+
+\section{Implementation of library}
+
+% - Required less new research so a bit more simple
+% - Some maths for trends
+% - API design
+%  - Chosen methods
+%  - Parameters (tried to keep to simple)
+
+\section{Limitations}
+
+% - Not an effective solution for large data - will become long to read and skip over
+% - Readable doesn't mean accessible
+% - Hard to make a solution that's accessible for *everyone* - infinite use-cases
+% - Some implementation limitations - Arrows keys bit odd - not really a way to define arrow key navigation
+% - Library not very customisable at the moment - could do with colours choosing etc.
+
+\chapter{Evaluation}
+
+\section{Study}
+
+\section{WCAG}
+
+% - WCAG is guidelines
+% - Following table shows all criteria being fulfilled
+
+\section{Other?}
+
+% - Things like speed compared to other libraries such as d3
 
 \chapter{Conclusion and Future Work}
 
+% - More customisable library?
+% - Expand to more graph types etc.
+% - Goals I had for the project, and did I fulfill them (aim for 3/4 goals?)
+
 \chapter{Glossary}
 
-% LATER - add more
+% TODO - add more
 
 When talking about web accessibility, it is useful to highlight some key terms
 
