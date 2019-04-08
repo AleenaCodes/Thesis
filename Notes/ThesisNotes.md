@@ -12,3 +12,5 @@
 - Arrows keys bit odd - not really a way to define arrow key navigation
 
 - Table showing WCAG guidelines are met? Will probs be long so for the appendix
+
+- Stuff about not woring on Safari/MacOS initially
