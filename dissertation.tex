@@ -1,7 +1,7 @@
 % The document class supplies options to control rendering of some standard
-% features in the result.  The goal is for uniform style, so some attention 
+% features in the result.  The goal is for uniform style, so some attention
 % to detail is *vital* with all fields.  Each field (i.e., text inside the
-% curly braces below, so the MEng text inside {MEng} for instance) should 
+% curly braces below, so the MEng text inside {MEng} for instance) should
 % take into account the following:
 %
 % - author name       should be formatted as "FirstName LastName"
@@ -61,29 +61,29 @@
 
 % This section simply introduces the structural guidelines.  It can clearly
 % be deleted (or commented out) if you use the file as a template for your
-% own dissertation: everything following it is in the correct order to use 
+% own dissertation: everything following it is in the correct order to use
 % as is.
 
 \iffalse
 \section*{Prelude}
 \thispagestyle{empty}
 
-A typical dissertation will be structured according to (somewhat) standard 
-sections, described in what follows.  However, it is hard and perhaps even 
-counter-productive to generalise: the goal is {\em not} to be prescriptive, 
+A typical dissertation will be structured according to (somewhat) standard
+sections, described in what follows.  However, it is hard and perhaps even
+counter-productive to generalise: the goal is {\em not} to be prescriptive,
 but simply to act as a guideline.  In particular, each page count given is
-important but {\em not} absolute: their aim is simply to highlight that a 
+important but {\em not} absolute: their aim is simply to highlight that a
 clear, concise description is better than a rambling alternative that makes
 it hard to separate important content and facts from trivia.
 
-You can use this document as a \LaTeX-based~\cite{latexbook1,latexbook2} 
+You can use this document as a \LaTeX-based~\cite{latexbook1,latexbook2}
 template for your own dissertation by simply deleting extraneous sections
 and content; keep in mind that the associated {\tt Makefile} could be of
-use, in particular because it automatically executes \mbox{BibTeX} to 
-deal with the associated bibliography.  
+use, in particular because it automatically executes \mbox{BibTeX} to
+deal with the associated bibliography.
 
-You can, on the other hand, opt {\em not} to use this template; this is a 
-perfectly acceptable approach.  Note that a standard cover and declaration 
+You can, on the other hand, opt {\em not} to use this template; this is a
+perfectly acceptable approach.  Note that a standard cover and declaration
 of authorship may still be produced online via
 \[
 \mbox{\url{http://www.cs.bris.ac.uk/Teaching/Resources/cover.html}}
@@ -93,7 +93,7 @@ of authorship may still be produced online via
 % =============================================================================
 
 % This macro creates the standard UoB title page by using information drawn
-% from the document class (meaning it is vital you select the correct degree 
+% from the document class (meaning it is vital you select the correct degree
 % title and so on).
 
 \maketitle
@@ -111,7 +111,7 @@ of authorship may still be produced online via
 
 \tableofcontents
 
-% LaTeX automatically generates a table of contents, plus associated lists 
+% LaTeX automatically generates a table of contents, plus associated lists
 % of figures, tables and algorithms.  The former is a compulsory part of the
 % dissertation, but if you do not require the latter they can be suppressed
 % by simply commenting out the associated macro.
@@ -122,7 +122,7 @@ of authorship may still be produced online via
 
 % TODO - write
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id hendrerit libero. In in cursus leo, sit amet tristique risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris nec arcu at elit tincidunt interdum sit amet at sem. Etiam ultrices, metus id pulvinar cursus, massa est fermentum nunc, vitae facilisis lectus turpis non dolor. Fusce a egestas lorem. In a orci vitae nunc pulvinar sodales ut nec odio. Nunc eu cursus orci, at tempus orci. Nullam consequat neque a hendrerit luctus. Etiam ut turpis augue. Nunc iaculis, tellus eget semper lobortis, sem velit euismod sapien, at lacinia ligula sem a urna. 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id hendrerit libero. In in cursus leo, sit amet tristique risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris nec arcu at elit tincidunt interdum sit amet at sem. Etiam ultrices, metus id pulvinar cursus, massa est fermentum nunc, vitae facilisis lectus turpis non dolor. Fusce a egestas lorem. In a orci vitae nunc pulvinar sodales ut nec odio. Nunc eu cursus orci, at tempus orci. Nullam consequat neque a hendrerit luctus. Etiam ut turpis augue. Nunc iaculis, tellus eget semper lobortis, sem velit euismod sapien, at lacinia ligula sem a urna.
 
 \chapter{Background}
 
@@ -191,10 +191,10 @@ Focusing on site accessibility not only demonstrates corporate social responsibi
 
 \section{The Current State of Web Accessibility}
 
-When the internet began, the idea of accessibility was at its core - 
+When the internet began, the idea of accessibility was at its core -
 
-\begin{quote} 
-\centering 
+\begin{quote}
+\centering
 "The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect."
 
 - Tim Berners-Lee, W3C Director and inventor of the World Wide Web
@@ -255,7 +255,7 @@ The WAI-ARIA \cite{WAIARIA} is a technical specification for making web pages ac
 
 \subsubsection{Tools for Development}
 
-When aiming to develop an accessible website, there is no easy route - instead, it is important to keep accessibility in mind throughout the design and development process. The WCAG should be consulted when designing the site, and WAI-ARIA for guidelines on the semantics to use when developing the site. 
+When aiming to develop an accessible website, there is no easy route - instead, it is important to keep accessibility in mind throughout the design and development process. The WCAG should be consulted when designing the site, and WAI-ARIA for guidelines on the semantics to use when developing the site.
 
 As HTML5 is designed to be accessible, it is key to try and keep things as simple as possible, and not try to do "hacky" things when developing a site, such as using CSS to change the ordering of how elements show on a page. It is also important to use the designated HTML elements for each component on a page, such as using a \texttt{<button>} tag for a button instead of adding a \texttt{<span>} and styling it into a button.
 
@@ -269,7 +269,7 @@ There are many tools that can also be used to evaluate a site's accessibility or
 
 Several well-made tools are available freely online to test and fix accessibility issues. Pa11y \cite{pa11y} provides a suite of tools to flag up accessibility issues, including tools that can be integrated into a CI workflow and provide live feedback on issues. HTML\_CodeSniffer \cite{codesniffer} is a linter that allows different standards, such as WCAG, to be checked against code. WAVE \cite{wave} is another web accessibility evaluation tool that simply takes a URL and evaluates missing accessibility features.
 
-It can be useful during development for a developer to simulate different disabilities to test the sight, as this can flag up larger issues before testing on people who use assistive technologies. Testing with a screen reader is a good way to understand how a site will sound , JAWS and NVDA are two of the most commonly-used screen readers. Most platforms also have native screen-readers that can be tested with - Voiceover for Mac and iOS, Narrator for Windows, TalkBack for Android. 
+It can be useful during development for a developer to simulate different disabilities to test the sight, as this can flag up larger issues before testing on people who use assistive technologies. Testing with a screen reader is a good way to understand how a site will sound , JAWS and NVDA are two of the most commonly-used screen readers. Most platforms also have native screen-readers that can be tested with - Voiceover for Mac and iOS, Narrator for Windows, TalkBack for Android.
 
 It can also be useful to check how a sight looks for Some tools for this include Check My Colours \cite{colourchecker} to check colour contrast, and Color Oracle \cite{colororacle} to simulate colour blindness.
 
@@ -293,11 +293,11 @@ With each of these approaches, they require the developer to give correct layout
 \paragraph{Assistive Technologies}
 
 \begin{center}
-\begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|} 
+\begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
  \hline
- Technology & Usage & Developer Notes \\ [0.5ex] 
+ Technology & Usage & Developer Notes \\ [0.5ex]
  \hline \hline
- Screen Reader & Processes content on desktops and browsers, and converts it to audio or braille & Content needs to be structured properly and include labels and descriptions where needed, semantic HTML should be used as far as possible \\ 
+ Screen Reader & Processes content on desktops and browsers, and converts it to audio or braille & Content needs to be structured properly and include labels and descriptions where needed, semantic HTML should be used as far as possible \\
  \hline
  Pop-up/Animation Blocker & Stops automatic pop-ups and redirection & Important info should not be included in pop-ups, and site browsing flow should not include redirection \\
  \hline
@@ -309,7 +309,7 @@ With each of these approaches, they require the developer to give correct layout
  \hline
  Eye Tracking & Monitors eye movements to control the mouse pointer, and blinking to click the mouse & Clickable areas on the page should not be too small \\
  \hline
- Voice Tracking & Uses voice commands to dictate text and issue commands & Different sections and clickable areas should be labelled well \\ [1ex] 
+ Voice Tracking & Uses voice commands to dictate text and issue commands & Different sections and clickable areas should be labelled well \\ [1ex]
  \hline
 \end{tabular}
 \end{center}
@@ -321,15 +321,15 @@ With each of these approaches, they require the developer to give correct layout
 \begin{center}
 \begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
  \hline
- Technology & Usage & Developer Notes \\ [0.5ex] 
+ Technology & Usage & Developer Notes \\ [0.5ex]
  \hline \hline
- Captions & Text with verbatim recording of any speech or audio & Video platforms should be built to allow simultaneous captioning files to be run alongside video files \\ 
+ Captions & Text with verbatim recording of any speech or audio & Video platforms should be built to allow simultaneous captioning files to be run alongside video files \\
  \hline
  Screen Magnifier/Bigger Fonts & Pages can be magnified either be magnifying small sections or increasing font sizes overall & Page layouts should support text changes by using relative units for measurements and allow re-flow of text \\
  \hline
  Higher Contrast & Colours with significant contrast are easier to view for less-sighted and colour-blind users & Colour palettes should be decided in advance and tested via WCAG guidelines \\
  \hline
- Volume Control & Audio may need to be volume-adjusted or turned off altogether & Audio should not autoplay in order to not interfere with audio technologies, and options to adjust volume (including to 0) should be visible and accessible to both mouse and keyboard technologies \\ [1ex] 
+ Volume Control & Audio may need to be volume-adjusted or turned off altogether & Audio should not autoplay in order to not interfere with audio technologies, and options to adjust volume (including to 0) should be visible and accessible to both mouse and keyboard technologies \\ [1ex]
  \hline
 \end{tabular}
 \end{center}
@@ -450,8 +450,9 @@ When thinking about the implementation, there were 3 main areas to think about
 
 \section{Accessibility Tree}
 
-When looking at web accessibility, a key concept is the accessibility tree - a tree structure created from a web page's DOM, which assistive technologies are then able to interact with.
+When looking at web accessibility, a key concept is the accessibility tree - a tree structure created from a web page's DOM, which assistive technologies are then able to interact with. One of the major technical issues with this project was that, while the accessibility tree for a given webpage would always be the same, different assistive technologies all interpreted this differently, and so it was hard to make a solution that worked across all of the common screen-reader/browser/operating system combinations.
 
+% TODO - is the bit about accessibility trees correct? (could also do with a reword of the second sentence)
 % TODO - diagram of how assistive tech uses accessibility trees?
 
 Many browsers, such as Mozilla Firefox, provide tools to directly view the accessibility tree, and so I aimed to use syntax to create as clean an accessibility tree as possible (and by extension the DOM would also be clean).
@@ -464,7 +465,19 @@ The WAI-ARIA standards provide a set of roles, states and properties that can be
 
 \section{Implementation of syntax}
 
-% - "Inlining the SVG provides more predictable results and control than if it is added with <use> or <img> because the SVG source is directly available in the DOM which is exposed to the accessibility API that is used by AT." - from https://css-tricks.com/accessible-svgs/
+\subsection{Using SVG}
+
+The most common way of generating images in webpages is using SVG, either embedded (included from an external file) or inline. SVG allows geometric shapes to be specified and positioned, and so it was an obvious choice for this project.
+
+Inlining SVG provides more predictable results and better control over properties than adding in SVG files with a \textt{<img>} or \textt{<use>} tag. This is because the SVG source is then directly available in the DOM, which is exposed by the accessibility API used by assistive technologies.
+
+While SVG has been around for a while (since XXX), there has recently been a push towards a more modern version, resulting in a new specification for SVG 2 being released in XXX.
+
+One of the new features in this specication is the abilities to add \textt{tabindex} to SVG elements (such as shapes or text). This is useful, as previously the only way to make elements in an SVG that were focusable by keyboard, was by including a HTML element that supported this, such as the \textt{<a>} tag.
+
+Although the W3C has release this specification, the onus is on the makers of a browser to implement these new features in their browser. Thus far there has been little uptake on this, with most browsers only implementing part of the specification, including accessibility-forward browsers such as Mozilla Firefox.
+
+% TODO - find when SVG was made, and when SVG 2 was made.
 
 % - SVG 2
 %     - Newer
@@ -472,7 +485,13 @@ The WAI-ARIA standards provide a set of roles, states and properties that can be
 %     - Not yet implemented everywhere
 %     - Trying to use some new SVG attributes (such as tabindex) but lots of SVG2 is not yet implemented, even in accessibility-forward browsers like Firefox (https://developer.mozilla.org/en-US/docs/Web/SVG/SVG_2_support_in_Mozilla)
 
+\subsection{HTML Layout}
+
+As discussed before, I aimed to create as much of the accessibility tree as possible from using inbuilt HTML properties (e.g. using \textt{<h1>}) for headers as opposed to adding an ARIA role to achieve this.
+
 % - Using <figure> is good as it's a sectioning root - it's children don't contribute to the outline of its ancestor
+
+\subsection{ARIA syntax}
 
 % - Couldn't seem to get describedby working, doubled-up on labelledby
 
@@ -480,7 +499,16 @@ The WAI-ARIA standards provide a set of roles, states and properties that can be
 
 % - Used aria-hidden for extra parts (axis etc.)
 
+\subsection{WCAG}
+
 % - Needed skip link to satisfy WCAG and stop people being forced to scroll through loads
+
+\subsection{Expanding for compatibility in Safari/MacOS}
+
+% Look at code before and after MacOS changes
+% This is a good example of gross inconsistencies among even the top software (things that should be well-maintained!)
+% Look at git commits on 4/4 and 5/4 for reference of changes made
+
 
 \section{Implementation of library}
 
@@ -525,7 +553,7 @@ When talking about web accessibility, it is useful to highlight some key terms
 
 \BlankLine
 %
-\glsaddall 
+\glsaddall
 \printglossary[nonumberlist]
 
 \printbibliography

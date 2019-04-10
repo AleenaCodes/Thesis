@@ -13,4 +13,4 @@
 
 - Table showing WCAG guidelines are met? Will probs be long so for the appendix
 
-- Stuff about not woring on Safari/MacOS initially
+- Stuff about not working on Safari/MacOS initially
