@@ -469,11 +469,11 @@ The WAI-ARIA standards provide a set of roles, states and properties that can be
 
 The most common way of generating images in webpages is using SVG, either embedded (included from an external file) or inline. SVG allows geometric shapes to be specified and positioned, and so it was an obvious choice for this project.
 
-Inlining SVG provides more predictable results and better control over properties than adding in SVG files with a \textt{<img>} or \textt{<use>} tag. This is because the SVG source is then directly available in the DOM, which is exposed by the accessibility API used by assistive technologies.
+Inlining SVG provides more predictable results and better control over properties than adding in SVG files with a \texttt{<img>} or \texttt{<use>} tag. This is because the SVG source is then directly available in the DOM, which is exposed by the accessibility API used by assistive technologies.
 
 While SVG has been around for a while (since XXX), there has recently been a push towards a more modern version, resulting in a new specification for SVG 2 being released in XXX.
 
-One of the new features in this specication is the abilities to add \textt{tabindex} to SVG elements (such as shapes or text). This is useful, as previously the only way to make elements in an SVG that were focusable by keyboard, was by including a HTML element that supported this, such as the \textt{<a>} tag.
+One of the new features in this specification is the abilities to add \texttt{tabindex} to SVG elements (such as shapes or text). This is useful, as previously the only way to make elements in an SVG that were focusable by keyboard, was by including a HTML element that supported this, such as the \texttt{<a>} tag.
 
 Although the W3C has release this specification, the onus is on the makers of a browser to implement these new features in their browser. Thus far there has been little uptake on this, with most browsers only implementing part of the specification, including accessibility-forward browsers such as Mozilla Firefox.
 
@@ -487,7 +487,7 @@ Although the W3C has release this specification, the onus is on the makers of a 
 
 \subsection{HTML Layout}
 
-As discussed before, I aimed to create as much of the accessibility tree as possible from using inbuilt HTML properties (e.g. using \textt{<h1>}) for headers as opposed to adding an ARIA role to achieve this.
+As discussed before, I aimed to create as much of the accessibility tree as possible from using inbuilt HTML properties (e.g. using \texttt{<h1>}) for headers as opposed to adding an ARIA role to achieve this.
 
 % - Using <figure> is good as it's a sectioning root - it's children don't contribute to the outline of its ancestor
 
@@ -507,7 +507,7 @@ As discussed before, I aimed to create as much of the accessibility tree as poss
 
 % Look at code before and after MacOS changes
 % This is a good example of gross inconsistencies among even the top software (things that should be well-maintained!)
-% Look at git commits on 4/4 and 5/4 for reference of changes made
+% - Barebones worked on windows with Firefox and Chrome, NVDA + Jaws (all popular combos), but had to add extra for it to work on MacOS (see git diff for github site on 4/4 and 5/4)
 
 
 \section{Implementation of library}
