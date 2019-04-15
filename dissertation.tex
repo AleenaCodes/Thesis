@@ -475,7 +475,7 @@ While SVG has been around for a while (since XXX), there has recently been a pus
 
 One of the new features in this specification is the abilities to add \texttt{tabindex} to SVG elements (such as shapes or text). This is useful, as previously the only way to make elements in an SVG that were focusable by keyboard, was by including a HTML element that supported this, such as the \texttt{<a>} tag.
 
-Although the W3C has release this specification, the onus is on the makers of a browser to implement these new features in their browser. Thus far there has been little uptake on this, with most browsers only implementing part of the specification, including accessibility-forward browsers such as Mozilla Firefox.
+Although the W3C has release this specification, the onus is on the makers of a browser to implement these new features in their browser. Thus far there has been little uptake on this, with most browsers only implementing part of the specification, including accessibility-forward browsers such as Mozilla Firefox. Hence it is not necessarily an easy task to make a solution that works consistently across multiple web browsers (a problem common in all branches of web development).
 
 % TODO - find when SVG was made, and when SVG 2 was made.
 
@@ -487,7 +487,11 @@ Although the W3C has release this specification, the onus is on the makers of a 
 
 \subsection{HTML Layout}
 
-As discussed before, I aimed to create as much of the accessibility tree as possible from using inbuilt HTML properties (e.g. using \texttt{<h1>}) for headers as opposed to adding an ARIA role to achieve this. ARIA provides custom roles for elements, but many of these double up with those assigned to native HTML elements (such as \texttt{role="button"}, which can also be assigned by using \texttt{<button>})
+As discussed before, I aimed to create as much of the accessibility tree as possible from using inbuilt HTML properties (e.g. using \texttt{<h1>}) for headers as opposed to adding an ARIA role to achieve this. ARIA provides custom roles for elements, but many of these double up with those assigned to native HTML elements (such as \texttt{role="button"}, which can also be assigned by using \texttt{<button>}).
+
+HTML5 introduced the concept of a webpage having "sections", with a new \texttt{<section>} tag that could be used to define a page's sections, as opposed to the more ambiguous \texttt{<div>}. 
+
+% TODO - write more on HTML sections
 
 
 % TODO - check that the button example makes sense
