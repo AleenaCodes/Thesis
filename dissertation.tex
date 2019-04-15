@@ -487,8 +487,10 @@ Although the W3C has release this specification, the onus is on the makers of a 
 
 \subsection{HTML Layout}
 
-As discussed before, I aimed to create as much of the accessibility tree as possible from using inbuilt HTML properties (e.g. using \texttt{<h1>}) for headers as opposed to adding an ARIA role to achieve this.
+As discussed before, I aimed to create as much of the accessibility tree as possible from using inbuilt HTML properties (e.g. using \texttt{<h1>}) for headers as opposed to adding an ARIA role to achieve this. ARIA provides custom roles for elements, but many of these double up with those assigned to native HTML elements (such as \texttt{role="button"}, which can also be assigned by using \texttt{<button>})
 
+
+% TODO - check that the button example makes sense
 % - Using <figure> is good as it's a sectioning root - it's children don't contribute to the outline of its ancestor
 
 \subsection{ARIA syntax}
