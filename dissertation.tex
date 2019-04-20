@@ -487,24 +487,36 @@ Although the W3C has release this specification, the onus is on the makers of a 
 
 \subsection{HTML Layout}
 
-As discussed before, I aimed to create as much of the accessibility tree as possible from using inbuilt HTML properties (e.g. using \texttt{<h1>}) for headers as opposed to adding an ARIA role to achieve this. ARIA provides custom roles for elements, but many of these double up with those assigned to native HTML elements (such as \texttt{role="button"}, which can also be assigned by using \texttt{<button>}).
+HTML, by virtue of being a markup language that defines only the structure of a webpage, is set up to generate a DOM that is true to the page's visual structure, and as web development has progressed, new elements have been added to account for commonly-used parts of a webpage.
 
-HTML5 introduced the concept of a webpage having "sections", with a new \texttt{<section>} tag that could be used to define a page's sections, as opposed to the more ambiguous \texttt{<div>}. 
+HTML5 introduced the concept of a webpage having "sections", with a new \texttt{<section>} tag that could be used to define a page's sections, as opposed to the more ambiguous \texttt{<div>}.
 
-% TODO - write more on HTML sections
+Sections are able to be nested within each other, giving the same type of structure as the original \texttt{<h1>, <h2>, <h3>} etc. tags created. However it is not always desirable to have every section's children included in the outline of it's parent.
 
-
-% TODO - check that the button example makes sense
-% - Using <figure> is good as it's a sectioning root - it's children don't contribute to the outline of its ancestor
-% - Used <figure> at first but it doubled up on "figure" in the accessibility tree - better to use <svg role="figure">
+A sectioning root is an HTML element that can have its own outline, but the sections and headings inside it do not contribute to the outline of its ancestor. The sectioning root \texttt{<figure>} is the key one that I used in my development, to create an element that was able to have many children (i.e. axis, datapoints etc.) and not create a lot of excess outline in the DOM for the parent section.
 
 \subsection{ARIA syntax}
 
-% - Couldn't seem to get describedby working, doubled-up on labelledby
+As discussed before, I aimed to create as much of the accessibility tree as possible from using inbuilt HTML properties (e.g. using \texttt{<h1>}) for headers as opposed to adding an ARIA role to achieve this. ARIA provides custom roles for elements, but many of these double up with those assigned to native HTML elements (such as \texttt{role="button"}, which can also be assigned by using \texttt{<button>}).
 
-% - Used SVG title and desc properties
+While I was initially using the element \texttt{<figure>} as the parent element, I found that it was easier to use the ARIA role \texttt{figure} directly as an attribute of the \texttt{<svg>} tag, thus making it act as a \texttt{<figure>} tag when it came to creating the DOM, and also meaning that it showed up directly as \texttt{figure} in the accessibility tree, as opposed to being an only-child \texttt{svg} nested inside a \texttt{figure}.
+
+I used the SVG properties \texttt{title} and \texttt{desc} to create a title and description for the chart. A lot of browsers were able to use only this to correctly label the figure in the accessibility tree, but I also encoded this in using ARIA.
+
+The ARIA property \texttt{aria-labelledby} is used to create a label that is displayed in the accessibility tree only, thus making it only visible to people using assistive technologies, and not available to those browsing the web normally.
+
+The \texttt{aria-labelledby} property, alongside the \texttt{aria-describedby} property identify the element(s) are used to label and describe the current element (\texttt{describedby} is intended for a more verbose description).
+
+In my case, I found that \texttt{aria-describedby} did not work very consistently across browsers, and so was largely pointless in most use cases. Instead, I doubled on \texttt{aria-labelledby} to include both the title and description.
+
+Through using both the \texttt{<title>} and \texttt{desc} for the SVG, and using \texttt{aria-labelledby} to also link these, I covered most browser/screen-reader combinations for reading this out.
+
+
+% TODO - check that the button example makes sense
 
 % - Used aria-hidden for extra parts (axis etc.)
+
+% aria-label is different - takes string instead of element
 
 \subsection{WCAG}
 
@@ -536,6 +548,12 @@ HTML5 introduced the concept of a webpage having "sections", with a new \texttt{
 \chapter{Evaluation}
 
 \section{Study}
+
+\subsection{Study Design}
+
+\subsection{Results}
+
+\subsection{Analysis}
 
 \section{WCAG}
 
