@@ -269,7 +269,7 @@ There are many tools that can also be used to evaluate a site's accessibility or
 
 Several well-made tools are available freely online to test and fix accessibility issues. Pa11y \cite{pa11y} provides a suite of tools to flag up accessibility issues, including tools that can be integrated into a CI workflow and provide live feedback on issues. HTML\_CodeSniffer \cite{codesniffer} is a linter that allows different standards, such as WCAG, to be checked against code. WAVE \cite{wave} is another web accessibility evaluation tool that simply takes a URL and evaluates missing accessibility features.
 
-It can be useful during development for a developer to simulate different disabilities to test the sight, as this can flag up larger issues before testing on people who use assistive technologies. Testing with a screen reader is a good way to understand how a site will sound , JAWS and NVDA are two of the most commonly-used screen readers. Most platforms also have native screen-readers that can be tested with - Voiceover for Mac and iOS, Narrator for Windows, TalkBack for Android.
+It can be useful during development for a developer to simulate different disabilities to test the sight, as this can flag up larger issues before testing on people who use assistive technologies. Testing with a screen-reader is a good way to understand how a site will sound , JAWS and NVDA are two of the most commonly-used screen-readers. Most platforms also have native screen-readers that can be tested with - Voiceover for Mac and iOS, Narrator for Windows, TalkBack for Android.
 
 It can also be useful to check how a sight looks for Some tools for this include Check My Colours \cite{colourchecker} to check colour contrast, and Color Oracle \cite{colororacle} to simulate colour blindness.
 
@@ -284,7 +284,7 @@ Overall, we can see that there is a wide range of tools that are designed to hel
 Users with disabilities tend to have two different approaches to interactions with the web
 
 \begin{itemize}
-    \item Assistive Technologies - using tools like screen readers and voice recognition software to turn parts or all of websites into an understandable format
+    \item Assistive Technologies - using tools like screen-readers and voice recognition software to turn parts or all of websites into an understandable format
     \item Adaptive Strategies - making small changes to a site's format to make it easier to process, such as making fonts larger or turning captions on for videos
 \end{itemize}
 
@@ -297,7 +297,7 @@ With each of these approaches, they require the developer to give correct layout
  \hline
  Technology & Usage & Developer Notes \\ [0.5ex]
  \hline \hline
- Screen Reader & Processes content on desktops and browsers, and converts it to audio or braille & Content needs to be structured properly and include labels and descriptions where needed, semantic HTML should be used as far as possible \\
+ Screen-Reader & Processes content on desktops and browsers, and converts it to audio or braille & Content needs to be structured properly and include labels and descriptions where needed, semantic HTML should be used as far as possible \\
  \hline
  Pop-up/Animation Blocker & Stops automatic pop-ups and redirection & Important info should not be included in pop-ups, and site browsing flow should not include redirection \\
  \hline
@@ -378,7 +378,7 @@ There are many JavaScript graphing libraries available for the web, most notably
 
 Most of these libraries have some accessibility in mind in terms of alt-text and navigating via keyboard, but a big problem is consistency among browsers. Libraries like D3 and AmCharts use SVG to form the images, and the \texttt{tabindex} property (specifying order for the TAB key to move through shapes) is not implemented in all main browsers yet.
 
-The Highcharts library offers some accessibility in terms of a custom module that can be loaded in. This provides the ability to show screen reader users the data in raw form, and to use high-contrast patterns in the graph. However, this still relies on the user to add sufficient alt-text to the graph, and requires some custom set up from the user in terms of turning on a lot of different settings to enable keyboard navigation and other accessibility features.
+The Highcharts library offers some accessibility in terms of a custom module that can be loaded in. This provides the ability to show screen-reader users the data in raw form, and to use high-contrast patterns in the graph. However, this still relies on the user to add sufficient alt-text to the graph, and requires some custom set up from the user in terms of turning on a lot of different settings to enable keyboard navigation and other accessibility features.
 
 % LATER - write more
 % Highcharts
@@ -499,6 +499,8 @@ A sectioning root is an HTML element that can have its own outline, but the sect
 
 As discussed before, I aimed to create as much of the accessibility tree as possible from using inbuilt HTML properties (e.g. using \texttt{<h1>}) for headers as opposed to adding an ARIA role to achieve this. ARIA provides custom roles for elements, but many of these double up with those assigned to native HTML elements (such as \texttt{role="button"}, which can also be assigned by using \texttt{<button>}).
 
+% TODO - check that the button example makes sense
+
 While I was initially using the element \texttt{<figure>} as the parent element, I found that it was easier to use the ARIA role \texttt{figure} directly as an attribute of the \texttt{<svg>} tag, thus making it act as a \texttt{<figure>} tag when it came to creating the DOM, and also meaning that it showed up directly as \texttt{figure} in the accessibility tree, as opposed to being an only-child \texttt{svg} nested inside a \texttt{figure}.
 
 I used the SVG properties \texttt{title} and \texttt{desc} to create a title and description for the chart. A lot of browsers were able to use only this to correctly label the figure in the accessibility tree, but I also encoded this in using ARIA.
@@ -511,12 +513,13 @@ In my case, I found that \texttt{aria-describedby} did not work very consistentl
 
 Through using both the \texttt{<title>} and \texttt{desc} for the SVG, and using \texttt{aria-labelledby} to also link these, I covered most browser/screen-reader combinations for reading this out.
 
+Since the reader was going to browse through the contents of the SVG, I also used \texttt{aria-hidden} to hide the excess parts of the chart, such as the lines and labelling for each axis. This was an effective way to keep these out of the accessibility but keep them in the DOM, so visible on the page.
 
-% TODO - check that the button example makes sense
+In order to make the each data point able to be accessed individually, I added a \texttt{tabindex=0} property to each data point. This made each of these elements focusable and thus added them to the order in sequential keyboard navigation, letting them be accessed by using the \textit{Tab} key on a keyboard.
 
-% - Used aria-hidden for extra parts (axis etc.)
+I also grouped the datapoints in an SVG group \texttt{<g>} and gave this an ARIA role of \texttt{list}, along with a \texttt{<title>}. This meant that when a screen-reader came across the list it would read out the title. I then added each data point as an SVG group of its own, with an ARIA role of \texttt{listitem}, and a \texttt{<title>}, which the screen-reader would read out on focussing on each list item. Setting up the chart as a \texttt{list} containing a set of \texttt{listitem} also meant that users of technologies that have other shortcuts for navigating lists could also use these.
 
-% aria-label is different - takes string instead of element
+The key part of making these graphs interactive was adding relevant information to each data point that an assistive technology would be able to access. For this I used the \texttt{aria-label} attribute to label each. This is similar to \texttt{aria-labelledby} but uses a direct string to read out, as opposed to referencing another HTML element as a label.
 
 \subsection{WCAG}
 
@@ -527,6 +530,7 @@ Through using both the \texttt{<title>} and \texttt{desc} for the SVG, and using
 % Look at code before and after MacOS changes
 % This is a good example of gross inconsistencies among even the top software (things that should be well-maintained!)
 % - Barebones worked on windows with Firefox and Chrome, NVDA + Jaws (all popular combos), but had to add extra for it to work on MacOS (see git diff for github site on 4/4 and 5/4)
+% Had to add aria-label to the svg list item as Voiceover wouldn't pick up on it 
 
 
 \section{Implementation of library}
@@ -536,6 +540,8 @@ Through using both the \texttt{<title>} and \texttt{desc} for the SVG, and using
 % - API design
 %  - Chosen methods
 %  - Parameters (tried to keep to simple)
+
+% - Had to use CreateElementNS and SetAttributeNS as SVGs are a bit fiddly (find the technical term - different namespace?)
 
 \section{Limitations}
 

@@ -198,7 +198,7 @@
   \pagenumbering{roman}
 }
 \renewcommand{\mainmatter}{
-  \cleardoublepage
+  \let\cleardoublepage\clearpage
   \pagestyle{marked}
   \pagenumbering{arabic}
 }
