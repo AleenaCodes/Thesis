@@ -4,15 +4,15 @@
     "value": 1900
   },
   {
-    "name" : "Youtube",
-    "value": 1000
-  },
-  {
     "name" : "Instagram",
     "value": 500
   },
   {
     "name" : "Twitter",
     "value": 320
+  },
+  {
+    "name" : "Youtube",
+    "value": 1000
   }
 ]
