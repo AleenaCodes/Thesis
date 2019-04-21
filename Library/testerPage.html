@@ -9,7 +9,6 @@
 </head>
 <body>
   <div id="container">
-
     <div id="header">
       <h1>Graph Demo</h1>
     </div>
@@ -19,11 +18,16 @@
     </div>
     <div id="graph2"></div>
   </div>
-  <script src="accessiblegraphlib.js"></script>
+  <script src="accessibleGraphLib/accessiblegraphlib.js"></script>
   <script type="text/javascript">
-    var tester = new testGrapher
-    fillwithSVG("graph1");
-  </script> -->
+    // fillwithSVG("graph1");
+    makeAccessibleChart("graph1", {
+      "chartType" : "bar",
+      "title" : "Number of users of social networks",
+      "units" : "millions",
+      "fileName" : "data/testerData.json",
+    });
+  </script>
 </body>
 </html>
 

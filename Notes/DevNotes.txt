@@ -23,7 +23,6 @@ aria-describedby for description - but not on all platforms, can double-up on la
 
 === Library implementation notes ===
 
-- Currently getting figure nested inside figure - possible to take outer one out?
 - Specify type of graph, dataset, id of div to put it in, units (so that natural language "highest price" can be made)
   - Might need to think carefully about this
 - Check num of characters in labels - define left column width by this on bar graph
