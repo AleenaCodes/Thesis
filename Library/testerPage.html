@@ -6,6 +6,11 @@
   <title>Testing Library</title>
   <meta name="description" content="Testing library">
   <link rel="stylesheet" href="testerPage.css">
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+    }
+  </style>
 </head>
 <body>
   <div id="container">
@@ -24,18 +29,17 @@
       "chartType" : "bar",
       "title" : "Number of users of social networks in 2018",
       "units" : "millions",
-      "fileName" : "data/testerData.json",
+      "fileName" : "data/testerDataBar.json",
+    });
+    makeAccessibleChart("graph2", {
+      "chartType" : "line",
+      "title" : "Temperature in London over a week",
+      "units" : "degrees",
+      "fileName" : "data/testerDataLine.json",
     });
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
 
 
 

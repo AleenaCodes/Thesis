@@ -1,0 +1,30 @@
+[
+  {
+    "name" : "Mon",
+    "value": 18
+  },
+  {
+    "name" : "Tue",
+    "value": 20
+  },
+  {
+    "name" : "Wed",
+    "value": 21
+  },
+  {
+    "name" : "Thu",
+    "value": 23
+  },
+  {
+    "name" : "Fri",
+    "value": 22
+  },
+  {
+    "name" : "Sat",
+    "value": 24
+  },
+  {
+    "name" : "Sun",
+    "value": 25
+  }
+]
