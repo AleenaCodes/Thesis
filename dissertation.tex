@@ -493,7 +493,7 @@ HTML5 introduced the concept of a webpage having "sections", with a new \texttt{
 
 Sections are able to be nested within each other, giving the same type of structure as the original \texttt{<h1>, <h2>, <h3>} etc. tags created. However it is not always desirable to have every section's children included in the outline of it's parent.
 
-A sectioning root is an HTML element that can have its own outline, but the sections and headings inside it do not contribute to the outline of its ancestor. The sectioning root \texttt{<figure>} is the key one that I used in my development, to create an element that was able to have many children (i.e. axis, datapoints etc.) and not create a lot of excess outline in the DOM for the parent section.
+A sectioning root is an HTML element that can have its own outline, but the sections and headings inside it do not contribute to the outline of its ancestor. The sectioning root \texttt{<figure>} is the key one that I used in my development, to create an element that was able to have many children (i.e. axis, data points etc.) and not create a lot of excess outline in the DOM for the parent section.
 
 \subsection{ARIA syntax}
 
@@ -517,25 +517,36 @@ Since the reader was going to browse through the contents of the SVG, I also use
 
 In order to make the each data point able to be accessed individually, I added a \texttt{tabindex=0} property to each data point. This made each of these elements focusable and thus added them to the order in sequential keyboard navigation, letting them be accessed by using the \textit{Tab} key on a keyboard.
 
-I also grouped the datapoints in an SVG group \texttt{<g>} and gave this an ARIA role of \texttt{list}, along with a \texttt{<title>}. This meant that when a screen-reader came across the list it would read out the title. I then added each data point as an SVG group of its own, with an ARIA role of \texttt{listitem}, and a \texttt{<title>}, which the screen-reader would read out on focussing on each list item. Setting up the chart as a \texttt{list} containing a set of \texttt{listitem} also meant that users of technologies that have other shortcuts for navigating lists could also use these.
+I also grouped the data points in an SVG group \texttt{<g>} and gave this an ARIA role of \texttt{list}, along with a \texttt{<title>}. This meant that when a screen-reader came across the list it would read out the title. I then added each data point as an SVG group of its own, with an ARIA role of \texttt{listitem}, and a \texttt{<title>}, which the screen-reader would read out on focussing on each list item. Setting up the chart as a \texttt{list} containing a set of \texttt{listitem} also meant that users of technologies that have other shortcuts for navigating lists could also use these.
 
-The key part of making these graphs interactive was adding relevant information to each data point that an assistive technology would be able to access. For this I used the \texttt{aria-label} attribute to label each. This is similar to \texttt{aria-labelledby} but uses a direct string to read out, as opposed to referencing another HTML element as a label.
+% TODO - diagram of list and listitem
 
 \subsection{WCAG}
 
-% - Needed skip link to satisfy WCAG and stop people being forced to scroll through loads
+I also had the Web Content Accessibility Guidelines (WCAG) in mind when implementing this, and so I had to implement a few things to satisfy the guidelines, most notably a \textit{Bypass Block} mechanism as specified in success criterion \textit{2.4.1}. This meant adding a simple link that let the user skip past the graph entirely if they chose to, as opposed to having to listen to the entire read-out of the graph.
+
+Although many of the criteria didn't apply to this project, especially those to do with an entire webpage, or time-based events, some of the other criteria also had to be implemented in terms of syntax, such as
+
+\begin{itemize}
+    \item \textit{Criterion 1.1.1} - Providing non-text Content - this was a major focus of my implementation, and done using \texttt{aria-labelledby} and \texttt{aria-label}
+    \item \textit{Criterion 1.3.1} - Info and Relationships - by creating the data points as a \texttt{list} with corresponding \texttt{listitem} elements, the nature of the relationship of these was kept clear
+    \item \textit{Criterion 2.1.3} - Keyboard - by making elements focusable (via adding \texttt{tabindex=0}) all the content was operable through keyboard interface
+    \item \textit{Criterion 2.5.3} - Label in Name - all the generated \texttt{aria-label} labellings matched the visual information that was displayed on screen
+    \item \textit{Criterion 3.1.5} - Reading Level - the \texttt{aria-label} on each data point was kept short and simple in order to make it clearly understandable by users of all reading levels
+    \item \textit{Criterion 4.1.2} - Name, Role, Value - all roles were set using the standard \texttt{role=} syntax or auto-generated from the user of HTML tags, so any external technologies (such as assistive technologies) would be able to extract this information
+\end{itemize}
 
 \subsection{Expanding for compatibility in Safari/MacOS}
 
-% Look at code before and after MacOS changes
-% This is a good example of gross inconsistencies among even the top software (things that should be well-maintained!)
-% - Barebones worked on windows with Firefox and Chrome, NVDA + Jaws (all popular combos), but had to add extra for it to work on MacOS (see git diff for github site on 4/4 and 5/4)
-% Had to add aria-label to the svg list item as Voiceover wouldn't pick up on it 
+When testing on Windows machines with the two most popular screen-readers - \textit{NVDA} and \textit{JAWS}, the system of having a \texttt{<title>} tag for each \texttt{listitem} meant that when the user focussed on each element the specified \texttt{title} was read out.
 
+However on MacOS with the native screen-reader \textit{Voiceover} this did not work at all, with no label being read out. This was a good example of large inconsistencies between browsers, even amongst the more well-maintained browsers.
+
+In order to have the graph function as normal, I had to add an extra layer of labelling that \textit{Voiceover} would pick up on. For this I used the \texttt{aria-label} attribute to label each data point, with the same info as specified in the \texttt{<title>} tag. The \texttt{aria-label} attribute is similar to \texttt{aria-labelledby} but uses a direct string to read out, as opposed to referencing another HTML element as a label.
 
 \section{Implementation of library}
 
-% - Required less new research so a bit more simple
+% - Once I had the syntax set out, was able to turn into a full library - althought required a huge amount of code
 % - Some maths for trends
 % - API design
 %  - Chosen methods
