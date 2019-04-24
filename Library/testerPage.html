@@ -17,27 +17,26 @@
     <div id="header">
       <h1>Graph Demo</h1>
     </div>
-    <div id="graph1"></div>
+    <div id="graph1">This</div>
     <div id="graph2"></div>
     <div id="graph3"></div>
     <div id="graph4"></div>
   </div>
   <script src="accessibleGraphLib/accessiblegraphlib.js"></script>
   <script type="text/javascript">
-    // fillwithSVG("graph1");
-    makeAccessibleChart("graph1", {
+    accessibleGrapher.makeAccessibleChart("graph1", {
       "chartType" : "bar",
       "title" : "Number of users of social networks in 2018",
       "units" : "millions",
       "fileName" : "data/testerDataBar.json",
     });
-    makeAccessibleChart("graph2", {
+    accessibleGrapher.makeAccessibleChart("graph2", {
       "chartType" : "line",
       "title" : "Temperature in London over a week",
       "units" : "degrees",
       "fileName" : "data/testerDataLine.json",
     });
-    makeAccessibleChart("graph3", {
+    accessibleGrapher.makeAccessibleChart("graph3", {
       "chartType" : "pie",
       "title" : "Percentages of food groups for a balanced meal",
       "units" : "grams",

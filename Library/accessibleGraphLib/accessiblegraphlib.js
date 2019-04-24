@@ -23,21 +23,21 @@ function fillwithSVG(selector) {
 function loadJSONandMakeChart(fileName, callback) {
   console.log("loadJSON filename is " + fileName);
 
-  var xobj = new XMLHttpRequest();
-  xobj.overrideMimeType("application/json");
-  xobj.open('GET', fileName, true);
-  xobj.onreadystatechange = function () {
-        if (xobj.readyState == 4 && xobj.status == "200") {
-          callback(xobj.responseText);
+  var reqObj = new XMLHttpRequest();
+  reqObj.overrideMimeType("application/json");
+  reqObj.open('GET', fileName, true);
+  reqObj.onreadystatechange = function () {
+        if (reqObj.readyState == 4 && reqObj.status == "200") {
+          callback(reqObj.responseText);
         }
   };
-  xobj.send(null);
+  reqObj.send(null);
 }
 
 function sortData(array){
-  array2 = array;
+  sortedArray = array;
 
-  array2.sort(function(a,b){
+  sortedArray.sort(function(a,b){
     if(a.value == b.value)
         return 0;
     if(a.value > b.value)
@@ -46,7 +46,7 @@ function sortData(array){
         return 1;
   });
 
-  return array2;
+  return sortedArray;
 }
 
 function findChartEndNum(dataEndNum){
@@ -85,15 +85,6 @@ function findBiggestValue(array){
   return value;
 }
 
-function makeAccessibleChart(selector, chartInfo) {
-
-  loadJSONandMakeChart(chartInfo["fileName"], function(response) {
-    var chartData = JSON.parse(response);
-    makeChart(chartData, chartInfo, selector);
-  });
-
-}
-
 function makeChart(chartData, chartInfo, selector){
 
   // console.log(chartData);
@@ -119,6 +110,7 @@ function makeBarChart(chartData, chartInfo, selector){
   chartData = sortData(chartData);
 
   var parentDiv = document.getElementById(selector);
+  parentDiv.innerHTML = '';
 
   var containerWidth = parentDiv.offsetWidth;
   var containerHeight = parentDiv.offsetHeight;
@@ -259,6 +251,7 @@ function makeBarChart(chartData, chartInfo, selector){
 function makeLineChart(chartData, chartInfo, selector){
 
   var parentDiv = document.getElementById(selector);
+  parentDiv.innerHTML = '';
 
   var containerWidth = parentDiv.offsetWidth;
   var containerHeight = parentDiv.offsetHeight;
@@ -435,6 +428,7 @@ function makePieChart(chartData, chartInfo, selector){
   chartData = sortData(chartData);
 
   var parentDiv = document.getElementById(selector);
+  parentDiv.innerHTML = '';
 
   var containerWidth = parentDiv.offsetWidth;
   var containerHeight = parentDiv.offsetHeight;
@@ -470,6 +464,16 @@ function makePieChart(chartData, chartInfo, selector){
       background.setAttributeNS(null, 'fill', 'rgb(255,255,255)');
 }
 
+var accessibleGrapher = {
+  makeAccessibleChart: function(selector, chartInfo) {
+
+    loadJSONandMakeChart(chartInfo["fileName"], function(response) {
+      var chartData = JSON.parse(response);
+      makeChart(chartData, chartInfo, selector);
+    });
+
+  }
+}
 
 // main SVG
   // viewbox?
@@ -501,8 +505,8 @@ function makePieChart(chartData, chartInfo, selector){
 // NOT DONE YET
 // - Highlighting smallest and biggest values on any of the graphs (should be part of aria-label)
 // - Highlighting general trend (should be part of graphDesc)
+// - Different colours and patterns
 // - Code needs to be wayyyy more modular i.e. start and end of graph square need to be global variables
-
 
 // left to right - 0.2, 0.95
 // top to bottom - 0.05, 0.8

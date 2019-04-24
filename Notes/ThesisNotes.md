@@ -17,11 +17,13 @@
 
 ====== LAYOUT =====
 
-1. Abstract - 2
+1. Abstract - 1
 2. Background - 10
 3. Design - 4
-4. Implementation - 3/3/1 = 7
+4. Implementation - 3/5/1 = 9
 5. Evaluation - 3/2/2 = 7
 6. Conclusion - 2
+7. Glossary - 2
+8. Bibliograph - 2
 
-Total = 32
+Total = 33/37
