@@ -116,13 +116,15 @@ of authorship may still be produced online via
 % dissertation, but if you do not require the latter they can be suppressed
 % by simply commenting out the associated macro.
 
-\mainmatter
+
 
 \chapter{Abstract}
 
 % TODO - write
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id hendrerit libero. In in cursus leo, sit amet tristique risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris nec arcu at elit tincidunt interdum sit amet at sem. Etiam ultrices, metus id pulvinar cursus, massa est fermentum nunc, vitae facilisis lectus turpis non dolor. Fusce a egestas lorem. In a orci vitae nunc pulvinar sodales ut nec odio. Nunc eu cursus orci, at tempus orci. Nullam consequat neque a hendrerit luctus. Etiam ut turpis augue. Nunc iaculis, tellus eget semper lobortis, sem velit euismod sapien, at lacinia ligula sem a urna.
+
+\mainmatter
 
 \chapter{Background}
 
@@ -429,28 +431,46 @@ From a usability standpoint, it will also need to be easy for developers to use,
 When thinking about the implementation, there were 3 main areas to think about
 
 \begin{itemize}
-    \item Types of Graphs
-    \begin{itemize}
-        \item I decided to focus on 3 different graph types - bar graphs, line graphs and pie charts
-        \item These chart types are some of the more commonly-used ones, and are different enough to provide a varied proof of concept
-    \end{itemize}
+    \item Types of graphs
     \item Information to present
-    \begin{itemize}
-        \item Screen-reader users don't tend to listen to the full web page, instead scrolling through quickly to find information that they need
-        \item In order to accommodate this, I aimed to create labels that weren't too verbose, and that had the most pertinent information at the start of the line
-        \item I felt that the key information to present was the headings and values, and also to highlight some broader trends without overloading the user with too much detail
-    \end{itemize}
-    \item Colours and Patterns
-    \begin{itemize}
-        \item Use of colour and pattern is important for users who are partially-sighted, or colourblind
-        \item The WCAG required a minimum levels of contrast of 4.5:1 between colours to fulfil criteria \textit{1.4.3}, so I used this as a guideline to select colours
-        \item I wanted to also add different patterns for different colours, as these can help users distinguish between different sections, and also allow some which space between corresponding bars and segments
-    \end{itemize}
+    \item Colours and patterns
 \end{itemize}
+
+\subsection{Types of Graphs}
+
+As I was trying to build a proof of concept, as opposed to a comprehensive library, I decided to focus on 3 different graph types - bar graphs, line graphs and pie charts. These chart types are some of the more commonly-used ones, and are different enough to provide a varied proof of concept.
+
+% TODO Pics of three types (use ones from poster)
+
+\subsection{Information to Present}
+
+Having spoken to some people who use screen-readers daily and observed them using these to browse webpages, it was clear that screen-reader users don't tend to listen to a web pages in its entirety, instead scrolling through quickly to find information that they need.
+
+In order to accommodate this, I aimed to create labels for the chart that weren't too verbose, and which had the most pertinent information at the start of the label. This would mean that if the user was trying to find a particular data point, they would be able to move through each data point quickly in order to accomplish this.
+
+I felt that the key information to present were the headings and values of the data, and also to highlight some broader trends without overloading the user with too much detail.
+
+% TODO some pics from poster showing read-outs
+    
+\subsection{Colours and Patterns}
+
+Use of colour and pattern is important for users who are partially-sighted of colour-blind, and a common method found in many websites and games that rely on colour, is to have a "colour-blind" mode which changes different colours to be different patterns instead.
+
+The WCAG require a minimum level of contrast of \textit{4.5:1} between colours to fulfil criterion \textit{1.4.3 - Minimum Contrast}, and so I used this as a guideline to select colours.
+
+I also aimed to combine the user of contrasting colours with different patterns as well, as these would help users distinguish between different sections. Another thing that is known to be helpful with partially-sighted and colour-blind users it to allow some white space between corresponding elements to help the user better distinguish between elements such as bars or segments on charts.
+
+When building a colour palette, I aimed to have 6 different colours in my colour palette, which would have a good amount of contrast with each other. Since I was making a graphing library, I initially thought of using a \textit{Brewer Palette} - color combinations that are specifically selected for their properties for use in data visualisation and information design. These colours are selected based on human perception around which colours seem associated with each and which do not, and so a \textit{Qualitative Brewer Palette} seemed like a good choice for the graphs I was creating. However I found that these colours had little contrast between them by WCAG standards, and so would not be suitable for my use.
+
+In order to check contrast between each colour, I used a colour contrast-checker from the design agency \textit{EightShapes} to load in multiple colours and see the contrast level between each colour.
+
+% TODO - picture of colour checking
+
+With this I was able to build a palette of 6 colours which had a fairly high contrast level between most of the other colours (i.e. 3 or more). However, it proved very hard to find colours that had a high enough contrast between all other colours in a palette, and so I decided to keep the current palette and simply make sure that neighbouring colours were high contrast.
 
 \section{Accessibility Tree}
 
-When looking at web accessibility, a key concept is the accessibility tree - a tree structure created from a web page's DOM, which assistive technologies are then able to interact with. One of the major technical issues with this project was that, while the accessibility tree for a given webpage would always be the same, different assistive technologies all interpreted this differently, and so it was hard to make a solution that worked across all of the common screen-reader/browser/operating system combinations.
+When looking at web accessibility, a key concept is the accessibility tree - a tree structure created from a web page's DOM, which assistive technologies are then able to interact with. One of the major technical issues with this project was that, different web browsers may generate slightly different accessibility trees from the same HTML code and different assistive technologies may also interpret the same accessibility tree differently. Thus it would be hard to make a solution that worked across all of the common assistive technology/browser/operating system combinations.
 
 % TODO - is the bit about accessibility trees correct? (could also do with a reword of the second sentence)
 % TODO - diagram of how assistive tech uses accessibility trees?
@@ -459,7 +479,9 @@ Many browsers, such as Mozilla Firefox, provide tools to directly view the acces
 
 The WAI-ARIA standards provide a set of roles, states and properties that can be given to HTML elements, along with a way to label these, and so I aimed to use these extensively to build an accessibility tree with correct elements and labels
 
-% Literally want like 4 more pages on this!
+\section{Library Design}
+
+When building the Javascript library, since this was a proof-of-concept, I aimed for create a fairly simple API for the developer, in which the page \texttt{div} in which to create the chart, the chart type, and data source (a local file) could be specified. Along with this, the chart title and units of data would need to be specified, in order to generate the metadata for the chart correctly.
 
 \chapter{Implementation}
 
@@ -479,12 +501,6 @@ Although the W3C has release this specification, the onus is on the makers of a 
 
 % TODO - find when SVG was made, and when SVG 2 was made.
 
-% - SVG 2
-%     - Newer
-%     - Implements things like tabindex (important for keyboard focus), whereas previously people used <a> tag for keyboard focus
-%     - Not yet implemented everywhere
-%     - Trying to use some new SVG attributes (such as tabindex) but lots of SVG2 is not yet implemented, even in accessibility-forward browsers like Firefox (https://developer.mozilla.org/en-US/docs/Web/SVG/SVG_2_support_in_Mozilla)
-
 \subsection{HTML Layout}
 
 HTML, by virtue of being a markup language that defines only the structure of a webpage, is set up to generate a DOM that is true to the page's visual structure, and as web development has progressed, new elements have been added to account for commonly-used parts of a webpage.
@@ -494,6 +510,8 @@ HTML5 introduced the concept of a webpage having "sections", with a new \texttt{
 Sections are able to be nested within each other, giving the same type of structure as the original \texttt{<h1>, <h2>, <h3>} etc. tags created. However it is not always desirable to have every section's children included in the outline of it's parent.
 
 A sectioning root is an HTML element that can have its own outline, but the sections and headings inside it do not contribute to the outline of its ancestor. The sectioning root \texttt{<figure>} is the key one that I used in my development, to create an element that was able to have many children (i.e. axis, data points etc.) and not create a lot of excess outline in the DOM for the parent section.
+
+% picture illustrating sectioning root and non-sectioning root?
 
 \subsection{ARIA syntax}
 
@@ -514,6 +532,8 @@ In my case, I found that \texttt{aria-describedby} did not work very consistentl
 Through using both the \texttt{<title>} and \texttt{desc} for the SVG, and using \texttt{aria-labelledby} to also link these, I covered most browser/screen-reader combinations for reading this out.
 
 Since the reader was going to browse through the contents of the SVG, I also used \texttt{aria-hidden} to hide the excess parts of the chart, such as the lines and labelling for each axis. This was an effective way to keep these out of the accessibility but keep them in the DOM, so visible on the page.
+
+% TODO - image of side-by-side accessibility tree and HTML to show how <title> and <desc> were encoded, and how aria-hidden would show up
 
 In order to make the each data point able to be accessed individually, I added a \texttt{tabindex=0} property to each data point. This made each of these elements focusable and thus added them to the order in sequential keyboard navigation, letting them be accessed by using the \textit{Tab} key on a keyboard.
 
@@ -542,19 +562,141 @@ When testing on Windows machines with the two most popular screen-readers - \tex
 
 However on MacOS with the native screen-reader \textit{Voiceover} this did not work at all, with no label being read out. This was a good example of large inconsistencies between browsers, even amongst the more well-maintained browsers.
 
-In order to have the graph function as normal, I had to add an extra layer of labelling that \textit{Voiceover} would pick up on. For this I used the \texttt{aria-label} attribute to label each data point, with the same info as specified in the \texttt{<title>} tag. The \texttt{aria-label} attribute is similar to \texttt{aria-labelledby} but uses a direct string to read out, as opposed to referencing another HTML element as a label.
+In order to have the graph function as normal, I had to add an extra layer of labelling that \textit{Voiceover} would pick up on. For this I used the \texttt{aria-label} attribute to label each data point, with the same info as specified in the \texttt{<title>} tag. The \texttt{aria-label} attribute is similar to \texttt{aria-labelledby} but uses a direct string to read out, as opposed to referencing another HTML element as a label. It was suitable for use here as the label was fairly short, but would not have been suitable for a longform description to be included.
 
 \section{Implementation of library}
 
-% - Once I had the syntax set out, was able to turn into a full library - although required a huge amount of code
-% - Some maths for trends
-% - API design
-%  - Chosen methods
-%  - Parameters (tried to keep to simple)
+\subsection{Basic Structure}
 
-% - Had to use CreateElementNS and SetAttributeNS as SVGs are a bit fiddly (find the technical term - different namespace?)
+I initially began with a hard-coded HTML prototype to figure out syntax and run some user testing with. Once I had decided on the HTML syntax that I would use, I then proceeded to package this into a Javascript library which would be able to produce the same graphs with any provided dataset.
 
-% - Lots of fiddly alignment using text-anchor, dominant-baseline
+I was keen to not have any external dependencies for the library, as Javascript libraries are well-known for quickly growing very large as multiple levels of dependencies are loaded for a single small function. Thus I wrote only in "Vanilla" Javascript - plain javascript without any functions from third-party libraries.
+
+While a Javascript library can just be included as a single file with all functions in it, with each required function just called directly, in order to avoid nameclashes with other libaries, I put the required function into a global object, which then served as the unique namespace for the library.
+\newline
+\begin{lstlisting}
+var accessibleGrapher = {
+    makeAccessibleChart: function(selector, chartInfo) {
+
+    ...
+  }
+}
+\end{lstlisting}
+
+\subsection{Pulling in Data}
+
+As the library was intended for small amounts of data, it would have been possible to simply require the user to send an array of data in the function call. However the convention in graphing libraries is to allow an external file to be handed in, either locally or via an API call.
+
+Since I was building a proof-of-concept library, I opted to only provide the option for loading in a local JSON file, although extending the library to load a file via an API call would not require too much extra code in the library.
+
+The file was loaded in via an \texttt{XMLHttpRequest} - a standard object provided by the browser's Javascript environment that allows data transfer between a web browser and web server.
+
+% TODO - diagram of xmlhttp request, like at https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
+
+I wrote a small function that would take the file path for the data that was provided by the developer, and run a callback to find and load in the file, and then create the graph.
+
+\begin{lstlisting}
+function loadJSONandMakeChart(fileName, callback) {
+  var reqObj = new XMLHttpRequest();
+  reqObj.overrideMimeType("application/json");
+  reqObj.open('GET', fileName, true);
+  reqObj.onreadystatechange = function () {
+        if (reqObj.readyState == 4 && reqObj.status == "200") {
+          callback(reqObj.responseText);
+        }
+  };
+  reqObj.send(null);
+}
+\end{lstlisting}
+
+The use of callbacks is standard in Javascript usage on the web, and allowed the code to run in the correct order, i.e. only making the chart once data was loaded in. The call was made as follows
+
+\begin{lstlisting}
+loadJSONandMakeChart(chartInfo["fileName"], function(response) {
+  var chartData = JSON.parse(response);
+  makeChart(chartData, chartInfo, selector);
+});
+\end{lstlisting}
+
+This provided a small callback to the data loading function, which would load data, use Javascript's standard \texttt{JSON.parse} method to turn the JSON into a Javascript object, and then run a \texttt{makeChart} function once the data was completely loaded and parsed correctly.
+
+This data, along with the chart information that the developer supplied in the function call was then passed to another function to determine the type of chart, and then passed onto the final function to generate the correct type of chart.
+
+\subsection{Interacting with the Webpage}
+
+The \texttt{Document} interface represents a web page in a browser, and is the standard way to query and modify a page's DOM. The method \texttt{document.getElementById} provided a way to get the unique \texttt{Element} object associated with a single HTML element on a web page, specified by a unique \texttt{id} attribute on the element.
+
+% TODO - diagram of HTML document interface
+
+The methods \texttt{document.createElement} and \texttt{document.setAttribute} provided standard way to create new HTML elements and add required attributes onto them.
+
+However, since SVG is part of an XML namespace (as opposed to the pure HTML namespace), it has to be created via an extended function \texttt{document.createElementNS}. The DOM 2 specification (now almost 20 years old) tackled the issue of multiple XML namespaces having identical tags with each other or with HTML, and so the \texttt{createElementNS} method allows the developer to specify the namespace URI for an element.
+
+\begin{lstlisting}
+var newSVG=document.createElementNS("http://www.w3.org/2000/svg","svg");
+\end{lstlisting}
+
+I also used the corresponding \texttt{document.setAttributeNS} method in my library, as this is a more future-proof way to code and allows consistency between \texttt{setAttribute} calls even if a namespace isn't specified.
+
+The bulk of the graph-making functions were simple translations from the previously-created HTML to creating those elements as HTML elements via Javascript and setting the attributes as required. SVG also has many alignment properties for text that allowed me to position things without using CSS, such as \texttt{text-anchor} and \texttt{dominant-baseline} for the SVG \texttt{<text>} tag.
+
+The information for the ARIA labels was mainly able to be made via looking through the provided data to get properties such as the number of elements, and the smallest and biggest elements. These, combined with the \texttt{"units"} property that the developer put in the method call were used to create labels that read like natural language.
+
+% TODO - some example of the natural language labels?
+
+\subsection{Making Readable Axis}
+
+For the bar and pie charts (but not the line chart) the data needed to be sorted by the value, and so a small helper function handled this.
+
+\begin{lstlisting}
+function sortData(array){
+  sortedArray = array;
+
+  sortedArray.sort(function(a,b){
+    if(a.value == b.value)
+        return 0;
+    if(a.value > b.value)
+        return -1;
+    if(a.value < b.value)
+        return 1;
+  });
+
+  return sortedArray;
+}
+\end{lstlisting}
+
+When hand-coding the initial graphs I had been able to make axis that provided natural spacing between points (e.g. going up in 5's or 10's) but when creating the library, if the smaller and bigger datapoints weren't rounded like this, then the axis could become awkward and not very readable to the sighted user
+
+% TODO - pic to show awkward axis
+
+To make more readable axis, I also had a helper function to round the last number on the axis to the next relevant power of 10, which would shift the axis to a more natural-looking spacing.
+
+\begin{lstlisting}
+function findChartEndNum(dataEndNum){
+  lengthofNum = dataEndNum.toString().length;
+  divNum = 1;
+
+  if (lengthofNum >= 2){
+    divNum = Math.pow(10, (lengthofNum-1))
+  }
+
+  endNum = Math.ceil(dataEndNum / divNum) * divNum;
+  return endNum;
+}
+\end{lstlisting}
+
+% TODO - pic of less awkward axis
+
+\subsection{Calculating Trends and Other Mathematics}
+
+For the line graph I wanted to calculate a general trend as part of the overarching graph description, as this is something that a sighted user would be able to tell quickly upon seeing a graph.
+
+In the spirit of not wanting to use any external libraries, I wrote up a
+
+% TODO - finish above
+% Algorithm for finding trend for line graph
+% viewbox for pie?
+% Code for manually generating pie chart
 
 \section{Limitations}
 
