@@ -106,6 +106,9 @@ function makeChart(chartData, chartInfo, selector){
     case "line":
       makeLineChart(chartData, chartInfo, selector);
       break;
+    case "pie":
+      makePieChart(chartData, chartInfo, selector);
+      break;
     default:
       console.log("cannot find chart type");
       break;
@@ -115,12 +118,12 @@ function makeChart(chartData, chartInfo, selector){
 function makeBarChart(chartData, chartInfo, selector){
   chartData = sortData(chartData);
 
-  chartEndNum = findChartEndNum(chartData[0]["value"]);
-
   var parentDiv = document.getElementById(selector);
 
   var containerWidth = parentDiv.offsetWidth;
   var containerHeight = parentDiv.offsetHeight;
+
+  chartEndNum = findChartEndNum(chartData[0]["value"]);
 
   // skip link
 
@@ -254,14 +257,15 @@ function makeBarChart(chartData, chartInfo, selector){
 }
 
 function makeLineChart(chartData, chartInfo, selector){
-  chartEndNum = findChartEndNum(chartData[(chartData.length)-1]["value"]);
-  smallestValue = findSmallestValue(chartData);
-  biggestValue = findBiggestValue(chartData);
 
   var parentDiv = document.getElementById(selector);
 
   var containerWidth = parentDiv.offsetWidth;
   var containerHeight = parentDiv.offsetHeight;
+
+  smallestValue = findSmallestValue(chartData);
+  biggestValue = findBiggestValue(chartData);
+  chartEndNum = findChartEndNum(biggestValue);
 
   // skip link
 
@@ -427,6 +431,72 @@ function makeLineChart(chartData, chartInfo, selector){
       // textnode
 }
 
+function makePieChart(chartData, chartInfo, selector){
+  chartData = sortData(chartData);
+
+  var parentDiv = document.getElementById(selector);
+
+  var containerWidth = parentDiv.offsetWidth;
+  var containerHeight = parentDiv.offsetHeight;
+
+  chartEndNum = findChartEndNum(chartData[0]["value"]);
+
+  // something to find center of pie
+
+  // skip link
+
+  var mainSVG = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    mainSVG.setAttributeNS(null, 'width', (containerWidth ));
+    mainSVG.setAttributeNS(null, 'height', (containerHeight));
+    mainSVG.setAttributeNS(null, 'role', 'figure');
+
+    var graphTitle = document.createElementNS("http://www.w3.org/2000/svg", "title");
+      var graphTitleText = document.createTextNode("Accessible pie chart showing " + chartInfo["title"]);
+    graphTitle.appendChild(graphTitleText);
+      graphTitle.setAttribute('id', ("graphTitle"+selector));
+  mainSVG.appendChild(graphTitle);
+
+    var graphDesc = document.createElementNS("http://www.w3.org/2000/svg", "desc");
+      var graphDescText = document.createTextNode("Pie chart with " + chartData.length + " segments");
+    graphDesc.appendChild(graphDescText);
+      graphDesc.setAttribute('id', ("graphDesc"+selector));
+  mainSVG.appendChild(graphDesc);
+
+  mainSVG.setAttributeNS(null, 'aria-labelledby', ("graphTitle"+selector+" "+"graphDesc"+selector));
+
+    var background = document.createElementNS("http://www.w3.org/2000/svg","rect");
+      background.setAttributeNS(null, 'width', (containerWidth));
+      background.setAttributeNS(null, 'height', (containerHeight));
+      background.setAttributeNS(null, 'fill', 'rgb(255,255,255)');
+}
+
+
+// main SVG
+  // viewbox?
+
+
+  // legendGroup/(called markergroup?) (g)
+    // aria-hidden
+    // loop to make legend (make g)
+      // rect
+        // attributes - x,y,width,height, style
+      // text
+        // attributes - x,y,text-anchor, font-size
+        // aria-hidden
+        // textnode
+
+  // segmentsGroup (g)
+    // role=list
+    // title
+      // textnode
+    // loop to make segments (g)
+      // role=listitem
+      // tabindex
+      // aria-label
+      //path
+        // attributes - d, fill, stroke, stroke-width, class
+        // title
+          // textnode
 
 // NOT DONE YET
 // - Highlighting smallest and biggest values on any of the graphs (should be part of aria-label)
