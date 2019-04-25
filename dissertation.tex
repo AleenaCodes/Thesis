@@ -699,7 +699,7 @@ Although this method only drew two lines of the segment, SVG filled in the third
 
 % TODO - picture of drawing arc
 
-% TODO - rewrite once implemented
+% LATER - rewrite once implemented
 
 \section{Limitations}
 
@@ -710,8 +710,6 @@ A key concept in accessibility is that just because something is available to a 
 It is also very hard to truly make a solution that is accessible to everyone, as disabilities come in a wide variety of affects and severities. When it comes to things such as the labels on the graphs, making descriptions that are simple enough for people with cognitive disabilities to be able to understand, may result in taking away too much detail. The current solution provides fairly simple labels but these could be extended slightly to provide other useful information for the user.
 
 The solution uses the \texttt{[tab]} key to navigate through the graph, but for some users the \texttt{[tab]} key may be associated with navigating through clickable links, and so this can be confusing. There is currently no standard way to allow arrow key navigation through an SVG, but it is possible to create a section of a webpage with the ARIA role of \texttt{application}, which allows custom keystroke actions to be specified. However, this can cause other compatibility issues due to the variety of assistive technologies that may use a page, and this is considered bad practice to do unless done with great care.
-
-
 
 \chapter{Evaluation}
 
