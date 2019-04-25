@@ -148,10 +148,10 @@ Thus, it is clear the accessibility should be a strong consideration when develo
 
 \begin{itemize}
     \item Lack of knowledge about web accessibility standards
-    \item There are not many tools to test and fix accessibility issues
+    \item Lack of tools to test and fix accessibility issues
     \item User testing with differently-abled users can be expensive and time-consuming
-    \item Some development tools (such as drag-and-drop) don't support accessibility
-    \item Content may be provided by a 3rd party, so accessibility isn't guaranteed
+    \item Some development tools (such as drag-and-drop) not supporting accessibility
+    \item Content being provided by a third party, so accessibility not being guaranteed
 \end{itemize}
 
 \subsection{Use Cases}
@@ -162,34 +162,31 @@ Web accessibility encompasses a lot of different use cases, including
     \item Visual - blind or partially-blind users, who may use a screen-reader or require larger text; colour-blind users
     \item Auditory - deaf or partially-deaf users, who may rely on captions for all audio or audio with a lot of background noise
     \item Cognitive and Neurological - users who may need simpler language to be used, such as those with learning disabilities, or non-native speakers of a language. This also includes people with neurological disorders such as ADHD who need content that is easy to process on a short attention-span
-    \item Physical - people with disabilities that affect them physical such as for hand movement. There are many different mice and keyboard types to help with this, and custom technologies such as foot pumps and sip-and-puff machines
-    \item Speech - People who are unable to speak clearly or at all, they may struggle with voice commands so interfaces should not be voice control-only
+    \item Physical - people with disabilities that affect them physically such as for hand movements. There are many different mice and keyboard types to help with this, and custom technologies such as foot pumps and sip-and-puff machines
+    \item Speech - people who are unable to speak clearly or at all, they may struggle with voice commands so interfaces should not be voice control-only
 \end{itemize}
-% LATER add more detail here?
-% LATER Add pictures?
-% w3 site on "diverse abilities" will give info for here
-% LATER number of users
-% LATER - accessibility needs
-%
+
+% TODO Add pictures?
+
 However there are also lots of other cases to consider \cite{WAIaccessibilityintro}
 %
 \begin{itemize}
     \item "Temporary disabilities" - for example a broken arm, operating single-handed (such as holding a baby in one arm), lost glasses, RSI
-    \item People using devices in different input modes such as on a TV screen
     \item "Situational limits" - seeing a screen in bright sunlight, or not being able to hear audio in a loud environment
+    \item People using devices in different input modes such as on a TV screen
     \item Older people with changing abilities
     \item People with slower or limited internet access
 \end{itemize}
-%
-Through this we can see that web accessibility support the including or people with disabilities, older people, people in rural areas and people in developing countries
-%
+
+Through this we can see that web accessibility supports the inclusion of people with disabilities, older people, people in rural areas and people in developing countries
+
 \subsection{The Business Case for Accessibility}
 
 With so many disabled users worldwide, disregarding the need for a site to be accessible to such a large group of users does not make sense from a business standpoint, and will result in a larger overall possible market.
 
 Increasing site accessibility often involves structuring and labelling things better, and so can result in much better SEO for a site. It also means that the site will be easier to view on multiple devices, and there will be reduced maintenance cost over time.\cite{WAIaccessibilityintro}
 
-Focusing on site accessibility not only demonstrates corporate social responsibility, but in many parts of the world certain sites (such as government services) are required by law. This includes the Equality Act of 2010 \cite{eqa2010} in the UK and Section 508 \cite{section508} in the USA. Access to information and communications technologies, including the web, is also defined as a basic human right in the United Nations Convention on the Rights of Persons with Disabilities (UN CRPD). \cite{accessibilityUN}
+Focusing on site accessibility not only demonstrates corporate social responsibility, but in many parts of the world certain sites (such as government services) are required by law. This includes the Equality Act of 2010 in the UK, and Section 508 in the USA. Access to information and communications technologies, including the web, is also defined as a basic human right in the United Nations Convention on the Rights of Persons with Disabilities (UN CRPD). \cite{accessibilityUN}
 
 \section{The Current State of Web Accessibility}
 
@@ -214,9 +211,9 @@ While this has allowed for more re-usability in web development by allowing enca
 
 Responsive layouts are a necessity in a world where the internet is accessed on mobile as often as desktop (if not more) \cite{mobileusestudy}. With websites needing to support both desktop and mobile users with one site, there is more re-ordering and hiding of page contents than before, which won't have an impact on sighted users but can result in screen-readers providing an un-ordered view of the contents of a web page or missing out important information.
 
-Many are turning towards frameworks to provide out-of-the-box responsiveness rather than manually providing different layouts for each screen size, and these can be a good solution. For example Bootstrap provides a framework for responsive sites that can be used to make accessible websites, but it is down to the developer to ensure WCAG compliancy, as there are many aspects that shouldn't be used, such as default button colours and carousels \cite{bootstrapaccessibility}. Others, such as Turret, allow for things like screen-reader only content to be defined \cite{turretaccessibility}.
+Many are turning towards frameworks to provide out-of-the-box responsiveness rather than manually providing different layouts for each screen size, and these can be a good solution. For example \textit{Bootstrap} provides a framework for responsive sites that can be used to make accessible websites, but it is down to the developer to ensure WCAG compliancy, as there are many aspects that shouldn't be used, such as default button colours and carousels \cite{bootstrapaccessibility}. Others, such as \textit{Turret}, allow for things like screen-reader only content to be defined \cite{turretaccessibility}.
 
-Recent years have also seen Flexbox and CSS Grid being used for arranging elements on a page. These decouple the source order (i.e. the order of the elements declared in HTML) and their visual order on the screen. This is another thing that has little repercussions on average web users, but can mean that keyboard or screen-reader users are unable to access content in the right order.
+Recent years have also seen \textit{Flexbox} and \textit{CSS Grid} being used for arranging elements on a page. These decouple the source order (i.e. the order of the elements declared in HTML) and their visual order on the screen. This is another thing that has little repercussions on average web users, but can mean that keyboard or screen-reader users are unable to access content in the right order.
 
 % LATER provide pic of unordered page
 
@@ -230,22 +227,22 @@ These provide some guidelines in terms of the semantics to use, and how to defin
 
 \subsubsection{WCAG}
 
-The Web Content Accessibility Guidelines (WCAG) \cite{WCAG} are part of a series of web accessibility guidelines published by the Web Accessibility Initiative (WAI) of the World Wide Web Consortium (W3C). WCAG 2.1 was published in 2018, and provides a much-needed update to the previous version published a decade earlier - mobile phone web browsing especially has increased a lot in the last 10 years and requires a new set of accessibility guidelines.
+The Web Content Accessibility Guidelines (WCAG) are part of a series of web accessibility guidelines published by the Web Accessibility Initiative (WAI) of the World Wide Web Consortium (W3C). WCAG 2.1 was published in 2018, and provides a much-needed update to the previous version published a decade earlier - mobile phone web browsing especially has increased a lot in the last 10 years and requires a new set of accessibility guidelines.
 
 The WCAG are organised under 4 principles
 
 \begin{itemize}
     \item Perceivable - users must be able to perceive the information being presented (it can't be invisible to all of their senses)
-    \item Operable - users must be able to operate the interface (all interactions be able to be performed by the user)
+    \item Operable - users must be able to operate the interface (all interactions must be able to be performed by the user)
     \item Understandable - users must be able to understand the information presented and how to operate the interface
     \item Robust - users must be able to access the content from a variety of user agents, including current assistive technologies
 \end{itemize}
 %
-Each of these principles has a set of testable criteria, and these can be met at 3 levels - A, AA and AAA.
+Each of these principles has a set of testable criteria, and these can be met at 3 levels - A, AA and AAA, indicating a minimum, good, and high level of conformance, although it is not always possible to reach level AAA with all content types.
 
 \subsubsection{WAI-ARIA}
 
-The WAI-ARIA \cite{WAIARIA} is a technical specification for making web pages accessible. WAI-ARIA defines some extra attributes \cite{WAIARIAspec}
+The WAI-ARIA is a technical specification for making web pages accessible. WAI-ARIA defines some extra attributes
 
 \begin{itemize}
     \item Roles - these define common structural roles on a web page such as \texttt{button}, \texttt{navigation}, \texttt{banner} and \texttt{tabgroup}, with a lot of overlap with HTML5 semantic elements
@@ -261,25 +258,25 @@ When aiming to develop an accessible website, there is no easy route - instead, 
 
 As HTML5 is designed to be accessible, it is key to try and keep things as simple as possible, and not try to do "hacky" things when developing a site, such as using CSS to change the ordering of how elements show on a page. It is also important to use the designated HTML elements for each component on a page, such as using a \texttt{<button>} tag for a button instead of adding a \texttt{<span>} and styling it into a button.
 
-Many web frameworks are built with accessibility considered, and so using something like Bootstrap, Turret, Foundation or Vanilla for building the site and then evaluating and fixing any accessibility issues can also be a good idea.
+Many web frameworks are built with accessibility considered, and so using frameworks like \textit{Bootstrap}, \textit{Turret}, \textit{Foundation} or \textit{Vanilla} for building the site and then evaluating and fixing any accessibility issues can also be a good idea.
 
-A useful Javascript library that is available is Ally.js \cite{allyjs}, which can be loaded into a JS project and provides a set of modules to help simplify accessibility challenges, such as setting specific ordering for tab focuses.
+A useful Javascript library that is available is \textit{Ally.js}, which can be loaded into a JS project and provides a set of modules to help simplify accessibility challenges, such as setting specific ordering for tab focuses.
 
 There are many tools that can also be used to evaluate a site's accessibility or even give live feedback to the developer while they are coding, these are discussed below.
 
 \subsubsection{Tools for Evaluation}
 
-Several well-made tools are available freely online to test and fix accessibility issues. Pa11y \cite{pa11y} provides a suite of tools to flag up accessibility issues, including tools that can be integrated into a CI workflow and provide live feedback on issues. HTML\_CodeSniffer \cite{codesniffer} is a linter that allows different standards, such as WCAG, to be checked against code. WAVE \cite{wave} is another web accessibility evaluation tool that simply takes a URL and evaluates missing accessibility features.
+Several well-made tools are available freely online to test and fix accessibility issues. \textit{Pa11y} provides a suite of tools to flag up accessibility issues, including tools that can be integrated into a CI workflow and provide live feedback on issues. \textit{HTML\_CodeSniffer} is a linter that allows different standards, such as WCAG, to be checked against code. \textit{WAVE} is another web accessibility evaluation tool that simply takes a URL and evaluates missing accessibility features.
 
-It can be useful during development for a developer to simulate different disabilities to test the sight, as this can flag up larger issues before testing on people who use assistive technologies. Testing with a screen-reader is a good way to understand how a site will sound , JAWS and NVDA are two of the most commonly-used screen-readers. Most platforms also have native screen-readers that can be tested with - Voiceover for Mac and iOS, Narrator for Windows, TalkBack for Android.
+It can be useful during development for a developer to simulate different disabilities to test the site, as this can flag up larger issues before testing on people who use assistive technologies. Testing with a screen-reader is also a good way to understand how a site will sound. \textit{JAWS} and \textit{NVDA} are two of the most commonly-used screen-readers, and most platforms also have native screen-readers that can be tested with - \textit{Voiceover} for Mac and iOS, \textit{Narrator} for Windows, and \textit{TalkBack} for Android.
 
-It can also be useful to check how a sight looks for Some tools for this include Check My Colours \cite{colourchecker} to check colour contrast, and Color Oracle \cite{colororacle} to simulate colour blindness.
+It can also be useful to check how a site looks for colour-blind users. Some tools for this include \textit{Check My Colours} to check colour contrast, and \textit{Color Oracle} to simulate colour blindness.
 
-A recent project from IBM is the Va11ys project \cite{va11ys}, which provides a range of code samples that allow a developer to test out different assistive technologies. These provide a good idea of how different accessible features should look in code and how they should be interpreted by different assistive technologies.
+A recent project from IBM is the \textit{Va11ys} project, which provides a range of code samples that allow a developer to test out different assistive technologies. These provide a good idea of how different accessible features should look in code and how they should be interpreted by different assistive technologies.
 
-Overall, we can see that there is a wide range of tools that are designed to help developers evaluate accessibility on their site and recognise issues before testing with real users.
+Overall, we can see that there is a wide range of tools that are designed to help developers evaluate accessibility on their site and recognise issues before testing with real users, but not as many that focus on building accessible sites in the first place.
 
-%LATER- add some pics of the evaluating tools
+%TODO - add some pics of the evaluating tools
 
 \subsubsection{Tools for Viewing Sites}
 
@@ -305,7 +302,7 @@ With each of these approaches, they require the developer to give correct layout
  \hline
  Reading Assistant & Software that changes content presentation to make it more readable - this can include changing font and space, hiding parts of the page and reading text aloud & Different sections on a page should be used and labelled correctly, layouts should be responsive to font changes \\
  \hline
- Keyboard/Mechanical Inputs & Many different custom keyboards are available - those with larger or illuminated keys, on-screen keyboard, sip-and-puff switches  & Content should be able to all be accessed via keyboard, and grouped together to allow fast navigation through a page \\
+ Keyboard/ Mechanical Inputs & Many different custom keyboards are available - those with larger or illuminated keys, on-screen keyboard, sip-and-puff switches  & Content should be able to all be accessed via keyboard, and grouped together to allow fast navigation through a page \\
  \hline
  Mouse & Many different mice are available - touchpads, trackballs, joysticks & Different sections should be labelled, and clickable areas should be large enough to accommodate error margins\\
  \hline
@@ -342,7 +339,7 @@ With each of these approaches, they require the developer to give correct layout
 
 In the early 1990's, assistive technologies would read what was on the screen and try to guess the functions of different elements and their states, e.g. by looking at class names of objects and seeing if they were highlighted. However, this was not always accurate and there was often some delay time between new features being introduced and assistive technologies being developed to recognise them. \cite{smashingAPIs}
 
-In the late 1990's, accessibility APIs were introduced as an alternative that provided a more reliable way to pass information to assistive technologies. For the first time, developers had the ability to provide information to assistive technologies in a consistent way.
+In the late 1990's, accessibility APIs were introduced as a standardised alternative that provided a more reliable way to pass information to assistive technologies. For the first time, developers had the ability to provide information to assistive technologies in a predictable and consistent way.
 
 Although this was a step up from the previous way of simply guessing information about pages, many early accessibility APIs still did not provide much structural information for the page, making it hard to understand how objects related to each other. New APIs were developed over the next decade, which were then able to provide information on page structure and rich text formatting.
 
@@ -353,8 +350,6 @@ There are accessibility APIs on all major operating systems (both desktop and mo
 One of the problems developers face is not being able to add to accessibility APIs, they can only write in semantics that will work well with an API but not directly influence the accessibility tree that an assistive technology will form.
 
 A new (and still experimental) technology currently being worked on is the Accessibility Object Model (AOM). This aims to allow developers to directly provide information to assistive technology APIs via adding custom fields to elements on a page.
-
-% LATER - add more to AOM bit?
 
 \section{Accessible Visuals}
 
@@ -376,53 +371,37 @@ It is clear that in order for a text-based web user to have anywhere close to th
 
 \subsection{Current Solutions}
 
-There are many JavaScript graphing libraries available for the web, most notably libraries such as Chart.js, D3.js, Highcharts and Google Charts.
+There are many JavaScript graphing libraries available for the web, most notably libraries such as \textit{Chart.js}, \textit{D3.js}, \textit{Highcharts} and \textit{Google Charts}.
 
-Most of these libraries have some accessibility in mind in terms of alt-text and navigating via keyboard, but a big problem is consistency among browsers. Libraries like D3 and AmCharts use SVG to form the images, and the \texttt{tabindex} property (specifying order for the TAB key to move through shapes) is not implemented in all main browsers yet.
+Most of these libraries have some accessibility in mind in terms of alt-text and navigating via keyboard, but a big problem is consistency among browsers. Libraries like \textit{D3} and \textit{AmCharts} use SVG to form the images, and provide little ability to for a user to navigate through these element-by-element.
 
-The Highcharts library offers some accessibility in terms of a custom module that can be loaded in. This provides the ability to show screen-reader users the data in raw form, and to use high-contrast patterns in the graph. However, this still relies on the user to add sufficient alt-text to the graph, and requires some custom set up from the user in terms of turning on a lot of different settings to enable keyboard navigation and other accessibility features.
+The \textit{Highcharts} library offers some accessibility in terms of a custom module that can be loaded in. This provides the ability to show screen-reader users the data in raw form, and to use high-contrast patterns in the graph. However, this still relies on the user to add sufficient alt-text to the graph, and requires some custom set up from the user in terms of turning on a lot of different settings to enable keyboard navigation and other accessibility features.
 
-% LATER - write more
+\subsection{Aim}
+
+In this paper, I will explore the creation of a Javascript graphing library that comes with accessibility out-of-the-box.
+
+The aim is to have a library that functions as a proof-of-concept for how web accessible graphs could be made. It will provide key accessibility features for several different types of graphs, with minimal work from the developer. In order to focus on accessibility and functionality, this library will be limited to a few common types of graphs.
+
+\subsection{Technical Challenges}
+
+One of the main technical challenges is making a solution that works out of the box to creates graphs that are usable for people browsing with and without assistive technologies.
+
+It is also key to note that while the WCAG provides some clear guidelines on how to make web content that is accessible to people with varying needs, it is still hard to get every use case due to the diverse needs of people using the internet.
+
+When trying to provide all the information that sighted users would see via audio, it will also be important to keep a balance between providing relevant information and overloading the user. Providing too much information will be tedious for users who only want to understand the values and trends in a graph, and may also overwhelm a user, but providing too little information will result in less understanding about the graph for the user.
+
+From a usability standpoint, it will also need to be easy for developers to use, but still be able to be customised enough that developers can create custom graphics to their liking, while maintaining the same level of accessibility. Developers (understandably) lean towards using technologies that provide the solution they need with a minimal amount of work, so it will be important to keep the API functional but quick to invoke.
+
+\section{Related Work}
+
+% TODO - write
+% Some papers
+% Some books
 % Highcharts
 % Amcharts
 % Kendo UI
 % Evocharts
-
-\subsection{Aim}
-
-In this paper, I will explore the creation of a fully-functioning Javascript graphing library that comes with accessibility out-of-the-box.
-
-This library will provide key accessibility features for several different types of graphs, with minimal work from the developer. In order to focus on accessibility and functionality, this library will be limited to a few common types of graphs.
-
-% LATER - write more
-% Idea - make graphs accessible - tool for developers - make it easier for developers to be accessible then more will do it
-% Possible solutions - framework, linter-type thing to add to components
-% "in this paper we will explore the creation of a fully functioning javascript library that will allow developers to generate fully accessible graphics (to ARIA standards) with minimal work"
-% "we will also explore some other possible solutions, including the currently experimental AOM"
-
-\subsection{Technical Challenges}
-
-One of the main technical challenges is making a solution that creates graphs that are usable for people browsing with and without assistive technologies.
-
-It is also key to note that while the WCAG provides some clear guidelines on making content accessible, it is still hard to get every use case due to the diverse needs of people using the internet.
-
-When trying to provide all the information that sighted users would see via audio, it will also be important to keep a balance between providing relevant information and overloading the user.
-
-From a usability standpoint, it will also need to be easy for developers to use, but still be able to be customised enough that developers can create custom graphics to their liking, while maintaining the same level of accessibility.
-
-% LATER - write more
-% Technical - making a solution that works for both accessible and normal users out of the box
-% Accessibility challenges - hard to truly get every use case, the W3C guidelines are many research - will use those as a good indicator
-% Need the balance between providing relevant info and overloading the user (as per cognitive guideline)
-% Need it to be plug-and-play for developers - as easy as other libraries
-
-\section{Related Work}
-
-% {TODO}
-
-% LATER - write
-% Some papers
-% Some books
 
 \chapter{Design}
 
@@ -535,7 +514,7 @@ Since the reader was going to browse through the contents of the SVG, I also use
 
 % TODO - image of side-by-side accessibility tree and HTML to show how <title> and <desc> were encoded, and how aria-hidden would show up
 
-In order to make the each data point able to be accessed individually, I added a \texttt{tabindex=0} property to each data point. This made each of these elements focusable and thus added them to the order in sequential keyboard navigation, letting them be accessed by using the \textit{Tab} key on a keyboard.
+In order to make the each data point able to be accessed individually, I added a \texttt{tabindex=0} property to each data point. This made each of these elements focusable and thus added them to the order in sequential keyboard navigation, letting them be accessed by using the \texttt{[Tab]} key on a keyboard.
 
 I also grouped the data points in an SVG group \texttt{<g>} and gave this an ARIA role of \texttt{list}, along with a \texttt{<title>}. This meant that when a screen-reader came across the list it would read out the title. I then added each data point as an SVG group of its own, with an ARIA role of \texttt{listitem}, and a \texttt{<title>}, which the screen-reader would read out on focussing on each list item. Setting up the chart as a \texttt{list} containing a set of \texttt{listitem} also meant that users of technologies that have other shortcuts for navigating lists could also use these.
 
@@ -691,20 +670,48 @@ function findChartEndNum(dataEndNum){
 
 For the line graph I wanted to calculate a general trend as part of the overarching graph description, as this is something that a sighted user would be able to tell quickly upon seeing a graph.
 
-In the spirit of not wanting to use any external libraries, I wrote up a
+In the spirit of not wanting to use any external libraries, I wrote up a Javascript version of the \textit{Least Squares Method} -  an approach in regression analysis that estimates the relationship between a set of points, in this case the points on the line graph.
 
-% TODO - finish above
-% Algorithm for finding trend for line graph
-% viewbox for pie?
-% Code for manually generating pie chart
+The algorithm works to find the "line of best fit" through a set of 2D points, by finding the line that minimises the square of the residuals, i.e. the error between the line's predicted value and the actual observed value.
+
+The typical Least Squares algorithm takes in a list of points as $(x,y)$ co-ordinates, and so I used the SVG \texttt{width} and \texttt{height} to get the data point position, and then calculated its position relative to the bottom left corner (as opposed to the top left which SVG uses for its measurements).
+
+When it came to drawing bar and line graphs, the mathematics was relatively simple to take in the data and draw \texttt{<rect>} of the correct width or \texttt{<circle>} at the correct position. However drawing a pie chart required more maths to calculate and draw each segment correctly.
+
+For the pie chart SVG, I added a \texttt{viewbox} property to the SVG. This meant that regardless of the actual size in pixels on the page, the relative measurements would stay the same when specifying measurements for each individual elements to draw.
+
+In order to draw the pie charts, I first calculated corresponding percentages for each data point out of the total of all values, and then used this to work out the point on the circle for the edge of each segment.
+
+\begin{lstlisting}
+var x = radius * Math.cos(2 * Math.PI * percent);
+var y = radius * Math.sin(2 * Math.PI * percent);
+\end{lstlisting}
+
+This could then be adjusted to the correct position relative to the centrepoint of the circle, and then drawn using the SVG \texttt{<path>} attribute. The path had 3 parts
+
+\begin{itemize}
+    \item \texttt{M} - \textit{Move} to the first point on the segment
+    \item \texttt{A} - Draw and \textit{arc} to the next point on the segment
+    \item \texttt{L} - Draw a \textit{line} to the centre of the circle
+\end{itemize}
+
+Although this method only drew two lines of the segment, SVG filled in the third automatically (as a straight line from the centre back to the first point of the segment), and this area could then be filled in like a normal shape.
+
+% TODO - picture of drawing arc
+
+% TODO - rewrite once implemented
 
 \section{Limitations}
 
-% - Not an effective solution for large data - will become long to read and skip over
-% - Readable doesn't mean accessible
-% - Hard to make a solution that's accessible for *everyone* - infinite use-cases
-% - Some implementation limitations - Arrows keys bit odd - not really a way to define arrow key navigation
-% - Library not very customisable at the moment - could do with colours choosing etc.
+Although the library provides a proof-of-concept for generating 3 different types of graphs from provided data, there are still some key limitations in this approach.
+
+A key concept in accessibility is that just because something is available to a user, it doesn't necessarily mean that it is accessible. In this case, this solution will be inefficient for large amounts of data, as although it could still provide a solution which would allow a user of an assistive technology access to all the information, it would quickly become tedious to have to listen to so much data, and it would also create a less-readable visual version of a graph.
+
+It is also very hard to truly make a solution that is accessible to everyone, as disabilities come in a wide variety of affects and severities. When it comes to things such as the labels on the graphs, making descriptions that are simple enough for people with cognitive disabilities to be able to understand, may result in taking away too much detail. The current solution provides fairly simple labels but these could be extended slightly to provide other useful information for the user.
+
+The solution uses the \texttt{[tab]} key to navigate through the graph, but for some users the \texttt{[tab]} key may be associated with navigating through clickable links, and so this can be confusing. There is currently no standard way to allow arrow key navigation through an SVG, but it is possible to create a section of a webpage with the ARIA role of \texttt{application}, which allows custom keystroke actions to be specified. However, this can cause other compatibility issues due to the variety of assistive technologies that may use a page, and this is considered bad practice to do unless done with great care.
+
+
 
 \chapter{Evaluation}
 
@@ -727,8 +734,10 @@ In the spirit of not wanting to use any external libraries, I wrote up a
 
 \chapter{Conclusion and Future Work}
 
-% - More customisable library?
 % - Expand to more graph types etc.
+% - Library not very customisable at the moment
+%   - Choosing colours
+%   - Specifying navigation keys? (turning tabindex on and off)
 % - Goals I had for the project, and did I fulfill them (aim for 3/4 goals?)
 
 \chapter{Glossary}
