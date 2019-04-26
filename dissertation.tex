@@ -37,6 +37,10 @@
 \usepackage[utf8]{inputenc}
 \setcounter{tocdepth}{2}
 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{longtable}
+
 \usepackage{glossaries}
 \renewcommand{\glossarysection}[2][]{}
 
@@ -718,7 +722,7 @@ The solution uses the \texttt{[tab]} key to navigate through the graph, but for 
 
 \subsection{Study Design}
 
-With the type of target market that was intended, it was important to test my solution on real-life users, especially those who use audio assistive technologies such as screen-readers, as there is a wide variety in the way that blind and partially-blind users navigate webpages based on operating system/browser combinations and also just preference.
+With the type of target market that was intended, it was important to test my solution on real-life users, especially those who use audio assistive technologies such as screen-readers, as there is a wide variety in the way that blind and partially-blind users navigate web pages based on operating system/browser combinations and also just preference.
 
 % conducted small - 5 users
 % first asked background questions, then demoed, then more questions
@@ -730,12 +734,125 @@ With the type of target market that was intended, it was important to test my so
 
 \section{WCAG}
 
+\begin{center}
+\begin{longtable}{|p{2cm}|p{5cm}|p{2cm}|p{5cm}|}
+ \hline
+ Num & Name & Done? & Notes \\ [0.5ex]
+ \hline \hline
+ 1.1.1 & Non-text Content & $\text{\rlap{$\checkmark$}}\square$ & All the graphical content has text labels\\
+ \hline
+ 1.2 & Time-based media & $\text{\rlap{$\checkmark$}}\square$ & There is no audio or video content\\
+ \hline
+ 1.3.1 & Info and Relationships & $\text{\rlap{$\checkmark$}}\square$ & Graph data points are made as a \texttt{listitem} to show structure to the user\\
+ \hline
+ 1.3.2 & Meaningful Sequence & $\text{\rlap{$\checkmark$}}\square$ & Data points are in a list in an ordered sequence\\
+ \hline
+ 1.3.3 & Sensory Characteristics & $\text{\rlap{$\checkmark$}}\square$ & Content is suitable for both visual and audio senses\\
+ \hline
+ 1.3.4 & Orientation & $\text{\rlap{$\checkmark$}}\square$ & Not applicable to a smaller image on a web page\\
+ \hline
+ 1.3.5 & Identify Input Purpose & $\text{\rlap{$\checkmark$}}\square$ & There is no user input\\
+ \hline
+ 1.3.6 & Identify Purpose & $\text{\rlap{$\checkmark$}}\square$ & All elements are made with correct HTML tags or assigned ARIA roles\\
+ \hline
+ 1.4.1 & Use of Color & $\text{\rlap{$\checkmark$}}\square$ & All colour used has corresponding text and pattern counterparts\\
+ \hline
+ 1.4.2 & Audio Control & $\text{\rlap{$\checkmark$}}\square$ & There is no audio content\\
+ \hline
+ 1.4.3 & Contrast (Minimum) & $\text{\rlap{$\checkmark$}}\square$ & Descriptive text is high contrast (\textgreater 4.5:1)\\
+ \hline
+ 1.4.4 & Resize Text & $\text{\rlap{$\checkmark$}}\square$ & Text can be resized\\
+ \hline
+ 1.4.5 & Images of Text & $\text{\rlap{$\checkmark$}}\square$ & All text in the graphs is rendered as a \texttt{<text>} tag\\
+ \hline
+ 1.4.6 & Contrast (Enhanced) & $\text{\rlap{$\checkmark$}}\square$ & Descriptive text is high contrast (\textgreater 7:1)\\
+ \hline
+ 1.4.7 & Low or No Background Audio & $\text{\rlap{$\checkmark$}}\square$ & There is no audio content\\
+ \hline
+ 1.4.8 & Visual Presentation & $\text{\rlap{$\checkmark$}}\square$ & There are no blocks of text in the charts\\
+ \hline
+ 1.4.9 & Images of Text & $\text{\rlap{$\checkmark$}}\square$ & All text in the graphs is rendered as a \texttt{<text>} tag\\
+ \hline
+ 1.4.10 & Reflow & $\text{\rlap{$\checkmark$}}\square$ & Text reflows, and the graph may require scrolling but this is allowed due to needing 2-dimensional layout for meaning\\
+ \hline
+ 1.4.11 & Non-text Contrast & $\text{\rlap{$\checkmark$}}\square$ & Adjacent colour blocks have a fairly high contrast (\textgreater 3:1)\\
+ \hline
+ 1.4.12 & Text Spacing & $\text{\rlap{$\checkmark$}}\square$ & Letter spacing is \textgreater 0.12 times the font size, and word spacing is \textgreater 0.16 times the font size\\
+ \hline
+ 1.4.13 & Content on Hover and Focus & $\text{\rlap{$\checkmark$}}\square$ & There is no content triggered by hovering, labels triggered by focus continues to play until the user manually shifts focus\\
+ \hline
+ 2.1.1 & Keyboard & $\text{\rlap{$\checkmark$}}\square$ & All content is operable through a keyboard interface without requiring specific timings\\
+ \hline
+ 2.1.2 & No Keyboard Trap & $\text{\rlap{$\checkmark$}}\square$ & All elements that can receive keyboard focus can have focus moved away using only a keyboard interface\\
+ \hline
+ 2.1.3 & Keyboard (No Exception) & $\text{\rlap{$\checkmark$}}\square$ & All content is operable through a keyboard interface without requiring specific timings\\
+ \hline
+ 2.1.4 & Character Key Shortcuts & $\text{\rlap{$\checkmark$}}\square$ & There are no keyboard shortcuts implemented for letters, punctuations or numbers\\
+ \hline
+ 2.2 & Enough Time & $\text{\rlap{$\checkmark$}}\square$ & There is no content that has a time limit on viewing, contains interruptions, or has timeouts/re-authentication\
+ \hline
+ 2.3 & Seizures and Physical Reactions & $\text{\rlap{$\checkmark$}}\square$ & There is no animation in the content that could trigger a seizure or physical reaction\\
+ \hline
+ 2.4.1 & Bypass Blocks & $\text{\rlap{$\checkmark$}}\square$ & Each graph has a skip link before presenting any content to the user\\
+ \hline
+ 2.4.2 & Page Titled & $\text{\rlap{$\checkmark$}}\square$ & Applies to the parent web page, not the included divs with graphs\\
+ \hline
+ 2.4.3 & Focus Order & $\text{\rlap{$\checkmark$}}\square$ & Applied to a full page as opposed to single content, but focus order on the graphs is sequential to the elements\\
+ \hline
+ 2.4.4 & Link Purpose (In Context) & $\text{\rlap{$\checkmark$}}\square$ & The only link is the bypass link and this is clearly labelled for all users\\
+ \hline
+ 2.4.5 & Multiple Ways & $\text{\rlap{$\checkmark$}}\square$ & Applies only to locating a web page within a set of web pages\\
+ \hline
+ 2.4.6 & Headings and Labels & $\text{\rlap{$\checkmark$}}\square$ & All headings and labels describe the topic and purpose\\
+ \hline
+ 2.4.7 & Focus Visible & $\text{\rlap{$\checkmark$}}\square$ & The keyboard operable interface has visible indication of where the keyboard focus is\\
+ \hline
+ 2.4.8 & Location & $\text{\rlap{$\checkmark$}}\square$ & User location in a set of webpages only applies to a full web page\\
+ \hline
+ 2.4.9 & Link Purpose (Link Only) & $\text{\rlap{$\checkmark$}}\square$ & All links can have their purpose determined from the link text only\\
+ \hline
+ 2.4.10 & Section Headings & $\text{\rlap{$\checkmark$}}\square$ & The correct HTML sectioning element is used for the graph divs\\
+ \hline
+ 2.5 & Input Modalities & $\text{\rlap{$\checkmark$}}\square$ & There are no user inputs in the charts\\
+ \hline
+ 3.1.1 & Language of Page & $\text{\rlap{$\checkmark$}}\square$ & The default human language of the page will need to be set on the parent page\\
+ \hline
+ 3.1.2 & Language of Parts & $\text{\rlap{$\checkmark$}}\square$ & The human langauge of all the phrases in the content can be programmatically determined\\
+ \hline
+ 3.1.3 & Unusual Words & $\text{\rlap{$\checkmark$}}\square$ & All language is simple English without unusual words\\
+ \hline
+ 3.1.4 & Abbreviation & $\text{\rlap{$\checkmark$}}\square$ & There are no abbreviations included\\
+ \hline
+ 3.1.5 & Reading Level & $\text{\rlap{$\checkmark$}}\square$ & All language is simple English with a reading level lower than secondary education\
+ \hline
+ 3.1.6 & Pronunciation & $\text{\rlap{$\checkmark$}}\square$ & There are no words included without context that would need help being pronounced\\
+ \hline
+ 3.2.1 & On Focus & $\text{\rlap{$\checkmark$}}\square$ & When a user interface component receives focus it does not initiate a change of context\\
+ \hline
+ 3.2.2 & On Input & $\text{\rlap{$\checkmark$}}\square$ & There is no user input that would cause a change of context\\
+ \hline
+ 3.2.3 & Consistent Navigation & $\text{\rlap{$\checkmark$}}\square$ & Navigation mechanisms being repeated applies between different web pages in a set of web pages\\
+ \hline
+ 3.2.4 & Consistent Identification & $\text{\rlap{$\checkmark$}}\square$ & All graph components on a page can be identified consistently\\
+ \hline
+ 3.2.5 & Change on Request & $\text{\rlap{$\checkmark$}}\square$ & There are no changes in context initiated without user request\\
+ \hline
+ 3.3 & Input Assistance & $\text{\rlap{$\checkmark$}}\square$ & There is no user input that would require helping the user to avoid and correct mistakes\\
+ \hline
+ 4.1.1 & Parsing & $\text{\rlap{$\checkmark$}}\square$ & All HTML elements have start and end tags, unique IDs, no duplicated attributes and are nested correctly\\
+ \hline
+ 4.1.2 & Name, Role, Value & $\text{\rlap{$\checkmark$}}\square$ & All user interface components have roles set either using correct HTML tags or assigning ARIA roles\\
+ \hline
+ 4.1.3 & Status Messages & $\text{\rlap{$\checkmark$}}\square$ & There are no status attributes on any of the chart elements\\
+ \hline
+ Screen-Reader & Processes content on desktops and browsers, and converts it to audio or braille & $\text{\rlap{$\times$}}\square$ & This\\
+ \hline
+\end{longtable}
+\end{center}
+
+
 % - WCAG is guidelines
 % - Following table shows all criteria being fulfilled
-
-\section{Other?}
-
-% - Things like speed compared to other libraries such as d3
 
 \chapter{Conclusion and Future Work}
 
@@ -771,3 +888,4 @@ When talking about web accessibility, it is useful to highlight some key terms
 % Different patterns for colour-blind users
 % Stick to few types - bars, pie, line, stacked bars?
 % For line talk about trends, for bar/pie talk about most "X is most, do you want to hear more?"
+% - Things like speed compared to other libraries such as d3
