@@ -138,7 +138,7 @@ When HTML was first conceived in 1990, there were only 2.6 million users worldwi
 
 Within a few years, it had already become clear that HTML was extremely limiting for developers, and innovation had to take place in order to keep it relevant - in 1993 the browser Mosaic was shipped with support for the \texttt{<img>} tag, and many more new tags followed in order to accommodate for the ever-growing content types. \cite{historyofhtml}
 
-As time went on, both the number of the users on the web and the type of content being published changed drastically, and HTML went through a variety of iterations, eventually resulting on HTML5 which, combined with CSS4 and Javascript, forms the core of the internet,
+As time went on, both the number of the users on the web and the type of content being published changed drastically, and HTML went through a variety of iterations, eventually resulting on HTML5 which, combined with CSS4 and JavaScript, forms the core of the internet,
 
 However, as the number of users has grown, so have the amount of internet users with differing accessibility needs, including visual, motor and cognitive needs. As HTML has become more complex, so have the website layouts, due in no small part to the need for websites to work on a much larger variety of devices and screen sizes than before. Whereas the simplistic "document-style" websites of the early internet were easily accessible to most users, this is no longer the case.
 
@@ -204,7 +204,7 @@ When the internet began, the idea of accessibility was at its core -
 - Tim Berners-Lee, W3C Director and inventor of the World Wide Web
 \end{quote}
 %
-And this idea is still followed in recent iterations of HTML. Pure HTML webpages were accessible out-of-the-box when HTML was first made, and this continues to be the case today - sites made in basic HTML5 are still largely accessible. However the current web is not pure HTML - CSS that originally changed superficial styling is now also commonly-used for layout and interaction, and Javascript has become the de facto language of the internet, with many new frameworks being made often and used by popular sites such as Facebook and Netflix.
+And this idea is still followed in recent iterations of HTML. Pure HTML webpages were accessible out-of-the-box when HTML was first made, and this continues to be the case today - sites made in basic HTML5 are still largely accessible. However the current web is not pure HTML - CSS that originally changed superficial styling is now also commonly-used for layout and interaction, and JavaScript has become the de facto language of the internet, with many new frameworks being made often and used by popular sites such as Facebook and Netflix.
 
 Whereas web pages used to be static and have a linear layout, they are now much more dynamic with changing content (such as social media platforms with a livestream) and can be displayed in a variety of different layouts depending on device and screen size. While this satisfies consumers needs to access current information on a variety of devices, it has resulted in a decrease in accessibility for some users. Changing layouts can mean that a screen-reader reads out information in a completely different order than it is displayed visually, and moving interfaces can become overloaded and confusing for users with cognitive and physical disabilities.
 
@@ -222,7 +222,7 @@ Recent years have also seen \textit{Flexbox} and \textit{CSS Grid} being used fo
 
 % LATER provide pic of unordered page
 
-With web development, there are many parts involved in the making and viewing of sites \cite{w3components} - developers use authoring and evaluation tools to make content, and then users use browsers, and optionally assistive technologies, to interact with the content. For an accessibility feature to become widely-used, it is crucial for it to be implemented in many or all of these parts - developers will have less motivation to use a feature if it is not implemented consistently across browsers, or hard to do in a language.
+With web development, there are many parts involved in the making and viewing of sites - developers use authoring and evaluation tools to make content, and then users use browsers, and optionally assistive technologies, to interact with the content. For an accessibility feature to become widely-used, it is crucial for it to be implemented in many or all of these parts - developers will have less motivation to use a feature if it is not implemented consistently across browsers, or hard to do in a language.
 
 % LATER provide pic of process
 
@@ -265,7 +265,7 @@ As HTML5 is designed to be accessible, it is key to try and keep things as simpl
 
 Many web frameworks are built with accessibility considered, and so using frameworks like \textit{Bootstrap}, \textit{Turret}, \textit{Foundation} or \textit{Vanilla} for building the site and then evaluating and fixing any accessibility issues can also be a good idea.
 
-A useful Javascript library that is available is \textit{Ally.js}, which can be loaded into a JS project and provides a set of modules to help simplify accessibility challenges, such as setting specific ordering for tab focuses.
+A useful JavaScript library that is available is \textit{Ally.js}, which can be loaded into a JS project and provides a set of modules to help simplify accessibility challenges, such as setting specific ordering for tab focuses.
 
 There are many tools that can also be used to evaluate a site's accessibility or even give live feedback to the developer while they are coding, these are discussed below.
 
@@ -384,7 +384,7 @@ The \textit{Highcharts} library offers some accessibility in terms of a custom m
 
 \subsection{Aim}
 
-In this paper, I will explore the creation of a Javascript graphing library that comes with accessibility out-of-the-box.
+In this paper, I will explore the creation of a JavaScript graphing library that comes with accessibility out-of-the-box.
 
 The aim is to have a library that functions as a proof-of-concept for how web accessible graphs could be made. It will provide key accessibility features for several different types of graphs, with minimal work from the developer. In order to focus on accessibility and functionality, this library will be limited to a few common types of graphs.
 
@@ -465,7 +465,7 @@ The WAI-ARIA standards provide a set of roles, states and properties that can be
 
 \section{Library Design}
 
-When building the Javascript library, since this was a proof-of-concept, I aimed for create a fairly simple API for the developer, in which the page \texttt{div} in which to create the chart, the chart type, and data source (a local file) could be specified. Along with this, the chart title and units of data would need to be specified, in order to generate the metadata for the chart correctly.
+When building the JavaScript library, since this was a proof-of-concept, I aimed for create a fairly simple API for the developer, in which the page \texttt{div} in which to create the chart, the chart type, and data source (a local file) could be specified. Along with this, the chart title and units of data would need to be specified, in order to generate the metadata for the chart correctly.
 
 \chapter{Implementation}
 
@@ -552,11 +552,11 @@ In order to have the graph function as normal, I had to add an extra layer of la
 
 \subsection{Basic Structure}
 
-I initially began with a hard-coded HTML prototype to figure out syntax and run some user testing with. Once I had decided on the HTML syntax that I would use, I then proceeded to package this into a Javascript library which would be able to produce the same graphs with any provided dataset.
+I initially began with a hard-coded HTML prototype to figure out syntax and run some user testing with. Once I had decided on the HTML syntax that I would use, I then proceeded to package this into a JavaScript library which would be able to produce the same graphs with any provided dataset.
 
-I was keen to not have any external dependencies for the library, as Javascript libraries are well-known for quickly growing very large as multiple levels of dependencies are loaded for a single small function. Thus I wrote only in "Vanilla" Javascript - plain javascript without any functions from third-party libraries.
+I was keen to not have any external dependencies for the library, as JavaScript libraries are well-known for quickly growing very large as multiple levels of dependencies are loaded for a single small function. Thus I wrote only in "Vanilla" JavaScript - plain JavaScript without any functions from third-party libraries.
 
-While a Javascript library can just be included as a single file with all functions in it, with each required function just called directly, in order to avoid nameclashes with other libaries, I put the required function into a global object, which then served as the unique namespace for the library.
+While a JavaScript library can just be included as a single file with all functions in it, with each required function just called directly, in order to avoid nameclashes with other libaries, I put the required function into a global object, which then served as the unique namespace for the library.
 \newline
 \begin{lstlisting}
 var accessibleGrapher = {
@@ -573,7 +573,7 @@ As the library was intended for small amounts of data, it would have been possib
 
 Since I was building a proof-of-concept library, I opted to only provide the option for loading in a local JSON file, although extending the library to load a file via an API call would not require too much extra code in the library.
 
-The file was loaded in via an \texttt{XMLHttpRequest} - a standard object provided by the browser's Javascript environment that allows data transfer between a web browser and web server.
+The file was loaded in via an \texttt{XMLHttpRequest} - a standard object provided by the browser's JavaScript environment that allows data transfer between a web browser and web server.
 
 % TODO - diagram of xmlhttp request, like at https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
 
@@ -593,7 +593,7 @@ function loadJSONandMakeChart(fileName, callback) {
 }
 \end{lstlisting}
 
-The use of callbacks is standard in Javascript usage on the web, and allowed the code to run in the correct order, i.e. only making the chart once data was loaded in. The call was made as follows
+The use of callbacks is standard in JavaScript usage on the web, and allowed the code to run in the correct order, i.e. only making the chart once data was loaded in. The call was made as follows
 
 \begin{lstlisting}
 loadJSONandMakeChart(chartInfo["fileName"], function(response) {
@@ -602,7 +602,7 @@ loadJSONandMakeChart(chartInfo["fileName"], function(response) {
 });
 \end{lstlisting}
 
-This provided a small callback to the data loading function, which would load data, use Javascript's standard \texttt{JSON.parse} method to turn the JSON into a Javascript object, and then run a \texttt{makeChart} function once the data was completely loaded and parsed correctly.
+This provided a small callback to the data loading function, which would load data, use JavaScript's standard \texttt{JSON.parse} method to turn the JSON into a JavaScript object, and then run a \texttt{makeChart} function once the data was completely loaded and parsed correctly.
 
 This data, along with the chart information that the developer supplied in the function call was then passed to another function to determine the type of chart, and then passed onto the final function to generate the correct type of chart.
 
@@ -622,7 +622,7 @@ var newSVG=document.createElementNS("http://www.w3.org/2000/svg","svg");
 
 I also used the corresponding \texttt{document.setAttributeNS} method in my library, as this is a more future-proof way to code and allows consistency between \texttt{setAttribute} calls even if a namespace isn't specified.
 
-The bulk of the graph-making functions were simple translations from the previously-created HTML to creating those elements as HTML elements via Javascript and setting the attributes as required. SVG also has many alignment properties for text that allowed me to position things without using CSS, such as \texttt{text-anchor} and \texttt{dominant-baseline} for the SVG \texttt{<text>} tag.
+The bulk of the graph-making functions were simple translations from the previously-created HTML to creating those elements as HTML elements via JavaScript and setting the attributes as required. SVG also has many alignment properties for text that allowed me to position things without using CSS, such as \texttt{text-anchor} and \texttt{dominant-baseline} for the SVG \texttt{<text>} tag.
 
 The information for the ARIA labels was mainly able to be made via looking through the provided data to get properties such as the number of elements, and the smallest and biggest elements. These, combined with the \texttt{"units"} property that the developer put in the method call were used to create labels that read like natural language.
 
@@ -675,7 +675,7 @@ function findChartEndNum(dataEndNum){
 
 For the line graph I wanted to calculate a general trend as part of the overarching graph description, as this is something that a sighted user would be able to tell quickly upon seeing a graph.
 
-In the spirit of not wanting to use any external libraries, I wrote up a Javascript version of the \textit{Least Squares Method} -  an approach in regression analysis that estimates the relationship between a set of points, in this case the points on the line graph.
+In the spirit of not wanting to use any external libraries, I wrote up a JavaScript version of the \textit{Least Squares Method} -  an approach in regression analysis that estimates the relationship between a set of points, in this case the points on the line graph.
 
 The algorithm works to find the "line of best fit" through a set of 2D points, by finding the line that minimises the square of the residuals, i.e. the error between the line's predicted value and the actual observed value.
 
@@ -789,7 +789,7 @@ With the type of target market that was intended, it was important to test my so
  \hline
  2.1.4 & Character Key Shortcuts & $\text{\rlap{$\checkmark$}}\square$ & There are no keyboard shortcuts implemented for letters, punctuations or numbers\\
  \hline
- 2.2 & Enough Time & $\text{\rlap{$\checkmark$}}\square$ & There is no content that has a time limit on viewing, contains interruptions, or has timeouts/re-authentication\
+ 2.2 & Enough Time & $\text{\rlap{$\checkmark$}}\square$ & There is no content that has a time limit on viewing, contains interruptions, or has timeouts/re-authentication\\
  \hline
  2.3 & Seizures and Physical Reactions & $\text{\rlap{$\checkmark$}}\square$ & There is no animation in the content that could trigger a seizure or physical reaction\\
  \hline
@@ -823,7 +823,7 @@ With the type of target market that was intended, it was important to test my so
  \hline
  3.1.4 & Abbreviation & $\text{\rlap{$\checkmark$}}\square$ & There are no abbreviations included\\
  \hline
- 3.1.5 & Reading Level & $\text{\rlap{$\checkmark$}}\square$ & All language is simple English with a reading level lower than secondary education\
+ 3.1.5 & Reading Level & $\text{\rlap{$\checkmark$}}\square$ & All language is simple English with a reading level lower than secondary education\\
  \hline
  3.1.6 & Pronunciation & $\text{\rlap{$\checkmark$}}\square$ & There are no words included without context that would need help being pronounced\\
  \hline
@@ -847,10 +847,6 @@ With the type of target market that was intended, it was important to test my so
  \hline
 \end{longtable}
 \end{center}
-
-
-% - WCAG is guidelines
-% - Following table shows all criteria being fulfilled
 
 \chapter{Conclusion and Future Work}
 
