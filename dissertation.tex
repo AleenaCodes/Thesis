@@ -409,9 +409,9 @@ When trying to provide all the information that sighted users would see via audi
 
 From a usability standpoint, it will also need to be easy for developers to use, but still be able to be customised enough that developers can create custom graphics to their liking, while maintaining the same level of accessibility. Developers (understandably) lean towards using technologies that provide the solution they need with a minimal amount of work, so it will be important to keep the API functional but quick to invoke.
 
-\section{Related Work}
+% \section{Related Work}
 
-% TODO - write
+% LATER - write
 % Some papers
 % Some books
 % Highcharts
@@ -475,7 +475,6 @@ With this I was able to build a palette of 6 colours which had a fairly high con
 
 When looking at web accessibility, a key concept is the accessibility tree - a tree structure created from a web page's DOM, which assistive technologies are then able to interact with. One of the major technical issues with this project was that, different web browsers may generate slightly different accessibility trees from the same HTML code and different assistive technologies may also interpret the same accessibility tree differently. Thus it would be hard to make a solution that worked across all of the common assistive technology/browser/operating system combinations.
 
-% TODO - is the bit about accessibility trees correct? (could also do with a reword of the second sentence)
 % TODO - diagram of how assistive tech uses accessibility trees?
 
 Many browsers, such as Mozilla Firefox, provide tools to directly view the accessibility tree, and so I aimed to use syntax to create as clean an accessibility tree as possible (and by extension the DOM would also be clean).
@@ -496,13 +495,11 @@ The most common way of generating images in webpages is using SVG, either embedd
 
 Inlining SVG provides more predictable results and better control over properties than adding in SVG files with a \texttt{<img>} or \texttt{<use>} tag. This is because the SVG source is then directly available in the DOM, which is exposed by the accessibility API used by assistive technologies.
 
-While SVG has been around for a while (since XXX), there has recently been a push towards a more modern version, resulting in a new specification for SVG 2 being released in XXX.
+While SVG has been around for a while (since 2001), there has recently been a push towards a more modern version, resulting in a new specification for SVG 2 being released in 2016.
 
 One of the new features in this specification is the abilities to add \texttt{tabindex} to SVG elements (such as shapes or text). This is useful, as previously the only way to make elements in an SVG that were focusable by keyboard, was by including a HTML element that supported this, such as the \texttt{<a>} tag.
 
 Although the W3C has release this specification, the onus is on the makers of a browser to implement these new features in their browser. Thus far there has been little uptake on this, with most browsers only implementing part of the specification, including accessibility-forward browsers such as Mozilla Firefox. Hence it is not necessarily an easy task to make a solution that works consistently across multiple web browsers (a problem common in all branches of web development).
-
-% TODO - find when SVG was made, and when SVG 2 was made.
 
 \subsection{HTML Layout}
 
@@ -518,9 +515,7 @@ A sectioning root is an HTML element that can have its own outline, but the sect
 
 \subsection{ARIA syntax}
 
-As discussed before, I aimed to create as much of the accessibility tree as possible from using inbuilt HTML properties (e.g. using \texttt{<h1>}) for headers as opposed to adding an ARIA role to achieve this. ARIA provides custom roles for elements, but many of these double up with those assigned to native HTML elements (such as \texttt{role="button"}, which can also be assigned by using \texttt{<button>}).
-
-% TODO - check that the button example makes sense
+As discussed before, I aimed to create as much of the accessibility tree as possible from using inbuilt HTML properties (e.g. using \texttt{<h1>}) for headers as opposed to adding an ARIA role to achieve this. ARIA provides custom roles for elements, but many of these double up with those assigned to native HTML elements (such as \texttt{role="button"}, which can also be assigned by using \texttt{<button>}). However, many of the ARIA roles that double up with HTML have to also have extra parts defined, such as making the element focusable and defining event handlers, so it is not usually recommended to use an ARIA role when there is a native HTML element available.
 
 While I was initially using the element \texttt{<figure>} as the parent element, I found that it was easier to use the ARIA role \texttt{figure} directly as an attribute of the \texttt{<svg>} tag, thus making it act as a \texttt{<figure>} tag when it came to creating the DOM, and also meaning that it showed up directly as \texttt{figure} in the accessibility tree, as opposed to being an only-child \texttt{svg} nested inside a \texttt{figure}.
 
@@ -831,7 +826,7 @@ Some other qualitative comments from users
 The background questions gave some simple details on the software the users used -
 
 \begin{itemize}
-    \item Most users had \texit{Windows} as their operating system, and \textit{Chrome} as their browser
+    \item Most users had \textit{Windows} as their operating system, and \textit{Chrome} as their browser
     \item The \textit{Windows} users were split fairly evenly between those using \textit{Chrome} and \textit{Firefox} - these tend to be the most popular browsers with \textit{Windows} users, so this was to be expected
     \item The users mainly used the screen-readers \textit{JAWS} and \textit{NVDA} - these are the most popular screen-readers on Windows so this was expected
     \item The only user not using \textit{JAWS} or \textit{NVDA} was using \textit{Voiceover} - a popular choice for \textit{MacOS} users due to being native to the operating system
@@ -866,6 +861,8 @@ After the demo, the user was asked some questions about how they found the demo
 % Better study would compare table against graph data
 
 \section{WCAG}
+
+The WCAG guidelines provide a framework for basic evaluation of an accessible page. The following table shows all relevant criteria being fulfilled
 
 \begin{center}
 \begin{longtable}{|p{2cm}|p{5cm}|p{2cm}|p{5cm}|}
@@ -999,7 +996,7 @@ After the demo, the user was asked some questions about how they found the demo
 
 \chapter{Glossary}
 
-% TODO - add more
+% LATER - review
 
 When talking about web accessibility, it is useful to highlight some key terms
 
@@ -1010,9 +1007,10 @@ When talking about web accessibility, it is useful to highlight some key terms
 
 \printbibliography
 
-\chapter{Appendix}
+% \chapter{Appendix}
 
-% raw user survey results
+% LATER - move WCAG table here?
+% LATER - raw user survey results?
 
 \end{document}
 
