@@ -58,6 +58,11 @@
 %  top=20mm,
 %  }
  \renewcommand{\baselinestretch}{1.4}
+ 
+\usepackage{titlesec}
+\titleformat{\chapter}[display]   
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}   
+\titlespacing*{\chapter}{0pt}{-20pt}{20pt}
 
 
 \usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
@@ -771,33 +776,31 @@ The background questions had results as follows
 
 \begin{figure}[H]
   \centering
-  \subcaptionbox{Bar Chart}[.4\linewidth][c]{%
+  \subcaptionbox{What Operating System are you using?}[.4\linewidth][c]{%
     \includegraphics[width=.3\linewidth]{images/OperatingSystem.png}}\quad
-  \subcaptionbox{Pie Chart}[.4\linewidth][c]{%
+  \subcaptionbox{What web browser are you using?}[.4\linewidth][c]{%
     \includegraphics[width=.3\linewidth]{images/WebBrowser.png}}\quad
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \subcaptionbox{Bar Chart}[.3\linewidth][c]{%
+  \subcaptionbox{What screen-reader are you using?}[.3\linewidth][c]{%
     \includegraphics[width=.3\linewidth]{images/ScreenReader.png}}\quad
-  \subcaptionbox{Pie Chart}[.3\linewidth][c]{%
+  \subcaptionbox{How long have you been using a screen-reader?}[.3\linewidth][c]{%
     \includegraphics[width=.3\linewidth]{images/HowLongUsingScreenReader.png}}\quad
-  \subcaptionbox{Pie Chart}[.3\linewidth][c]{%
+  \subcaptionbox{How proficient would you rate yourself using a screen reader to navigate websites}[.3\linewidth][c]{%
     \includegraphics[width=.3\linewidth]{images/ProficientScreenReader.png}}\quad
 \end{figure}
 
-% Operating System pie
-% Browser pie
-
-% screen-reader pie
-% how long using screen-reader pie
-% proficient screen-reader pie
-
-% images accessible pie
-% tabular data accessible pie
-% data viz accessible pie
-% tabular data accessible pie
+\begin{figure}[H]
+  \centering
+  \subcaptionbox{Do you find images in web pages accessible}[.3\linewidth][c]{%
+    \includegraphics[width=.3\linewidth]{images/ImagesAccessible.png}}\quad
+  \subcaptionbox{Do you find tabular data in web pages accessible }[.3\linewidth][c]{%
+    \includegraphics[width=.3\linewidth]{images/TablesAccessible.png}}\quad
+  \subcaptionbox{Do you find data visualisations, such as graphs and diagrams, in web pages accessible}[.3\linewidth][c]{%
+    \includegraphics[width=.3\linewidth]{images/DataVizAccessible.png}}\quad
+\end{figure}
 
 The post-demo questions had results as follows
 
@@ -822,7 +825,7 @@ The background questions gave some simple details on the software the users used
     \item The users mainly used the screen-readers \textit{JAWS} and \textit{NVDA} - these are the most popular screen-readers on Windows so this was expected
     \item The only user not using \textit{JAWS} or \textit{NVDA} was using \textit{Voiceover} - a popular choice for \textit{MacOS} users due to being native to the operating system
     \item The users were mainly long-term screen-reader users (10+ years), with only one slightly more recent (5-10 years) screen-reader user in the pool
-    \item Following on from this, the users mainly rated themselves as "Expert" in their proficiency using a screen-reader
+    \item Following on from this, the users mainly rated themselves as "Expert" in their proficiency using a screen-reader to navigate websites
 \end{itemize}
 
 The questions asked about whether users currently found different visuals accessible to them - images, tabular data and data visualisation
