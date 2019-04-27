@@ -41,6 +41,12 @@
 \usepackage{amssymb}
 \usepackage{longtable}
 
+\usepackage{lipsum,graphicx,subcaption}
+\usepackage{float}
+
+\captionsetup[subfigure]{labelformat=simple,labelsep=colon}
+\renewcommand{\thesubfigure}{fig\arabic{subfigure}}
+
 \usepackage{glossaries}
 \renewcommand{\glossarysection}[2][]{}
 
@@ -160,9 +166,9 @@ Thus, it is clear the accessibility should be a strong consideration when develo
 \end{itemize}
 
 \subsection{Use Cases}
-%
+
 Web accessibility encompasses a lot of different use cases, including
-%
+
 \begin{itemize}
     \item Visual - blind or partially-blind users, who may use a screen-reader or require larger text; colour-blind users
     \item Auditory - deaf or partially-deaf users, who may rely on captions for all audio or audio with a lot of background noise
@@ -171,7 +177,7 @@ Web accessibility encompasses a lot of different use cases, including
     \item Speech - people who are unable to speak clearly or at all, they may struggle with voice commands so interfaces should not be voice control-only
 \end{itemize}
 
-% TODO Add pictures?
+% LATER Add pictures?
 
 However there are also lots of other cases to consider \cite{WAIaccessibilityintro}
 %
@@ -220,11 +226,11 @@ Many are turning towards frameworks to provide out-of-the-box responsiveness rat
 
 Recent years have also seen \textit{Flexbox} and \textit{CSS Grid} being used for arranging elements on a page. These decouple the source order (i.e. the order of the elements declared in HTML) and their visual order on the screen. This is another thing that has little repercussions on average web users, but can mean that keyboard or screen-reader users are unable to access content in the right order.
 
-% LATER provide pic of unordered page
+% TODO provide pic of unordered page
 
 With web development, there are many parts involved in the making and viewing of sites - developers use authoring and evaluation tools to make content, and then users use browsers, and optionally assistive technologies, to interact with the content. For an accessibility feature to become widely-used, it is crucial for it to be implemented in many or all of these parts - developers will have less motivation to use a feature if it is not implemented consistently across browsers, or hard to do in a language.
 
-% LATER provide pic of process
+% TODO provide pic of process
 
 \subsection{Web Accessibility Guidelines}
 With the growing complexity of websites, and more web developers than ever, the World Wide Web Consortium (W3C) publish some guidelines and specifications around building accessibility into web pages.
@@ -242,7 +248,7 @@ The WCAG are organised under 4 principles
     \item Understandable - users must be able to understand the information presented and how to operate the interface
     \item Robust - users must be able to access the content from a variety of user agents, including current assistive technologies
 \end{itemize}
-%
+
 Each of these principles has a set of testable criteria, and these can be met at 3 levels - A, AA and AAA, indicating a minimum, good, and high level of conformance, although it is not always possible to reach level AAA with all content types.
 
 \subsubsection{WAI-ARIA}
@@ -318,7 +324,7 @@ With each of these approaches, they require the developer to give correct layout
 \end{tabular}
 \end{center}
 
-% Left off - voice browser, braille display
+% LATER Left off - voice browser, braille display
 
 \paragraph{Adaptive Strategies}
 
@@ -371,7 +377,7 @@ Making pictures and graphs accessible on the web is often done by adding alt-tex
     \item "Graph showing upward trend of stock price" - conveys a bit more information about the data, but does not allow the user to get any sense of prices
     \item "Graph showing upward trend of stock price from $\pounds$ 60 to $\pounds$ 180 over 2 years" - gives some idea of prices and how fast they climbed but does not allow the user to see smaller details such as any dips in price
 \end{itemize}
-%
+
 It is clear that in order for a text-based web user to have anywhere close to the insight that a sighted user would have from a graph, a large amount of long-winded description would need to be included with any graphs, which can be hard and long for a developer to write. Many developers try to account for this by also including the data in tabular form, which screen-readers can access and read. However, this is a clunky solution, especially as if the data was displayed graphically in the first place, it was likely not very easily consumable in tabular form.
 
 \subsection{Current Solutions}
@@ -423,12 +429,20 @@ When thinking about the implementation, there were 3 main areas to think about
 \subsection{Types of Graphs}
 
 As I was trying to build a proof of concept, as opposed to a comprehensive library, I decided to focus on 3 different graph types - bar graphs, line graphs and pie charts. These chart types are some of the more commonly-used ones, and are different enough to provide a varied proof of concept.
-
-% TODO Pics of three types (use ones from poster)
+\newline
+\begin{figure}[H]
+  \centering
+  \subcaptionbox{Bar Chart}[.3\linewidth][c]{%
+    \includegraphics[width=.3\linewidth]{images/BarGraph.PNG}}\quad
+  \subcaptionbox{Pie Chart}[.3\linewidth][c]{%
+    \includegraphics[width=.3\linewidth]{images/PieGraph.PNG}}\quad
+  \subcaptionbox{Line Chart}[.3\linewidth][c]{%
+    \includegraphics[width=.3\linewidth]{images/LineGraph.PNG}}
+\end{figure}
 
 \subsection{Information to Present}
 
-Having spoken to some people who use screen-readers daily and observed them using these to browse webpages, it was clear that screen-reader users don't tend to listen to a web pages in its entirety, instead scrolling through quickly to find information that they need.
+Having spoken to some people who use screen-readers daily and observed them using these to browse web pages, it was clear that screen-reader users don't tend to listen to a web pages in its entirety, instead scrolling through quickly to find information that they need.
 
 In order to accommodate this, I aimed to create labels for the chart that weren't too verbose, and which had the most pertinent information at the start of the label. This would mean that if the user was trying to find a particular data point, they would be able to move through each data point quickly in order to accomplish this.
 
@@ -724,13 +738,90 @@ The solution uses the \texttt{[tab]} key to navigate through the graph, but for 
 
 With the type of target market that was intended, it was important to test my solution on real-life users, especially those who use audio assistive technologies such as screen-readers, as there is a wide variety in the way that blind and partially-blind users navigate web pages based on operating system/browser combinations and also just preference.
 
-% conducted small - 5 users
-% first asked background questions, then demoed, then more questions
-% tried to keep it quick for user
+As screen-reader users are a small group compared to all web users, I intended to try to run only a small round of user testing - around 5 or so users. Overall I had 7 users in the study.
+
+The study consisted of 3 main parts
+
+\begin{itemize}
+    \item Background questions
+    \begin{itemize}
+        \item Before showing any content to the user I asked some background questions about their usage of screen-readers
+        \item The questions focused on their current perception around if they found images and charts on web pages accessible
+        \item I also asked some questions around how long they'd used a screen-reader, and which operating system, browser and screen-reader they used
+    \end{itemize}
+    \item Interactive demo
+    \begin{itemize}
+        \item The demo consisted of a simple web page made with the 3 graphs displayed and some headings in between
+        \item The user could browse around the page in their own time and take however long they wanted on any specific section, provided they view all 3 graphs
+    \end{itemize}
+    \item Post-Demo questions
+    \begin{itemize}
+        \item The questions asked after the demo was shown focused on whether the user understood the graph data and how they felt the keyboard navigation was
+        \item The user could also provide any other qualitative feedback that they wanted to, such as notes on what they would changes they would have liked
+    \end{itemize}
+\end{itemize}
+
+% TODO - picture of demo
+
+I tried to keep the study short for the user (less than 30 minutes) and so the demo was only one of each types of graph, and both surveys combined were 11 questions, mainly multiple-choice.
 
 \subsection{Results}
 
+The background questions had results as follows
+
+% Operating System pie
+% Browser pie
+
+% screen-reader pie
+% how long using screen-reader pie
+% proficient screen-reader pie
+
+% images accessible pie
+% tabular data accessible pie
+% data viz accessible pie
+% tabular data accessible pie
+
+The post-demo questions had results as follows
+
+% understand subject pie
+% undertand data pie
+% info given pie
+
+% Understand how to navigate pie
+% notes on answers for changing nav key
+
+Some other qualitative comments from users
+
+% qualitative answers
+
 \subsection{Analysis}
+
+The background questions gave some simple details on the software the users used -
+
+\begin{itemize}
+    \item Most users had \texit{Windows} as their operating system, and \textit{Chrome} as their browser
+    \item The \textit{Windows} users were split fairly evenly between those using \textit{Chrome} and \textit{Firefox} - these tend to be the most popular browsers with \textit{Windows} users, so this was to be expected
+    \item The users mainly used the screen-readers \textit{JAWS} and \textit{NVDA} - these are the most popular screen-readers on Windows so this was expected
+    \item The only user not using \textit{JAWS} or \textit{NVDA} was using \textit{Voiceover} - a popular choice for \textit{MacOS} and \textit{iOS} users due to being native to the operating system
+    \item The users were mainly long-term screen-reader users (10+ years), with only one new (0-1 years) screen-reader user in the pool
+    \item Following on from this, the users mainly rated themselves as "Expert" in their proficiency using a screen-reader
+\end{itemize}
+
+The questions asked about whether users currently found different visuals accessible to them - images, tabular data and data visualisation
+
+\begin{itemize}
+    \item None of the users said they "Fully Understand" any of these, not even images, implying that there is currently quite a wide disconnect for blind and partially-blind users when it comes to understanding any visuals presented on web pages
+    \item A small percentage (25\% for images and tables, 12\% for data visualisations) said that they "Understand Most" for any of these types of visuals
+    \item More than 60\% of users said that the "Struggle to Understand" data visualisations on web pages, so it seems that that many developers do not provide adequate descriptions for these, possible because it can be complex to sum up large amounts of visual data succinctly
+\end{itemize}
+
+% TODO -evaluate post-demo questions
+
+
+\subsection{Limitations}
+
+% Didn't test use of colour
+% Better study would compare table against graph data
 
 \section{WCAG}
 
@@ -868,6 +959,10 @@ When talking about web accessibility, it is useful to highlight some key terms
 \printglossary[nonumberlist]
 
 \printbibliography
+
+\chapter{Appendix}
+
+% raw user survey results
 
 \end{document}
 
