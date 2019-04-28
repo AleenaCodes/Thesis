@@ -232,7 +232,7 @@ Many are turning towards frameworks to provide out-of-the-box responsiveness rat
 
 Recent years have also seen \textit{Flexbox} and \textit{CSS Grid} being used for arranging elements on a page. These decouple the source order (i.e. the order of the elements declared in HTML) and their visual order on the screen. This is another thing that has little repercussions on average web users, but can mean that keyboard or screen-reader users are unable to access content in the right order.
 
-% TODO provide pic of unordered page
+% LATER provide pic of unordered page?
 
 With web development, there are many parts involved in the making and viewing of sites - developers use authoring and evaluation tools to make content, and then users use browsers, and optionally assistive technologies, to interact with the content. For an accessibility feature to become widely-used, it is crucial for it to be implemented in many or all of these parts - developers will have less motivation to use a feature if it is not implemented consistently across browsers, or hard to do in a language.
 
@@ -297,7 +297,7 @@ A recent project from IBM is the \textit{Va11ys} project, which provides a range
 
 Overall, we can see that there is a wide range of tools that are designed to help developers evaluate accessibility on their site and recognise issues before testing with real users, but not as many that focus on building accessible sites in the first place.
 
-%TODO - add some pics of the evaluating tools
+% TODO - add some pics of the evaluating tools
 
 \subsubsection{Tools for Viewing Sites}
 
@@ -313,7 +313,7 @@ With each of these approaches, they require the developer to give correct layout
 \paragraph{Assistive Technologies}
 
 \begin{center}
-\begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
+\begin{longtable}{|p{3cm}|p{5cm}|p{5cm}|}
  \hline
  Technology & Usage & Developer Notes \\ [0.5ex]
  \hline \hline
@@ -331,7 +331,7 @@ With each of these approaches, they require the developer to give correct layout
  \hline
  Voice Tracking & Uses voice commands to dictate text and issue commands & Different sections and clickable areas should be labelled well \\ [1ex]
  \hline
-\end{tabular}
+\end{longtable}
 \end{center}
 
 % LATER Left off - voice browser, braille display
@@ -339,7 +339,7 @@ With each of these approaches, they require the developer to give correct layout
 \paragraph{Adaptive Strategies}
 
 \begin{center}
-\begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
+\begin{longtable}{|p{3cm}|p{5cm}|p{5cm}|}
  \hline
  Technology & Usage & Developer Notes \\ [0.5ex]
  \hline \hline
@@ -351,7 +351,7 @@ With each of these approaches, they require the developer to give correct layout
  \hline
  Volume Control & Audio may need to be volume-adjusted or turned off altogether & Audio should not autoplay in order to not interfere with audio technologies, and options to adjust volume (including to 0) should be visible and accessible to both mouse and keyboard technologies \\ [1ex]
  \hline
-\end{tabular}
+\end{longtable}
 \end{center}
 
 % LATER - write more?
@@ -540,11 +540,25 @@ The \texttt{aria-labelledby} property, alongside the \texttt{aria-describedby} p
 
 In my case, I found that \texttt{aria-describedby} did not work very consistently across browsers, and so was largely pointless in most use cases. Instead, I doubled on \texttt{aria-labelledby} to include both the title and description.
 
-Through using both the \texttt{<title>} and \texttt{desc} for the SVG, and using \texttt{aria-labelledby} to also link these, I covered most browser/screen-reader combinations for reading this out.
+Through using both the \texttt{<title>} and \texttt{<desc>} tags for the SVG, and using \texttt{aria-labelledby} to also link these, I covered most browser/screen-reader combinations for reading this out.
 
-Since the reader was going to browse through the contents of the SVG, I also used \texttt{aria-hidden} to hide the excess parts of the chart, such as the lines and labelling for each axis. This was an effective way to keep these out of the accessibility but keep them in the DOM, so visible on the page.
+Since the reader was going to browse through the contents of the SVG, I also used \texttt{aria-hidden} to hide the excess parts of the chart, such as the lines and labelling for each axis. This was an effective way to keep these out of the accessibility but keep them in the DOM, so visible on the page. Figure \ref{fig:HTMLATComparison} shows how \texttt{<title>} and \texttt{<desc>} tags are included in the corresponding nodes in an accessibility tree, and how elements with the \texttt{aria-hidden} attribute are not included when constructing the accessibility tree.
 
-% TODO - image of side-by-side accessibility tree and HTML to show how <title> and <desc> were encoded, and how aria-hidden would show up
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}[b]{0.8\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/ExampleHTML.PNG}
+     \caption{HTML markup}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.8\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/ExampleAccessibilityTree.PNG}
+    \caption{Accessibility tree}
+  \end{subfigure}
+  \caption{An example of how HTML markup would produce an accessibility tree}
+  \label{fig:HTMLATComparison}
+\end{figure}
 
 In order to make the each data point able to be accessed individually, I added a \texttt{tabindex=0} property to each data point. This made each of these elements focusable and thus added them to the order in sequential keyboard navigation, letting them be accessed by using the \texttt{[Tab]} key on a keyboard.
 
@@ -602,7 +616,11 @@ Since I was building a proof-of-concept library, I opted to only provide the opt
 
 The file was loaded in via an \texttt{XMLHttpRequest} - a standard object provided by the browser's JavaScript environment that allows data transfer between a web browser and web server.
 
-% TODO - diagram of xmlhttp request, like at https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
+\begin{figure}[h]
+\caption{Parts of an XMLHttpRequest execution}
+\centering
+\includegraphics[width=0.5\textwidth]{images/XMLHttpRequest.png}
+\end{figure}
 
 I wrote a small function that would take the file path for the data that was provided by the developer, and run a callback to find and load in the file, and then create the graph.
 
@@ -729,9 +747,12 @@ var x = radius * Math.cos(2 * Math.PI * percent);
 var y = radius * Math.sin(2 * Math.PI * percent);
 \end{lstlisting}
 
+\begin{wrapfigure}{r}{0.25\textwidth}
+\includegraphics[width=0.9\linewidth]{images/DrawingArc.png} 
+\caption{Drawing an SVG arc}
+\end{wrapfigure}
+
 This could then be adjusted to the correct position relative to the centrepoint of the circle, and then drawn using the SVG \texttt{<path>} attribute. The path had 3 parts
-
-
 
 \begin{itemize}
     \item \texttt{M} - \textit{Move} to the first point on the segment
@@ -739,14 +760,7 @@ This could then be adjusted to the correct position relative to the centrepoint 
     \item \texttt{L} - Draw a \textit{line} to the centre of the circle
 \end{itemize}
 
-\begin{wrapfigure}{r}{0.25\textwidth}
-\includegraphics[width=0.9\linewidth]{images/DrawingArc.png} 
-\caption{Drawing an SVG arc}
-\end{wrapfigure}
-
 Although this method only drew two lines of the segment, SVG filled in the third automatically (as a straight line from the centre back to the first point of the segment), and this area could then be filled in like a normal shape.
-
-% TODO - picture of drawing arc
 
 % LATER - rewrite once implemented
 
@@ -1061,6 +1075,8 @@ When talking about web accessibility, it is useful to highlight some key terms
 \printglossary[nonumberlist]
 
 \printbibliography
+
+% TODO - some books and papers
 
 % \chapter{Appendix}
 
