@@ -43,9 +43,10 @@
 
 \usepackage{lipsum,graphicx,subcaption}
 \usepackage{float}
+\usepackage{wrapfig}
 
-\captionsetup[subfigure]{labelformat=simple,labelsep=colon}
-\renewcommand{\thesubfigure}{fig\arabic{subfigure}}
+% \captionsetup[subfigure]{labelformat=simple,labelsep=colon}
+% \renewcommand{\thesubfigure}{fig\arabic{subfigure}}
 
 \usepackage{glossaries}
 \renewcommand{\glossarysection}[2][]{}
@@ -457,7 +458,11 @@ In order to accommodate this, I aimed to create labels for the chart that weren'
 
 I felt that the key information to present were the headings and values of the data, and also to highlight some broader trends without overloading the user with too much detail.
 
-% TODO some pics from poster showing read-outs
+\begin{figure}[h]
+\caption{Examples of possible labels}
+\centering
+\includegraphics[width=0.9\textwidth]{images/GraphDesignWithReadouts.PNG}
+\end{figure}
 
 \subsection{Colours and Patterns}
 
@@ -471,7 +476,11 @@ When building a colour palette, I aimed to have 6 different colours in my colour
 
 In order to check contrast between each colour, I used a colour contrast-checker from the design agency \textit{EightShapes} to load in multiple colours and see the contrast level between each colour.
 
-% TODO - picture of colour checking
+\begin{figure}[h]
+\caption{Checking colour contrast with the EightShapes contrast checker tool}
+\centering
+\includegraphics[width=0.5\textwidth]{images/EightShapeColourChecker.png}
+\end{figure}
 
 With this I was able to build a palette of 6 colours which had a fairly high contrast level between most of the other colours (i.e. 3 or more). However, it proved very hard to find colours that had a high enough contrast between all other colours in a palette, and so I decided to keep the current palette and simply make sure that neighbouring colours were high contrast.
 
@@ -669,8 +678,6 @@ function sortData(array){
 
 When hand-coding the initial graphs I had been able to make axis that provided natural spacing between points (e.g. going up in 5's or 10's) but when creating the library, if the smaller and bigger datapoints weren't rounded like this, then the axis could become awkward and not very readable to the sighted user
 
-% TODO - pic to show awkward axis
-
 To make more readable axis, I also had a helper function to round the last number on the axis to the next relevant power of 10, which would shift the axis to a more natural-looking spacing.
 
 \begin{lstlisting}
@@ -687,7 +694,19 @@ function findChartEndNum(dataEndNum){
 }
 \end{lstlisting}
 
-% TODO - pic of less awkward axis
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{images/awkwardAxis.PNG}
+     \caption{Awkward axis spacing}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{images/lessAwkwardAxis.PNG}
+    \caption{More intuitive axis spacing}
+  \end{subfigure}
+  \caption{Before and after axis}
+  \label{Awkwardsaxis}
+\end{figure}
 
 \subsection{Calculating Trends and Other Mathematics}
 
@@ -740,18 +759,23 @@ The solution uses the \texttt{[tab]} key to navigate through the graph, but for 
 
 \subsection{Study Design}
 
+% LATER - picture of demo
+% \begin{wrapfigure}{r}{0.4\textwidth} %this figure will be at the right
+%     \centering
+%     \caption{Demo page}
+%     \includegraphics[width=0.35\textwidth]{images/Demo.PNG}
+% \end{wrapfigure}
+
+
 With the type of target market that was intended, it was important to test my solution on real-life users, especially those who use audio assistive technologies such as screen-readers, as there is a wide variety in the way that blind and partially-blind users navigate web pages based on operating system/browser combinations and also just preference.
 
-As screen-reader users are a small group compared to all web users, I intended to try to run only a small round of user testing - around 5 or so users. Overall I had 7 users in the study.
-
-The study consisted of 3 main parts
+As screen-reader users are a small group compared to all web users, I intended to try to run only a small round of user testing - around 5 or so users. Overall I had 7 users in the study. I tried to keep the study short for the user (less than 30 minutes) and so the demo was only one of each types of graph, and both surveys combined were 11 questions, mainly multiple-choice. The study consisted of 3 main parts. 
 
 \begin{itemize}
     \item Background questions
     \begin{itemize}
-        \item Before showing any content to the user I asked some background questions about their usage of screen-readers
-        \item The questions focused on their current perception around if they found images and charts on web pages accessible
-        \item I also asked some questions around how long they'd used a screen-reader, and which operating system, browser and screen-reader they used
+        \item Before showing any content to the user I asked some background questions about their current software, and their usage of screen-readers
+        \item There were also questions on their current perception around if they found images and charts on web pages accessible
     \end{itemize}
     \item Interactive demo
     \begin{itemize}
@@ -765,30 +789,45 @@ The study consisted of 3 main parts
     \end{itemize}
 \end{itemize}
 
-% TODO - picture of demo
-
-I tried to keep the study short for the user (less than 30 minutes) and so the demo was only one of each types of graph, and both surveys combined were 11 questions, mainly multiple-choice.
-
 \subsection{Results}
 
 The background questions had results as follows
 
-\begin{figure}[H]
+\begin{figure}[h]
   \centering
-  \subcaptionbox{What Operating System are you using?}[.4\linewidth][c]{%
-    \includegraphics[width=.3\linewidth]{images/OperatingSystem.png}}\quad
-  \subcaptionbox{What web browser are you using?}[.4\linewidth][c]{%
-    \includegraphics[width=.3\linewidth]{images/WebBrowser.png}}\quad
+  \begin{subfigure}[b]{0.4\linewidth}
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/OperatingSystem.png}
+     \caption{What Operating System are you using?}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.4\linewidth}
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/WebBrowser.png}
+    \caption{What web browser are you using?}
+  \end{subfigure}
+  \caption{Questions about software used}
+  \label{Awkwardsaxis}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[h]
   \centering
-  \subcaptionbox{What screen-reader are you using?}[.3\linewidth][c]{%
-    \includegraphics[width=.3\linewidth]{images/ScreenReader.png}}\quad
-  \subcaptionbox{How long have you been using a screen-reader?}[.3\linewidth][c]{%
-    \includegraphics[width=.3\linewidth]{images/HowLongUsingScreenReader.png}}\quad
-  \subcaptionbox{How proficient would you rate yourself using a screen reader to navigate websites?}[.3\linewidth][c]{%
-    \includegraphics[width=.3\linewidth]{images/ProficientScreenReader.png}}\quad
+  \begin{subfigure}[b]{0.3\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/ScreenReader.png}
+     \caption{What screen-reader are you using?}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.3\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/HowLongUsingScreenReader.png}
+    \caption{How long have you been using a screen-reader?}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.3\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/ProficientScreenReader.png}
+    \caption{How proficient would you rate yourself using a screen reader?}
+  \end{subfigure}
+  \caption{Questions about screen-reader usage}
+  \label{Awkwardsaxis}
 \end{figure}
 
 \begin{figure}[H]
@@ -799,6 +838,7 @@ The background questions had results as follows
     \includegraphics[width=.3\linewidth]{images/TablesAccessible.png}}\quad
   \subcaptionbox{Do you find data visualisations, such as graphs and diagrams, in web pages accessible?}[.3\linewidth][c]{%
     \includegraphics[width=.3\linewidth]{images/DataVizAccessible.png}}\quad
+\caption{Questions about visuals and accessibility}
 \end{figure}
 
 The post-demo questions had results as follows
@@ -811,6 +851,7 @@ The post-demo questions had results as follows
     \includegraphics[width=.3\linewidth]{images/UnderstandingDatapoint.png}}\quad
   \subcaptionbox{Was enough information given?}[.3\linewidth][c]{%
     \includegraphics[width=.3\linewidth]{images/InfoGiven.png}}\quad
+\caption{Questions about understanding the graphs}
 \end{figure}
 
 \begin{figure}[H]
@@ -819,6 +860,7 @@ The post-demo questions had results as follows
     \includegraphics[width=.3\linewidth]{images/NavigatingChart.png}}\quad
   \subcaptionbox{Would you prefer to have different keyboard navigation?}[.4\linewidth][c]{%
     \includegraphics[width=.3\linewidth]{images/ChangeKeys.png}}\quad
+\caption{Questions about navigating the graphs}
 \end{figure}
 
 Some other qualitative comments from users
@@ -981,6 +1023,8 @@ The WCAG guidelines provide a framework for basic evaluation of an accessible pa
  \hline
 \end{longtable}
 \end{center}
+
+% TODO - section on open-source contributions?
 
 \chapter{Conclusion and Future Work}
 
