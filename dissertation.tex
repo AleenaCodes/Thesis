@@ -137,9 +137,13 @@ of authorship may still be produced online via
 
 \chapter{Abstract}
 
-% TODO - write
+Web development is a constantly changing field, and so making websites accessible to those who have varying disabilities and needs is both a matter of social responsibility and smart business.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id hendrerit libero. In in cursus leo, sit amet tristique risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris nec arcu at elit tincidunt interdum sit amet at sem. Etiam ultrices, metus id pulvinar cursus, massa est fermentum nunc, vitae facilisis lectus turpis non dolor. Fusce a egestas lorem. In a orci vitae nunc pulvinar sodales ut nec odio. Nunc eu cursus orci, at tempus orci. Nullam consequat neque a hendrerit luctus. Etiam ut turpis augue. Nunc iaculis, tellus eget semper lobortis, sem velit euismod sapien, at lacinia ligula sem a urna.
+A variety of assistive technologies exist to help disabled users navigate computers and web pages efficiently, and the World Wide Web Consortium (W3C) maintain standards to support accessibility, both in the syntax of web languages, and also in providing guidelines for developers. Although text-based web pages and simple images tend to be accessible for most users, more complicated content such as graphs and data visualisations are often completely inaccessible to those using assistive technologies.
+
+In this project, I produce a solution for creating web accessible graphs, in the form of a JavaScript graphing library that has accessibility out-of-the-box. The library is simple for developers to use, and produces graphs that give basic information about the data points, and also provides some detail on the trends for the user.
+
+% LATER - rewrite to make nicer
 
 \mainmatter
 
@@ -500,7 +504,7 @@ With this I was able to build a palette of 6 colours which had a fairly high con
 
 When looking at web accessibility, a key concept is the accessibility tree - a tree structure created from a web page's DOM, which assistive technologies are then able to interact with. One of the major technical issues with this project was that, different web browsers may generate slightly different accessibility trees from the same HTML code and different assistive technologies may also interpret the same accessibility tree differently. Thus it would be hard to make a solution that worked across all of the common assistive technology/browser/operating system combinations.
 
-% TODO - diagram of how assistive tech uses accessibility trees?
+% LATER - diagram of how assistive tech uses accessibility trees?
 
 Many browsers, such as Mozilla Firefox, provide tools to directly view the accessibility tree, and so I aimed to use syntax to create as clean an accessibility tree as possible (and by extension the DOM would also be clean).
 
@@ -576,7 +580,11 @@ In order to make the each data point able to be accessed individually, I added a
 
 I also grouped the data points in an SVG group \texttt{<g>} and gave this an ARIA role of \texttt{list}, along with a \texttt{<title>}. This meant that when a screen-reader came across the list it would read out the title. I then added each data point as an SVG group of its own, with an ARIA role of \texttt{listitem}, and a \texttt{<title>}, which the screen-reader would read out on focussing on each list item. Setting up the chart as a \texttt{list} containing a set of \texttt{listitem} also meant that users of technologies that have other shortcuts for navigating lists could also use these.
 
-% TODO - diagram of list and listitem
+\begin{figure}[h]
+\caption{Using the \texttt{<title>} tag and ARIA roles}
+\centering
+\includegraphics[width=0.5\textwidth]{images/listitemnesting.png}
+\end{figure}
 
 \subsection{WCAG}
 
@@ -667,7 +675,7 @@ This data, along with the chart information that the developer supplied in the f
 
 The \texttt{Document} interface represents a web page in a browser, and is the standard way to query and modify a page's DOM. The method \texttt{document.getElementById} provided a way to get the unique \texttt{Element} object associated with a single HTML element on a web page, specified by a unique \texttt{id} attribute on the element.
 
-% TODO - diagram of HTML document interface
+% LATER - diagram of HTML document interface
 
 The methods \texttt{document.createElement} and \texttt{document.setAttribute} provided standard way to create new HTML elements and add required attributes onto them.
 
@@ -683,7 +691,7 @@ The bulk of the graph-making functions were simple translations from the previou
 
 The information for the ARIA labels was mainly able to be made via looking through the provided data to get properties such as the number of elements, and the smallest and biggest elements. These, combined with the \texttt{"units"} property that the developer put in the method call were used to create labels that read like natural language.
 
-% TODO - some example of the natural language labels?
+% LATER - some example of the natural language labels?
 
 \subsection{Making Readable Axis}
 
@@ -1061,11 +1069,13 @@ The WCAG guidelines provide a framework for basic evaluation of an accessible pa
 
 \chapter{Conclusion and Future Work}
 
+% TODO - write
 % - Expand to more graph types etc.
 % - Library not very customisable at the moment
 %   - Choosing colours
 %   - Specifying navigation keys? (turning tabindex on and off)
 % - Goals I had for the project, and did I fulfill them (aim for 3/4 goals?)
+% - Could look at different paradigm - i.e simulating more thought that a user would have - comparison of two data points etc.
 
 % From survey
 % Someone struggled with having to remember topic of chart
