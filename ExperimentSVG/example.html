@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Example Page</title>
+  <style>
+    .hide-element {
+      border: 0;
+      clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+      clip; rect(1px, 1px, 1px, 1px);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Example Title</h1>
+  <p>An example of a paragraph</p>
+
+  <a href="#exampleSkipLocation" class="hide-element">
+    Example text for link tag
+  </a>
+
+  <svg role="figure" height="8.5cm" width="15cm" aria-labelledby="graphTitle graphDesc">
+    <title id="graphTitle">Example of a graph title</title>
+    <desc id="graphDesc">Example of a graph description</desc>
+    <!-- Y and X axis -->
+    <g aria-hidden="true">
+      <line x1="2cm" y1="0.5cm" x2="2cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1"/>
+      <line x1="2cm" y1="7cm" x2="14cm" y2="7cm" style="stroke:rgb(211,211,211);stroke-width:1"/>
+    </g>
+    <!-- Actual bars -->
+    <g role="list">
+      <title>4 bars showing example data</title>
+      <g role="listitem" tabindex="0">
+        <text x="0.5cm" y="1.5cm" aria-hidden="true">Example 1</text>
+        <rect x="2cm" y="1cm" width="9cm" height="1cm" class="bar" fill="#7562e0">
+          <title>Bar 1 of 4,  Example 1, value 10, this is the largest value</title>
+        </rect>
+      </g>
+      <g role="listitem" tabindex="0">
+        <text x="0.5cm" y="3cm" aria-hidden="true">Example 2</text>
+        <rect x="2cm" y="2.5cm" width="5cm" height="1cm" class="bar" fill="#7562e0">
+          <title>Bar 2 of 4,  Example 2, value 5</title>
+        </rect>
+      </g>
+      <g role="listitem" tabindex="0">
+        <text x="0.5cm" y="4.5cm" aria-hidden="true">Example 3</text>
+        <rect x="2cm" y="4cm" width="2.5cm" height="1cm" class="bar" fill="#7562e0">
+          <title>Bar 3 of 4,  Example 3, value 8</title>
+        </rect>
+      </g>
+      <g role="listitem" tabindex="0">
+        <text x="0.5cm" y="6cm" aria-hidden="true">Example 4</text>
+        <rect x="2cm" y="5.5cm" width="2.25cm" height="1cm" class="bar" fill="#7562e0">
+          <title>Bar 4 of 4,  Example 4, value 3, this is the smallest value</title>
+        </rect>
+      </g>
+    </g>
+  </svg>
+
+</body>
+</html>
