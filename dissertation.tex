@@ -731,11 +731,18 @@ var y = radius * Math.sin(2 * Math.PI * percent);
 
 This could then be adjusted to the correct position relative to the centrepoint of the circle, and then drawn using the SVG \texttt{<path>} attribute. The path had 3 parts
 
+
+
 \begin{itemize}
     \item \texttt{M} - \textit{Move} to the first point on the segment
     \item \texttt{A} - Draw and \textit{arc} to the next point on the segment
     \item \texttt{L} - Draw a \textit{line} to the centre of the circle
 \end{itemize}
+
+\begin{wrapfigure}{r}{0.25\textwidth}
+\includegraphics[width=0.9\linewidth]{images/DrawingArc.png} 
+\caption{Drawing an SVG arc}
+\end{wrapfigure}
 
 Although this method only drew two lines of the segment, SVG filled in the third automatically (as a straight line from the centre back to the first point of the segment), and this area could then be filled in like a normal shape.
 
