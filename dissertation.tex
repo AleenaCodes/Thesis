@@ -17,7 +17,7 @@
 %   * for the MSc  degree programme "$X/Y/Z$" for a project deemed to be
 %     X%, Y% and Z% of type I, II and III.
 % - year              should be formatted as a 4-digit year of submission
-%   (so 2014 rather than the accademic year, say 2013/14 say).
+%   (so 2014 rather than the academic year, say 2013/14 say).
 
 \documentclass[ % the name of the author
                     author={Aleena Baig},
@@ -156,7 +156,7 @@ Within a few years, it had already become clear that HTML was extremely limiting
 
 As time went on, both the number of the users on the web and the type of content being published changed drastically, and HTML went through a variety of iterations, eventually resulting on HTML5 which, combined with CSS4 and JavaScript, forms the core of the internet,
 
-However, as the number of users has grown, so have the amount of internet users with differing accessibility needs, including visual, motor and cognitive needs. As HTML has become more complex, so have the website layouts, due in no small part to the need for websites to work on a much larger variety of devices and screen sizes than before. Whereas the simplistic "document-style" websites of the early internet were easily accessible to most users, this is no longer the case.
+However, as the number of users has grown, so have the number of internet users with different accessibility needs, including visual, motor and cognitive needs. As HTML has become more complex, so have the website layouts, due in no small part to the need for websites to work on a much larger variety of devices and screen sizes than before. Whereas the simplistic "document-style" websites of the early internet were easily accessible to most users, this is no longer the case.
 
 % LATER Try to find stat of how many sites are not accessible
 
@@ -192,17 +192,17 @@ Web accessibility encompasses a lot of different use cases, including
 
 % LATER Add pictures?
 
-However there are also lots of other cases to consider \cite{WAIaccessibilityintro}
+However, there are also lots of other cases to consider \cite{WAIaccessibilityintro}
 %
 \begin{itemize}
-    \item "Temporary disabilities" - for example a broken arm, operating single-handed (such as holding a baby in one arm), lost glasses, RSI
-    \item "Situational limits" - seeing a screen in bright sunlight, or not being able to hear audio in a loud environment
+    \item "Temporary disabilities" - for example, a broken arm, operating single-handed (such as holding a baby in one arm), lost glasses, RSI
+    \item "Situational limits" - seeing a screen in bright sunlight, or not being able to hear sound in a loud environment
     \item People using devices in different input modes such as on a TV screen
     \item Older people with changing abilities
     \item People with slower or limited internet access
 \end{itemize}
 
-Through this we can see that web accessibility supports the inclusion of people with disabilities, older people, people in rural areas and people in developing countries
+Through this, we can see that web accessibility supports the inclusion of people with disabilities, older people, people in rural areas and people in developing countries
 
 \subsection{The Business Case for Accessibility}
 
@@ -210,7 +210,7 @@ With so many disabled users worldwide, disregarding the need for a site to be ac
 
 Increasing site accessibility often involves structuring and labelling things better, and so can result in much better SEO for a site. It also means that the site will be easier to view on multiple devices, and there will be reduced maintenance cost over time.\cite{WAIaccessibilityintro}
 
-Focusing on site accessibility not only demonstrates corporate social responsibility, but in many parts of the world certain sites (such as government services) are required by law. This includes the Equality Act of 2010 in the UK, and Section 508 in the USA. Access to information and communications technologies, including the web, is also defined as a basic human right in the United Nations Convention on the Rights of Persons with Disabilities (UN CRPD). \cite{accessibilityUN}
+Focusing on site accessibility not only demonstrates corporate social responsibility but in many parts of the world, certain sites (such as government services) are required by law. This includes the Equality Act of 2010 in the UK and Section 508 in the USA. Access to information and communications technologies, including the web, is also defined as a basic human right in the United Nations Convention on the Rights of Persons with Disabilities (UN CRPD). \cite{accessibilityUN}
 
 Many modern sites have tackled the recent move into mobile web browsing by offering up different versions of a site depending on the device being used to access the web page, so it may seem that this could be an approach to having accessible sites - one "designed" site and one "accessible" site for those who need it. However, there are many concerns associated with segregating users to the "accessible" site, both around privacy and a lack of quality. Peter Blanck discusses these further in his book "The Struggle for Web Accessibility by Persons with Cognitive Disabilities" \cite[p.~157]{strugglewebaccessibility}
 
@@ -237,11 +237,11 @@ A key idea that has been on the rise in the last few years, has been component-b
 
 While this has allowed for more re-usability in web development by allowing encapsulation, websites that are heavily component-based can have greatly decreased accessibility if components are not built with accessibility in mind.
 
-Responsive layouts are a necessity in a world where the internet is accessed on mobile as often as desktop (if not more) \cite{mobileusestudy}. With websites needing to support both desktop and mobile users with one site, there is more re-ordering and hiding of page contents than before, which won't have an impact on sighted users but can result in screen-readers providing an un-ordered view of the contents of a web page or missing out important information.
+Responsive layouts are a necessity in a world where the internet is accessed on mobile as often as on desktop (if not more) \cite{mobileusestudy}. With websites needing to support both desktop and mobile users with one site, there is more re-ordering and hiding of page contents than before, which won't have an impact on sighted users but can result in screen-readers providing an un-ordered view of the contents of a web page or missing out important information.
 
-Many are turning towards frameworks to provide out-of-the-box responsiveness rather than manually providing different layouts for each screen size, and these can be a good solution. For example \textit{Bootstrap} provides a framework for responsive sites that can be used to make accessible websites, but it is down to the developer to ensure WCAG compliancy, as there are many aspects that shouldn't be used, such as default button colours and carousels \cite{bootstrapaccessibility}. Others, such as \textit{Turret}, allow for things like screen-reader only content to be defined \cite{turretaccessibility}.
+Many are turning towards frameworks to provide out-of-the-box responsiveness rather than manually providing different layouts for each screen size, and these can be a good solution. For example, \textit{Bootstrap} provides a framework for responsive sites that can be used to make accessible websites, but it is down to the developer to ensure compliance with the WCAG, as there are many aspects that shouldn't be used, such as default button colours and carousels \cite{bootstrapaccessibility}. Others, such as \textit{Turret}, allow for things like screen-reader only content to be defined \cite{turretaccessibility}.
 
-Recent years have also seen \textit{Flexbox} and \textit{CSS Grid} being used for arranging elements on a page. These decouple the source order (i.e. the order of the elements declared in HTML) and their visual order on the screen. This is another thing that has little repercussions on average web users, but can mean that keyboard or screen-reader users are unable to access content in the right order.
+Recent years have also seen \textit{Flexbox} and \textit{CSS Grid} being used for arranging elements on a page. These decouple the source order (i.e. the order of the elements declared in HTML) and their visual order on the screen. This is another thing that has little repercussions on average web users but can mean that keyboard or screen-reader users are unable to access content in the right order.
 
 % LATER provide pic of unordered page?
 
@@ -304,7 +304,7 @@ It can be useful during development for a developer to simulate different disabi
 
 It can also be useful to check how a site looks for colour-blind users. Some tools for this include \textit{Check My Colours} to check colour contrast, and \textit{Color Oracle} to simulate colour blindness.
 
-A recent project from IBM is the \textit{Va11ys} project, which provides a range of code samples that allow a developer to test out different assistive technologies. These provide a good idea of how different accessible features should look in code and how they should be interpreted by different assistive technologies.
+A recent project from IBM is the \textit{Va11ys} project, which provides a range of code samples that allow a developer to test out different assistive technologies. These provide a good idea of how different accessible features should look as code, and how they should be interpreted by different assistive technologies.
 
 Overall, we can see that there is a wide range of tools that are designed to help developers evaluate accessibility on their site and recognise issues before testing with real users, but not as many that focus on building accessible sites in the first place.
 
@@ -327,7 +327,7 @@ Overall, we can see that there is a wide range of tools that are designed to hel
 Users with disabilities tend to have two different approaches to interactions with the web
 
 \begin{itemize}
-    \item Assistive Technologies - using tools like screen-readers and voice recognition software to turn parts or all of websites into an understandable format
+    \item Assistive Technologies - using tools like screen-readers and voice recognition software to turn parts or all of a website into an understandable format
     \item Adaptive Strategies - making small changes to a site's format to make it easier to process, such as making fonts larger or turning captions on for videos
 \end{itemize}
 
@@ -381,9 +381,9 @@ With each of these approaches, they require the developer to give correct layout
 
 \subsubsection{Accessibility APIs}
 
-In the early 1990's, assistive technologies would read what was on the screen and try to guess the functions of different elements and their states, e.g. by looking at class names of objects and seeing if they were highlighted. However, this was not always accurate and there was often some delay time between new features being introduced and assistive technologies being developed to recognise them. \cite{smashingAPIs}
+In the early 1990s, assistive technologies would read what was on the screen and try to guess the functions of different elements and their states, e.g. by looking at class names of objects and seeing if they were highlighted. However, this was not always accurate and there was often some delay time between new features being introduced and assistive technologies being developed to recognise them. \cite{smashingAPIs}
 
-In the late 1990's, accessibility APIs were introduced as a standardised alternative that provided a more reliable way to pass information to assistive technologies. For the first time, developers had the ability to provide information to assistive technologies in a predictable and consistent way.
+In the late 1990s, accessibility APIs were introduced as a standardised alternative that provided a more reliable way to pass information to assistive technologies. For the first time, developers had the ability to provide information to assistive technologies in a predictable and consistent way.
 
 Although this was a step up from the previous way of simply guessing information about pages, many early accessibility APIs still did not provide much structural information for the page, making it hard to understand how objects related to each other. New APIs were developed over the next decade, which were then able to provide information on page structure and rich text formatting.
 
@@ -397,7 +397,7 @@ A new (and still experimental) technology currently being worked on is the Acces
 
 \section{Accessible Visuals}
 
-Visuals are often used to quickly and easily convey large amounts of information to a reader. Data in tabular form can be hard to dig through, and graphs allow viewers to spot both simple and complex trends across many fields in one go, and also draw their own conclusions about the data without having to see a large amount of raw data.
+Visuals are often used to quickly and easily convey large amounts of information to a reader. Data in tabular form can be hard to dig through, and graphs allow viewers to spot both simple and complex trends across many fields in one go and also draw their own conclusions about the data without having to see a large amount of raw data.
 
 % LATER say something more about visuals
 
@@ -406,9 +406,9 @@ Visuals are often used to quickly and easily convey large amounts of information
 Making pictures and graphs accessible on the web is often done by adding alt-text attributes to detail what an image shows. But it is easy to see why it would be hard to encompass the same level of detail in words for a graph than a viewer would be able to get visually
 
 \begin{itemize}
-    \item "Graph showing stock price over time" - does not convey any actual information about the data in the graph
-    \item "Graph showing upward trend of stock price" - conveys a bit more information about the data, but does not allow the user to get any sense of prices
-    \item "Graph showing upward trend of stock price from $\pounds$ 60 to $\pounds$ 180 over 2 years" - gives some idea of prices and how fast they climbed but does not allow the user to see smaller details such as any dips in price
+    \item "Graph showing a stock price over time" - does not convey any actual information about the data in the graph
+    \item "Graph showing an upward trend of a stock price" - conveys a bit more information about the data, but does not allow the user to get any sense of prices
+    \item "Graph showing an upward trend of a stock price from $\pounds$ 60 to $\pounds$ 180 over 2 years" - gives some idea of prices and how fast they climbed but does not allow the user to see smaller details such as any dips in price
 \end{itemize}
 
 It is clear that in order for a text-based web user to have anywhere close to the insight that a sighted user would have from a graph, a large amount of long-winded description would need to be included with any graphs, which can be hard and long for a developer to write. Many developers try to account for this by also including the data in tabular form, which screen-readers can access and read. However, this is a clunky solution, especially as if the data was displayed graphically in the first place, it was likely not very easily consumable in tabular form.
@@ -417,9 +417,9 @@ It is clear that in order for a text-based web user to have anywhere close to th
 
 There are many JavaScript graphing libraries available for the web, most notably libraries such as \textit{Chart.js}, \textit{D3.js}, \textit{Highcharts} and \textit{Google Charts}.
 
-Most of these libraries have some accessibility in mind in terms of alt-text and navigating via keyboard, but a big problem is consistency among browsers. Libraries like \textit{D3} and \textit{AmCharts} use SVG to form the images, and provide little ability to for a user to navigate through these element-by-element.
+Most of these libraries have some accessibility in mind in terms of alt-text and navigating via keyboard, but a big problem is consistency among browsers. Libraries like \textit{D3} and \textit{AmCharts} use SVG to form the images, and provide little ability for a user to navigate through these element-by-element.
 
-The \textit{Highcharts} library offers some accessibility in terms of a custom module that can be loaded in. This provides the ability to show screen-reader users the data in raw form, and to use high-contrast patterns in the graph. However, this still relies on the user to add sufficient alt-text to the graph, and requires some custom set up from the user in terms of turning on a lot of different settings to enable keyboard navigation and other accessibility features.
+The \textit{Highcharts} library offers some accessibility in terms of a custom module that can be loaded in. This provides the ability to show screen-reader users the data in raw form and to use high-contrast patterns in the graph. However, this still relies on the user to add sufficient alt-text to the graph and requires some custom set up from the user in terms of turning on a lot of different settings to enable keyboard navigation and other accessibility features.
 
 \subsection{Aim}
 
@@ -433,7 +433,7 @@ One of the main technical challenges is making a solution that works out of the 
 
 When trying to provide all the information that sighted users would see via audio, it will also be important to keep a balance between providing relevant information and overloading the user. Providing too much information will be tedious for users who only want to understand the values and trends in a graph, and may also overwhelm a user, but providing too little information will result in less understanding about the graph for the user.
 
-From a usability standpoint, it will also need to be easy for developers to use, but still be able to be customised enough that developers can create custom graphics to their liking, while maintaining the same level of accessibility. Developers (understandably) lean towards using technologies that provide the solution they need with a minimal amount of work, so it will be important to keep the API functional but quick to invoke.
+From a usability standpoint, it will also need to be easy for developers to use, but still be able to be customised enough that developers can create custom graphics to their liking while maintaining the same level of accessibility. Developers (understandably) lean towards using technologies that provide the solution they need with a minimal amount of work, so it will be important to keep the API functional but quick to invoke.
 
 % \section{Related Work}
 
@@ -459,7 +459,7 @@ When thinking about the implementation, there were 3 main areas to think about
 
 \subsection{Types of Graphs}
 
-As I was trying to build a proof of concept, as opposed to a comprehensive library, I decided to focus on 3 different graph types - bar graphs, line graphs and pie charts. These chart types are some of the more commonly-used ones, and are different enough to provide a varied proof of concept.
+As I was trying to build a proof of concept, as opposed to a comprehensive library, I decided to focus on 3 different graph types - bar graphs, line graphs and pie charts. These chart types are some of the more commonly-used ones and are different enough to provide a varied proof of concept.
 \newline
 \begin{figure}[H]
   \centering
@@ -473,9 +473,9 @@ As I was trying to build a proof of concept, as opposed to a comprehensive libra
 
 \subsection{Information to Present}
 
-Having spoken to some people who use screen-readers daily and observed them using these to browse web pages, it was clear that screen-reader users don't tend to listen to a web pages in its entirety, instead scrolling through quickly to find information that they need.
+Having spoken to some people who use screen-readers daily and observed them using these to browse web pages, it was clear that screen-reader users don't tend to listen to a web page in its entirety, instead scrolling through quickly to find information that they need.
 
-In order to accommodate this, I aimed to create labels for the chart that weren't too verbose, and which had the most pertinent information at the start of the label. This would mean that if the user was trying to find a particular data point, they would be able to move through each data point quickly in order to accomplish this.
+In order to accommodate this, I aimed to create labels for the chart that were not too verbose, and which had the most pertinent information at the start of the label. This would mean that if the user was trying to find a particular data point, they would be able to move through each data point quickly in order to accomplish this.
 
 I felt that the key information to present were the headings and values of the data, and also to highlight some broader trends without overloading the user with too much detail.
 
@@ -487,15 +487,15 @@ I felt that the key information to present were the headings and values of the d
 
 \subsection{Colours and Patterns}
 
-Use of colour and pattern is important for users who are partially-sighted of colour-blind, and a common method found in many websites and games that rely on colour, is to have a "colour-blind" mode which changes different colours to be different patterns instead.
+Use of colour and pattern is important for users who are partially-sighted of colour-blind, and a common method found in many websites and games that rely on colour is to have a "colour-blind" mode which changes different colours to be different patterns instead.
 
 The WCAG require a minimum level of contrast of \textit{4.5:1} between colours to fulfil criterion \textit{1.4.3 - Minimum Contrast}, and so I used this as a guideline to select colours.
 
-I also aimed to combine the user of contrasting colours with different patterns as well, as these would help users distinguish between different sections. Another thing that is known to be helpful with partially-sighted and colour-blind users it to allow some white space between corresponding elements to help the user better distinguish between elements such as bars or segments on charts.
+I also aimed to combine the use of contrasting colours with different patterns as well, as these would help users distinguish between different sections. Another thing that is known to be helpful with partially-sighted and colour-blind users is to allow some white space between corresponding elements to help the user better distinguish between elements such as bars or segments on charts.
 
-When building a colour palette, I aimed to have 6 different colours in my colour palette, which would have a good amount of contrast with each other. Since I was making a graphing library, I initially thought of using a \textit{Brewer Palette} - colour combinations that are specifically selected for their properties for use in data visualisation and information design. These colours are selected based on human perception around which colours seem associated with each and which do not, and so a \textit{Qualitative Brewer Palette} seemed like a good choice for the graphs I was creating. However I found that these colours had little contrast between them by WCAG standards, and so would not be suitable for my use.
+When building a colour palette, I aimed to have 6 different colours in my colour palette, which would have a good amount of contrast with each other. Since I was making a graphing library, I initially thought of using a \textit{Brewer Palette} - colour combinations that are specifically selected for their properties for use in data visualisation and information design. These colours are selected based on human perception around which colours seem associated with each and which do not, and so a \textit{Qualitative Brewer Palette} seemed like a good choice for the graphs I was creating. However, I found that these colours had little contrast between them by WCAG standards, and so would not be suitable for my use.
 
-In order to check contrast between each colour, I used a colour contrast-checker from the design agency \textit{EightShapes} to load in multiple colours and see the contrast level between each colour.
+In order to check the contrast between each colour, I used a colour contrast-checker from the design agency \textit{EightShapes} to load in multiple colours and see the contrast level between each colour.
 
 \begin{figure}[h]
 \caption{Checking colour contrast with the EightShapes contrast checker tool}
@@ -503,11 +503,11 @@ In order to check contrast between each colour, I used a colour contrast-checker
 \includegraphics[width=0.5\textwidth]{images/EightShapeColourChecker.png}
 \end{figure}
 
-With this I was able to build a palette of 6 colours which had a fairly high contrast level between most of the other colours (i.e. 3 or more). However, it proved very hard to find colours that had a high enough contrast between all other colours in a palette, and so I decided to keep the current palette and simply make sure that neighbouring colours were high contrast.
+With this, I was able to build a palette of 6 colours which had a fairly high contrast level between most of the other colours (i.e. 3 or more). However, it proved very hard to find colours that had a high enough contrast between all other colours in a palette, and so I decided to keep the current palette and simply make sure that neighbouring colours were high contrast.
 
 \section{Accessibility Tree}
 
-When looking at web accessibility, a key concept is the accessibility tree - a tree structure created from a web page's DOM, which assistive technologies are then able to interact with. One of the major technical issues with this project was that, different web browsers may generate slightly different accessibility trees from the same HTML code and different assistive technologies may also interpret the same accessibility tree differently. Thus it would be hard to make a solution that worked across all of the common assistive technology/browser/operating system combinations.
+When looking at web accessibility, a key concept is the accessibility tree - a tree structure created from a web page's DOM, which assistive technologies are then able to interact with. One of the major technical issues with this project was that different web browsers may generate slightly different accessibility trees from the same HTML code and different assistive technologies may also interpret the same accessibility tree differently. Thus it would be hard to make a solution that worked across all of the common assistive technology/browser/operating system combinations.
 
 % LATER - diagram of how assistive tech uses accessibility trees?
 
@@ -517,7 +517,7 @@ The WAI-ARIA standards provide a set of roles, states and properties that can be
 
 \section{Library Design}
 
-When building the JavaScript library, since this was a proof-of-concept, I aimed for create a fairly simple API for the developer, in which the page \texttt{div} in which to create the chart, the chart type, and data source (a local file) could be specified. Along with this, the chart title and units of data would need to be specified, in order to generate the metadata for the chart correctly.
+When building the JavaScript library, since this was a proof-of-concept, I aimed to create a fairly simple API for the developer, in which the page \texttt{div} in which to create the chart, the chart type, and data source (a local file) could be specified. Along with this, the chart title and units of data would need to be specified, in order to generate the metadata for the chart correctly.
 
 \chapter{Implementation}
 
@@ -531,9 +531,9 @@ Inlining SVG provides more predictable results and better control over propertie
 
 While SVG has been around for a while (since 2001), there has recently been a push towards a more modern version, resulting in a new specification for SVG 2 being released in 2016.
 
-One of the new features in this specification is the abilities to add \texttt{tabindex} to SVG elements (such as shapes or text). This is useful, as previously the only way to make elements in an SVG that were focusable by keyboard, was by including a HTML element that supported this, such as the \texttt{<a>} tag.
+One of the new features in this specification is the abilities to add \texttt{tabindex} to SVG elements (such as shapes or text). This is useful, as previously the only way to make elements in an SVG that were focusable by keyboard, was by including an HTML element that supported this, such as the \texttt{<a>} tag.
 
-Although the W3C has release this specification, the onus is on the makers of a browser to implement these new features in their browser. Thus far there has been little uptake on this, with most browsers only implementing part of the specification, including accessibility-forward browsers such as Mozilla Firefox. Hence it is not necessarily an easy task to make a solution that works consistently across multiple web browsers (a problem common in all branches of web development).
+Although the W3C has released this specification, the onus is on the makers of a browser to implement these new features in their browser. Thus far there has been little uptake on this, with most browsers only implementing part of the specification, including accessibility-forward browsers such as Mozilla Firefox. Hence it is not necessarily an easy task to make a solution that works consistently across multiple web browsers (a problem common in all branches of web development).
 
 \subsection{HTML Layout}
 
@@ -541,7 +541,7 @@ HTML, by virtue of being a markup language that defines only the structure of a 
 
 HTML5 introduced the concept of a web page having "sections", with a new \texttt{<section>} tag that could be used to define a page's sections, as opposed to the more ambiguous \texttt{<div>}.
 
-Sections are able to be nested within each other, giving the same type of structure as the original \texttt{<h1>, <h2>, <h3>} etc. tags created. However it is not always desirable to have every section's children included in the outline of it's parent.
+Sections are able to be nested within each other, giving the same type of structure as the original \texttt{<h1>, <h2>, <h3>} etc. tags created. However, it is not always desirable to have every section's children included in the outline of its parent.
 
 A sectioning root is an HTML element that can have its own outline, but the sections and headings inside it do not contribute to the outline of its ancestor. The sectioning root \texttt{<figure>} is the key one that I used in my development, to create an element that was able to have many children (i.e. axis, data points etc.) and not create a lot of excess outline in the DOM for the parent section.
 
@@ -559,7 +559,7 @@ The ARIA property \texttt{aria-labelledby} is used to create a label that is dis
 
 The \texttt{aria-labelledby} property, alongside the \texttt{aria-describedby} property identify the element(s) are used to label and describe the current element (\texttt{describedby} is intended for a more verbose description).
 
-In my case, I found that \texttt{aria-describedby} did not work very consistently across browsers, and so was largely pointless in most use cases. Instead, I doubled on \texttt{aria-labelledby} to include both the title and description.
+In my case, I found that \texttt{aria-describedby} did not work very consistently across browsers, and so it was largely pointless in most use cases. Instead, I doubled on \texttt{aria-labelledby} to include both the title and description.
 
 Through using both the \texttt{<title>} and \texttt{<desc>} tags for the SVG, and using \texttt{aria-labelledby} to also link these, I covered most browser/screen-reader combinations for reading this out.
 
@@ -581,7 +581,7 @@ Since the reader was going to browse through the contents of the SVG, I also use
   \label{fig:HTMLATComparison}
 \end{figure}
 
-In order to make the each data point able to be accessed individually, I added a \texttt{tabindex=0} property to each data point. This made each of these elements focusable and thus added them to the order in sequential keyboard navigation, letting them be accessed by using the \texttt{[Tab]} key on a keyboard.
+In order to make each data point able to be accessed individually, I added a \texttt{tabindex=0} property to each data point. This made each of these elements focusable and thus added them to the order in sequential keyboard navigation, letting them be accessed by using the \texttt{[Tab]} key on a keyboard.
 
 I also grouped the data points in an SVG group \texttt{<g>} and gave this an ARIA role of \texttt{list}, along with a \texttt{<title>}. This meant that when a screen-reader came across the list it would read out the title. I then added each data point as an SVG group of its own, with an ARIA role of \texttt{listitem}, and a \texttt{<title>}, which the screen-reader would read out on focussing on each list item. Setting up the chart as a \texttt{list} containing a set of \texttt{listitem} also meant that users of technologies that have other shortcuts for navigating lists could also use these.
 
@@ -618,7 +618,7 @@ In order to have the graph function as normal, I had to add an extra layer of la
 
 \subsection{Basic Structure}
 
-I initially began with a hard-coded HTML prototype to figure out syntax and run some user testing with. Once I had decided on the HTML syntax that I would use, I then proceeded to package this into a JavaScript library which would be able to produce the same graphs with any provided dataset.
+I initially began with a hard-coded HTML prototype to figure out the syntax and run some user testing with. Once I had decided on the HTML syntax that I would use, I then proceeded to package this into a JavaScript library which would be able to produce the same graphs with any provided dataset.
 
 I was keen to not have any external dependencies for the library, as JavaScript libraries are well-known for quickly growing very large as multiple levels of dependencies are loaded for a single small function. Thus I wrote only in "Vanilla" JavaScript - plain JavaScript without any functions from third-party libraries.
 
@@ -635,7 +635,7 @@ var accessibleGrapher = {
 
 \subsection{Pulling in Data}
 
-As the library was intended for small amounts of data, it would have been possible to simply require the user to send an array of data in the function call. However the convention in graphing libraries is to allow an external file to be handed in, either locally or via an API call.
+As the library was intended for small amounts of data, it would have been possible to simply require the user to send an array of data in the function call. However, the convention in graphing libraries is to allow an external file to be handed in, either locally or via an API call.
 
 Since I was building a proof-of-concept library, I opted to only provide the option for loading in a local JSON file, although extending the library to load a file via an API call would not require too much extra code in the library.
 
@@ -663,7 +663,7 @@ function loadJSONandMakeChart(fileName, callback) {
 }
 \end{lstlisting}
 
-The use of callbacks is standard in JavaScript usage on the web, and allowed the code to run in the correct order, i.e. only making the chart once data was loaded in. The call was made as follows
+The use of callbacks is standard in JavaScript usage on the web and allowed the code to run in the correct order, i.e. only making the chart once data was loaded in. The call was made as follows
 
 \begin{lstlisting}
 loadJSONandMakeChart(chartInfo["fileName"], function(response) {
@@ -674,7 +674,7 @@ loadJSONandMakeChart(chartInfo["fileName"], function(response) {
 
 This provided a small callback to the data loading function, which would load data, use JavaScript's standard \texttt{JSON.parse} method to turn the JSON into a JavaScript object, and then run a \texttt{makeChart} function once the data was completely loaded and parsed correctly.
 
-This data, along with the chart information that the developer supplied in the function call was then passed to another function to determine the type of chart, and then passed onto the final function to generate the correct type of chart.
+This data, along with the chart information that the developer supplied in the function call was then passed to another function to determine the type of chart and then passed onto the final function to generate the correct type of chart.
 
 \subsection{Interacting with the Webpage}
 
@@ -694,7 +694,7 @@ I also used the corresponding \texttt{document.setAttributeNS} method in my libr
 
 The bulk of the graph-making functions were simple translations from the previously-created HTML to creating those elements as HTML elements via JavaScript and setting the attributes as required. SVG also has many alignment properties for text that allowed me to position things without using CSS, such as \texttt{text-anchor} and \texttt{dominant-baseline} for the SVG \texttt{<text>} tag.
 
-The information for the ARIA labels was mainly able to be made via looking through the provided data to get properties such as the number of elements, and the smallest and biggest elements. These, combined with the \texttt{"units"} property that the developer put in the method call were used to create labels that read like natural language.
+The information for the ARIA labels was mainly able to be made by looking through the provided data to get properties such as the number of elements, and the smallest and biggest elements. These, combined with the \texttt{"units"} property that the developer put in the method call were used to create labels that read like natural language.
 
 % LATER - some example of the natural language labels?
 
@@ -753,7 +753,7 @@ function findChartEndNum(dataEndNum){
 
 \subsection{Calculating Trends and Other Mathematics}
 
-For the line graph I wanted to calculate a general trend as part of the overarching graph description, as this is something that a sighted user would be able to tell quickly upon seeing a graph.
+For the line graph, I wanted to calculate a general trend as part of the overarching graph description, as this is something that a sighted user would be able to tell quickly upon seeing a graph.
 
 In the spirit of not wanting to use any external libraries, I wrote up a JavaScript version of the \textit{Least Squares Method} -  an approach in regression analysis that estimates the relationship between a set of points, in this case the points on the line graph.
 
@@ -761,11 +761,11 @@ The algorithm works to find the "line of best fit" through a set of 2D points, b
 
 The typical Least Squares algorithm takes in a list of points as $(x,y)$ co-ordinates, and so I used the SVG \texttt{width} and \texttt{height} to get the data point position, and then calculated its position relative to the bottom left corner (as opposed to the top left which SVG uses for its measurements).
 
-When it came to drawing bar and line graphs, the mathematics was relatively simple to take in the data and draw \texttt{<rect>} of the correct width or \texttt{<circle>} at the correct position. However drawing a pie chart required more maths to calculate and draw each segment correctly.
+When it came to drawing bar and line graphs, the mathematics was relatively simple to take in the data and draw \texttt{<rect>} of the correct width or \texttt{<circle>} at the correct position. However, drawing a pie chart required more maths to calculate and draw each segment correctly.
 
-For the pie chart SVG, I added a \texttt{viewbox} property to the SVG. This meant that regardless of the actual size in pixels on the page, the relative measurements would stay the same when specifying measurements for each individual elements to draw.
+For the pie chart SVG, I added a \texttt{viewbox} property to the SVG. This meant that regardless of the actual size in pixels on the page, the relative measurements would stay the same when specifying measurements for each individual element to draw.
 
-In order to draw the pie charts, I first calculated corresponding percentages for each data point out of the total of all values, and then used this to work out the point on the circle for the edge of each segment.
+In order to draw the pie charts, I first calculated corresponding percentages for each data point out of the total of all values and then used this to work out the point on the circle for the edge of each segment.
 
 \begin{lstlisting}
 var x = radius * Math.cos(2 * Math.PI * percent);
@@ -777,7 +777,7 @@ var y = radius * Math.sin(2 * Math.PI * percent);
 \caption{Drawing an SVG arc}
 \end{wrapfigure}
 
-This could then be adjusted to the correct position relative to the centrepoint of the circle, and then drawn using the SVG \texttt{<path>} attribute. The path had 3 parts
+This could then be adjusted to the correct position relative to the centre of the circle, and then drawn using the SVG \texttt{<path>} attribute. The path had 3 parts
 
 \begin{itemize}
     \item \texttt{M} - \textit{Move} to the first point on the segment
@@ -795,9 +795,9 @@ Although the library provides a proof-of-concept for generating 3 different type
 
 A key concept in accessibility is that just because something is available to a user, it doesn't necessarily mean that it is accessible. In this case, this solution will be inefficient for large amounts of data, as although it could still provide a solution which would allow a user of an assistive technology access to all the information, it would quickly become tedious to have to listen to so much data, and it would also create a less-readable visual version of a graph.
 
-It is also very hard to truly make a solution that is accessible to everyone, as disabilities come in a wide variety of affects and severities. When it comes to things such as the labels on the graphs, making descriptions that are simple enough for people with cognitive disabilities to be able to understand, may result in taking away too much detail. The current solution provides fairly simple labels but these could be extended slightly to provide other useful information for the user.
+It is also very hard to truly make a solution that is accessible to everyone, as disabilities come in a wide variety of effects and severities. When it comes to things such as the labels on the graphs, making descriptions that are simple enough for people with cognitive disabilities to be able to understand, may result in taking away too much detail. The current solution provides fairly simple labels but these could be extended slightly to provide other useful information for the user.
 
-The solution uses the \texttt{[tab]} key to navigate through the graph, but for some users the \texttt{[tab]} key may be associated with navigating through clickable links, and so this can be confusing. There is currently no standard way to allow arrow key navigation through an SVG, but it is possible to create a section of a web page with the ARIA role of \texttt{application}, which allows custom keystroke actions to be specified. However, this can cause other compatibility issues due to the variety of assistive technologies that may use a page, and this is considered bad practice to do unless done with great care.
+The solution uses the \texttt{[tab]} key to navigate through the graph, but for some users, the \texttt{[tab]} key may be associated with navigating through clickable links, and so this can be confusing. There is currently no standard way to allow arrow key navigation through an SVG, but it is possible to create a section of a web page with the ARIA role of \texttt{application}, which allows custom keystroke actions to be specified. However, this can cause other compatibility issues due to the variety of assistive technologies that may use a page, and this is considered bad practice to do unless done with great care.
 
 \chapter{Evaluation}
 
@@ -815,7 +815,7 @@ The solution uses the \texttt{[tab]} key to navigate through the graph, but for 
 
 With the type of target market that was intended, it was important to test my solution on real-life users, especially those who use audio assistive technologies such as screen-readers, as there is a wide variety in the way that blind and partially-blind users navigate web pages based on operating system/browser combinations and also just preference.
 
-As screen-reader users are a small group compared to all web users, I intended to try to run only a small round of user testing - around 5 or so users. Overall I had 7 users in the study. I tried to keep the study short for the user (less than 30 minutes) and so the demo was only one of each types of graph, and both surveys combined were 11 questions, mainly multiple-choice. The study consisted of 3 main parts. 
+As screen-reader users are a small group compared to all web users, I intended to try to run only a small round of user testing - around 5 or so users. Overall I had 7 users in the study. I tried to keep the study short for the user (less than 30 minutes) and so the demo was only one of each type of graph, and both surveys combined were 11 questions, mainly multiple-choice. The study consisted of 3 main parts. 
 
 \begin{itemize}
     \item Background questions
@@ -916,8 +916,8 @@ Some other qualitative comments from users
     \item I would have liked to have the graph presented in a way that I could review it in review mode of the screen-reader
     \item I didn't like having \texttt{tabindex} on elements that weren't interactive such as links, buttons, checkboxes
     \item The screen-reader native keys should be used for graph navigation (such as "i" for navigating through \texttt{listitem} elements)
-    \item I would have preferred to be navigate the graphs using the arrow keys
-    \item For the pie chart it would be useful to have the segment colours included in the information, so that I can refer to this when presenting to sighted colleagues
+    \item I would have preferred to navigate the graphs using the arrow keys
+    \item For the pie chart, it would be useful to have the segment colours included in the information so that I can refer to this when presenting to sighted colleagues
 \end{itemize}
 
 \subsection{Analysis}
@@ -938,7 +938,7 @@ The questions asked about whether users currently found different visuals access
 \begin{itemize}
     \item None of the users said they "Fully Understand" any of these, not even images, implying that there is currently quite a wide disconnect for blind and partially-blind users when it comes to understanding any visuals presented on web pages
     \item A small percentage (29\% for images and tables, 14\% for data visualisations) said that they "Understand Most" for any of these types of visuals
-    \item Almost 60\% of users said that the "Struggle to Understand" data visualisations on web pages, so it seems that that many developers do not provide adequate descriptions for these, possible because it can be complex to sum up large amounts of visual data succinctly
+    \item Almost 60\% of users said that the "Struggle to Understand" data visualisations on web pages, so it seems that many developers do not provide adequate descriptions for these, possibly because it can be complex to sum up large amounts of visual data succinctly
 \end{itemize}
 
 After the demo, the user was asked some questions about how they found the demo
@@ -950,7 +950,7 @@ After the demo, the user was asked some questions about how they found the demo
     \item One user commented that when initially focusing on the graph, a lot of information was read out, but it wasn't too much of a problem for them overall
     \item Most users understood how to navigate through the charts using a keyboard, but some commented that they would have liked their screen-readers browsing methods to be better supported
     \item One user found the user of \texttt{tabindex} on each data point confusing, as they usually associated that with interactive elements on a web page
-    \item Most users were find with using the \texttt{[Tab]} key being used for navigation, but several said that the keyboard arrow keys would also be good navigation options
+    \item Most users were fine with using the \texttt{[Tab]} key being used for navigation, but several said that the keyboard arrow keys would also be good navigation options
     \item Some users said that they would have liked some different keyboard navigation systems such as letter keys, especially as many screen-readers have specified shortcuts for navigating through \texttt{listitem} elements such as the \texttt{i} key
 \end{itemize}
 
@@ -1079,7 +1079,7 @@ The WCAG guidelines provide a framework for basic evaluation of an accessible pa
 
 \section{Open-Source Contributions}
 
-In the process formulating syntax for my solution, I did a lot of reading around the HTML specification \cite{htmlspec} in order to understand the HTML Accessibility API Mappings. One of the key sources of documentation for web development are the MDN Web Docs \cite{mdndocs}, which provide comprehensive web standards and other information for web developers.
+In the process formulating syntax for my solution, I did a lot of reading around the HTML specification \cite{htmlspec} in order to understand the HTML Accessibility API Mappings. One of the key sources of documentation for web development is the MDN Web Docs \cite{mdndocs}, which provide comprehensive web standards and other information for web developers.
 
 While reading through specifications and the MDN web docs, it became clear that there were undocumented syntactical features in the \texttt{Document} interface, and so I made some open-source contributions to the documentation there.
 
@@ -1087,11 +1087,11 @@ While reading through specifications and the MDN web docs, it became clear that 
 
 \chapter{Conclusion and Future Work}
 
-Overall the solution produced did fairly well in user testing, with most users giving positive feedback around understanding the data presented, and being able to navigate through the graph.
+Overall the solution produced did fairly well in user testing, with most users giving positive feedback around understanding the data presented and being able to navigate through the graph.
 
-However, it was clear from user comments that there is a wide variety of ways that users want data presented to them, and any single solution will not be accessible to everyone. To produce a solution that is truly accessible to the majority of people, there will need to be multiple data ordering and navigational methods available to user within one chart. To have a solution that works consistently among major browsers and operating systems will also require a lot of careful use of syntax, and this may not be very easily possible until future years when HTML, ARIA and SVG specifications work uniformly across different software.
+However, it was clear from user comments that there is a wide variety of ways that users want data presented to them, and any single solution will not be accessible to everyone. To produce a solution that is truly accessible to the majority of people, there will need to be multiple data ordering and navigational methods available to the user within one chart. To have a solution that works consistently among major browsers and operating systems will also require a lot of careful use of syntax, and this may not be very easily possible until future years when HTML, ARIA and SVG specifications work uniformly across different software.
 
-As with any user-facing work, a lot of user-testing is required to develop a solution that works well with a variety of people. The testing for this project only covered blind and partially-blind users, whereas future testing should also cover colour-blind users, and those with motor and cognitive disabilities.
+As with any user-facing work, a lot of user-testing is required to develop a solution that works well with a variety of people. The testing for this project only covered blind and partially-blind users, whereas future testing should also cover colour-blind users and those with motor and cognitive disabilities.
 
 I hope to have the opportunity to develop the library further, there are several key areas that could be developed
 
@@ -1107,7 +1107,7 @@ I hope to have the opportunity to develop the library further, there are several
         \end{itemize}
     \item Customising colours
         \begin{itemize}
-            \item Being able to choose the colours on the graphs will make it easier to make graphs that are inline with other presented visuals, or with brand guidelines
+            \item Being able to choose the colours on the graphs will make it easier to make graphs that are in line with other presented visuals, or with brand guidelines
             \item However due to the WCAG restrictions on colour contrast, it may be the case that developers have to pick from specific colour palettes
         \end{itemize}
 \end{itemize}
