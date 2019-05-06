@@ -141,7 +141,7 @@ Web development is a constantly changing field, and so making websites accessibl
 
 A variety of assistive technologies exist to help disabled users navigate computers and web pages efficiently, and the World Wide Web Consortium (W3C) maintain standards to support accessibility, both in the syntax of web languages, and also in providing guidelines for developers. Although text-based web pages and simple images tend to be accessible for most users, more complicated content such as graphs and data visualisations are often completely inaccessible to those using assistive technologies.
 
-In this project, I produce a solution for creating web accessible graphs, in the form of a JavaScript graphing library that has accessibility out-of-the-box. The library is simple for developers to use, and produces graphs that give basic information about the data points, and also provides some detail on the trends for the user.
+In this project, I produce a solution for creating web accessible graphs, in the form of a JavaScript graphing library that has accessibility out of the box. The library is simple for developers to use, and produces graphs that give basic information about the data points, and also provides some detail on the trends for the user.
 
 % LATER - rewrite to make nicer
 
@@ -154,7 +154,7 @@ When HTML was first conceived in 1990, there were only 2.6 million users worldwi
 
 Within a few years, it had already become clear that HTML was extremely limiting for developers, and innovation had to take place in order to keep it relevant - in 1993 the browser Mosaic was shipped with support for the \texttt{<img>} tag, and many more new tags followed in order to accommodate for the ever-growing content types. \cite{historyofhtml}
 
-As time went on, both the number of the users on the web and the type of content being published changed drastically, and HTML went through a variety of iterations, eventually resulting on HTML5 which, combined with CSS4 and JavaScript, forms the core of the internet,
+As time went on, both the number of the users on the web and the type of content being published changed drastically, and HTML went through a variety of iterations, eventually resulting on HTML5 which, combined with CSS4 and JavaScript, forms the core of the internet.
 
 However, as the number of users has grown, so have the number of internet users with different accessibility needs, including visual, motor and cognitive needs. As HTML has become more complex, so have the website layouts, due in no small part to the need for websites to work on a much larger variety of devices and screen sizes than before. Whereas the simplistic "document-style" websites of the early internet were easily accessible to most users, this is no longer the case.
 
@@ -487,13 +487,13 @@ I felt that the key information to present were the headings and values of the d
 
 \subsection{Colours and Patterns}
 
-Use of colour and pattern is important for users who are partially-sighted of colour-blind, and a common method found in many websites and games that rely on colour is to have a "colour-blind" mode which changes different colours to be different patterns instead.
+Use of colour and pattern is important for users who are partially-sighted or colour-blind, and a common method found in many websites and games that rely on colour is to have a "colour-blind" mode which changes different colours to be different patterns instead.
 
 The WCAG require a minimum level of contrast of \textit{4.5:1} between colours to fulfil criterion \textit{1.4.3 - Minimum Contrast}, and so I used this as a guideline to select colours.
 
-I also aimed to combine the use of contrasting colours with different patterns as well, as these would help users distinguish between different sections. Another thing that is known to be helpful with partially-sighted and colour-blind users is to allow some white space between corresponding elements to help the user better distinguish between elements such as bars or segments on charts.
+I also aimed to combine the use of contrasting colours with different patterns as well, as these would help users distinguish between different sections. Another thing that is known to be helpful with partially-sighted and colour-blind users, is to allow some white space between corresponding elements to help the user better distinguish between elements such as bars or segments on charts.
 
-When building a colour palette, I aimed to have 6 different colours in my colour palette, which would have a good amount of contrast with each other. Since I was making a graphing library, I initially thought of using a \textit{Brewer Palette} - colour combinations that are specifically selected for their properties for use in data visualisation and information design. These colours are selected based on human perception around which colours seem associated with each and which do not, and so a \textit{Qualitative Brewer Palette} seemed like a good choice for the graphs I was creating. However, I found that these colours had little contrast between them by WCAG standards, and so would not be suitable for my use.
+When building a colour palette, I aimed to have 6 different colours in my colour palette, which would have a good amount of contrast with each other. Since I was making a graphing library, I initially thought of using a \textit{Brewer Palette} - colour combinations that are specifically selected for their properties for use in data visualisation and information design. These colours are selected based on human perception around which colours seem associated with each other, and so a \textit{Qualitative Brewer Palette} seemed like a good choice for the graphs I was creating. However, I found that these colours had little contrast between them by WCAG standards, and so would not be suitable for my use.
 
 In order to check the contrast between each colour, I used a colour contrast-checker from the design agency \textit{EightShapes} to load in multiple colours and see the contrast level between each colour.
 
@@ -518,6 +518,8 @@ The WAI-ARIA standards provide a set of roles, states and properties that can be
 \section{Library Design}
 
 When building the JavaScript library, since this was a proof-of-concept, I aimed to create a fairly simple API for the developer, in which the page \texttt{div} in which to create the chart, the chart type, and data source (a local file) could be specified. Along with this, the chart title and units of data would need to be specified, in order to generate the metadata for the chart correctly.
+
+% LATER - in which the page \texttt{div} in which to create the chart - sentence incomplete
 
 \chapter{Implementation}
 
@@ -719,7 +721,7 @@ function sortData(array){
 }
 \end{lstlisting}
 
-When hand-coding the initial graphs I had been able to make axis that provided natural spacing between points (e.g. going up in 5's or 10's) but when creating the library, if the smaller and bigger data points weren't rounded like this, then the axis could become awkward and not very readable to the sighted user
+When hand-coding the initial graphs I had been able to make axes that provided natural spacing between points (e.g. going up in 5's or 10's) but when creating the library, if the smaller and bigger data points weren't rounded like this, then the axis could become awkward and not very readable to the sighted user
 
 To make more readable axis, I also had a helper function to round the last number on the axis to the next relevant power of 10, which would shift the axis to a more natural-looking spacing.
 
@@ -831,7 +833,7 @@ As screen-reader users are a small group compared to all web users, I intended t
     \item Post-Demo questions
     \begin{itemize}
         \item The questions asked after the demo was shown focused on whether the user understood the graph data and how they felt the keyboard navigation was
-        \item The user could also provide any other qualitative feedback that they wanted to, such as notes on what they would changes they would have liked
+        \item The user could also provide any other qualitative feedback that they wanted to, such as notes on what changes they would have liked
     \end{itemize}
 \end{itemize}
 
@@ -839,14 +841,14 @@ As screen-reader users are a small group compared to all web users, I intended t
 
 The background questions had results as follows
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
-  \begin{subfigure}[b]{0.4\linewidth}
+  \begin{subfigure}[c]{0.4\linewidth}
     \centering
     \includegraphics[width=0.75\linewidth]{images/OperatingSystem.png}
      \caption{What Operating System are you using?}
   \end{subfigure}
-  \begin{subfigure}[b]{0.4\linewidth}
+  \begin{subfigure}[c]{0.4\linewidth}
     \centering
     \includegraphics[width=0.75\linewidth]{images/WebBrowser.png}
     \caption{What web browser are you using?}
@@ -855,19 +857,19 @@ The background questions had results as follows
   \label{fig:backgroundquestions}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
-  \begin{subfigure}[b]{0.3\linewidth}
+  \begin{subfigure}[c]{0.3\linewidth}
     \centering
     \includegraphics[width=\linewidth]{images/ScreenReader.png}
      \caption{What screen-reader are you using?}
   \end{subfigure}
-  \begin{subfigure}[b]{0.3\linewidth}
+  \begin{subfigure}[c]{0.3\linewidth}
     \centering
     \includegraphics[width=\linewidth]{images/HowLongUsingScreenReader.png}
     \caption{How long have you been using a screen-reader?}
   \end{subfigure}
-  \begin{subfigure}[b]{0.3\linewidth}
+  \begin{subfigure}[c]{0.3\linewidth}
     \centering
     \includegraphics[width=\linewidth]{images/ProficientScreenReader.png}
     \caption{How proficient would you rate yourself using a screen reader?}
@@ -925,7 +927,7 @@ Some other qualitative comments from users
 The background questions gave some simple details on the software the users used -
 
 \begin{itemize}
-    \item Most users had \textit{Windows} as their operating system, and \textit{Chrome} as their browser
+    \item The most common operating system was \textit{Windows}, and the most common browser was \textit{Chrome}
     \item The \textit{Windows} users were split fairly evenly between those using \textit{Chrome} and \textit{Firefox} - these tend to be the most popular browsers with \textit{Windows} users, so this was to be expected
     \item The users mainly used the screen-readers \textit{JAWS} and \textit{NVDA} - these are the most popular screen-readers on Windows so this was expected
     \item The only user not using \textit{JAWS} or \textit{NVDA} was using \textit{Voiceover} - a popular choice for \textit{MacOS} users due to being native to the operating system
@@ -938,13 +940,13 @@ The questions asked about whether users currently found different visuals access
 \begin{itemize}
     \item None of the users said they "Fully Understand" any of these, not even images, implying that there is currently quite a wide disconnect for blind and partially-blind users when it comes to understanding any visuals presented on web pages
     \item A small percentage (29\% for images and tables, 14\% for data visualisations) said that they "Understand Most" for any of these types of visuals
-    \item Almost 60\% of users said that the "Struggle to Understand" data visualisations on web pages, so it seems that many developers do not provide adequate descriptions for these, possibly because it can be complex to sum up large amounts of visual data succinctly
+    \item Almost 60\% of users said that they "Struggle to Understand" data visualisations on web pages, so it seems that many developers do not provide adequate descriptions for these, possibly because it can be complex to sum up large amounts of visual data succinctly
 \end{itemize}
 
 After the demo, the user was asked some questions about how they found the demo
 
 \begin{itemize}
-    \item Most of the users felt that they understood the subject of the graph being presented, and what the value of each individual point as
+    \item Most of the users felt that they understood the subject of the graph being presented, and what the value of each individual point was
     \item One user commented that they had some trouble remembering the topic of the graph while browsing, and had to continually return to the title to review this
     \item Most users found that the right amount of information for each data point was presented, with only one user commenting that they found it hard to comment on this without any visual comparison
     \item One user commented that when initially focusing on the graph, a lot of information was read out, but it wasn't too much of a problem for them overall
@@ -1138,6 +1140,7 @@ When talking about web accessibility, it is useful to highlight some key terms
 
 % LATER - move WCAG table here?
 % LATER - raw user survey results?
+% LATER - change both headings that are WCAG to differing ones? i.e. "implementing WCAG" and "WCAG compliance"
 
 \end{document}
 
