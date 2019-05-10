@@ -583,7 +583,7 @@ I also grouped the data points in an SVG group \texttt{<g>} and gave this an ARI
 \caption{Using the \texttt{<title>} tag and ARIA roles}
 \end{figure}
 
-\subsection{WCAG}
+\subsection{Implementing the WCAG}
 
 I also had the Web Content Accessibility Guidelines (WCAG) in mind when implementing this, and so I had to implement a few things to satisfy the guidelines; most notably a \textit{Bypass Block} mechanism as specified in success criterion \textit{2.4.1}. This meant adding a simple link that let the user skip past the graph entirely if they chose to, as opposed to having to listen to the entire read-out of the graph.
 
@@ -797,22 +797,22 @@ The solution uses the \texttt{[tab]} key to navigate through the graph, but for 
 
 With the type of target market that was intended, it was important to test the solution on real-life users, especially those who use audio assistive technologies such as screen-readers, as there is a wide variety in the way that blind and partially-blind users navigate web pages based on operating system/browser combinations and also just personal preference.
 
-As screen-reader users are a small group compared to all web users, I intended to try to run only a small round of user testing - around 5 or so users. Overall I had 7 users in the study. I tried to keep the study short for the user (less than 30 minutes) and so the demo was only one of each type of graph, and both surveys combined were 11 questions, mainly multiple-choice. The study consisted of 3 main parts : 
+As screen-reader users are a small group compared to all web users, I ran a small round of user testing - overall I had 7 users in the study. I tried to keep the study short for the user (less than 30 minutes) and so the demo was only one of each type of graph, and both surveys combined were 11 questions, mainly multiple-choice. The study consisted of 3 main parts : 
 
 \begin{itemize}
     \item Background questions
     \begin{itemize}
-        \item Before showing any content to the user, I asked some background questions about their current software, and their usage of screen-readers
+        \item Before showing any content to the user, I asked some background questions about their current software, and their usage of screen-readers (full list of questions in Appendix \ref{appendix:listofqs}) 
         \item There were also questions on their current perception around if they found images and charts on web pages accessible
     \end{itemize}
     \item Interactive demo
     \begin{itemize}
-        \item The demo consisted of a simple web page made with the 3 graphs displayed and some headings in between
+        \item The demo consisted of a simple web page made with the 3 graphs displayed and some headings in between (shown in Appendix \ref{appendix:studydemo})
         \item The user could browse around the page in their own time and take however long they wanted on any specific section, provided they viewed all 3 graphs
     \end{itemize}
     \item Post-Demo questions
     \begin{itemize}
-        \item The questions asked after the demo was shown focused on whether the user understood the graph data and how they felt the keyboard navigation was
+        \item The questions asked after the demo focused on whether the user understood the graph data and their thoughts on the keyboard navigation (full list of questions in Appendix \ref{appendix:listofqs}) 
         \item The user could also provide any other qualitative feedback that they wanted to, such as notes on what changes they would have liked
     \end{itemize}
 \end{itemize}
@@ -940,13 +940,114 @@ The combined quantitative and qualitative feedback showed the range of opinions 
 
 \subsection{Limitations}
 
-% TODO - write
-% Didn't test use of colour
-% Better study would compare table against graph data
+Although the study tested understanding among blind and partially-blind users, a more comprehensive study would also include people with more varying abilities, especially colour-blind users, and users using assistive technologies for physical disabilities.
 
-\section{WCAG}
+Another way to test the effectiveness of this solution would also be to test how much users understood from the graph as opposed to tabular data. By conducting a test in which participants saw both tables and graphs of the same data and compared the two, it would show whether the proposed solution is more of less effective than simply presenting raw data to users.
 
-The WCAG guidelines provide a framework for basic evaluation of an accessible page. The following table shows all relevant criteria and whether it is fulfilled. The only criteria that wasn't fully fulfilled was \textit{Criterion 1.4.11 - Non-Text Contrast}. This is due to the difficulty in find multiple colours with a contrast $\textgreater$4.5:1, although all colours do have a contrast of $\textgreater$3:1, which is fairly high. 
+\section{Evaluation Against the WCAG}
+
+The WCAG guidelines provide a framework for basic evaluation of an accessible page. The table in Appendix \ref{appendix:wcagevaluation} shows all relevant criteria and whether it has been fulfilled.
+
+The only criteria that wasn't fully fulfilled was \textit{Criterion 1.4.11 - Non-Text Contrast}. This is due to the difficulty in find multiple colours with a contrast $\textgreater$4.5:1, although all colours do have a contrast of $\textgreater$3:1, which is fairly high. White space was also left between neighbouring blocks in order to help users identify a change in block.
+
+\section{Open-Source Contributions}
+
+In the process formulating syntax for my solution, I did a lot of reading around the HTML specification\cite{htmlspec} in order to understand the HTML Accessibility API Mappings. One of the key sources of documentation for web development is the MDN Web Docs\cite{mdndocs}, which provide comprehensive web standards and other information for web developers.
+
+While reading through specifications and the MDN Web Docs, it became clear that there were undocumented syntactical features in the \texttt{Document} interface, and so I made some open-source contributions to the documentation there.
+
+% TODO - more detail on contributions
+
+% \section{Speed}
+
+% Test speed against other libraries
+
+\chapter{Conclusion and Future Work}
+
+Overall the solution produced did fairly well in user testing, with most users giving positive feedback around understanding the data presented and being able to navigate through the graph.
+
+However, it was clear from user comments that there are a wide variety of ways that users want data presented to them, and any single solution will not be accessible to everyone. To produce a solution that is truly accessible to the majority of people, there will need to be multiple data ordering and navigational methods available to the user within one chart. To have a solution that works consistently among major browsers and operating systems will also require a lot of careful use of syntax, and this may not be very easily possible until future years when HTML, ARIA and SVG specifications work uniformly across different software.
+
+As with any user-facing work, a lot of user-testing is required to develop a solution that works well with a variety of people. The testing for this project only covered blind and partially-blind users, whereas future testing should also cover colour-blind users and those with motor and cognitive disabilities.
+
+I hope to have the opportunity to develop the library further, there are several key areas that could be developed
+
+\begin{itemize}
+    \item Expanding to more graph types - most graphing libraries allow several dozen types of common graphs to be produced
+    \item Allowing customisable navigation
+        \begin{itemize}
+            \item Several users in the study voiced that they would like different key combinations to be used
+            \item Having arrow keys used may be more intuitive for users, but will require some more complex technical work, as there is very little consistency between different browsers in defining arrow key interactions on web pages
+            \item It may be useful for developers to be able to define navigational keys themselves, especially if they would like consistency between the graphs and other parts of the parent page
+            \item Developers may wish to have the option to pick between several specified navigation options, such as "tab key", "arrow keys", "letter keys" or turn off keyboard navigation altogether
+            \item Several users mentioned that their screen-readers have native keys for navigating through lists, so it will be a good idea to also integrate this into the solution
+        \end{itemize}
+    \item Customising colours
+        \begin{itemize}
+            \item Being able to choose the colours on the graphs will make it easier to make graphs that are in line with other presented visuals, or with brand guidelines
+            \item However due to the WCAG restrictions on colour contrast, it may be the case that developers have to pick from specific colour palettes
+        \end{itemize}
+\end{itemize}
+
+The solution I presented relies on navigating through the entire graph to understand each data point. This would work for smaller datasets, but users with cognitive disabilities may struggle to remember the graph topic as they navigate through multiple data points, and someone wanting to find a specific value may have to read through several unwanted values to get there.
+
+Visuals such as graphs are mainly presented as such because they give the viewer the ability to quickly see trends and relations, and find relevant information easily, e.g. a line graph can be a good way of illustrating that there is a strong upward trend over time, or that a value has been steady over a period of time.
+
+Another way of thinking about making graphical data accessible is to allow users to query certain aspects of the graph, such as having an interface that allows questions like "what was the trend between years 2000 and 2010", so this may be another possible way to create accessible data visualisations.
+
+% TODO - rewrite?
+
+\chapter{Glossary}
+
+When talking about web accessibility, it is useful to highlight some key terms
+
+\BlankLine
+%
+\glsaddall
+\printglossary[nonumberlist]
+
+\appendix
+\chapter{Study Demo}
+\label{appendix:studydemo}
+
+Below is an image of the demo page used for the study
+
+\begin{figure}[h]
+\includegraphics[width=0.7\textwidth]{images/Demo.PNG}
+\end{figure}
+
+\chapter{List of Study Questions}
+\label{appendix:listofqs}
+
+The following questions were asked in the study (with possible answers)
+
+\section{Background Questions}
+
+\begin{itemize}
+    \item What operating system, browser, and screen-reader do you use? \newline [Windows, MacOS, Linux, Other, Unknown]
+    \item What browser do you use? [Chrome, Firefox, Edge, Internet Explorer, Safari, Other, Unknown]
+    \item What screen-reader do you use? \newline [JAWS, NVDA,  Zoomtext, Voiceover, Window-Eyes, System Access, Narrator, Chromevox, Other, Unknown]
+    \item How long have you been using a screen-reader? \newline  [0-1yrs, 2-4yrs, 5-10yrs, 10yrs+]
+    \item How proficient would you rate yourself using a screen reader to navigate websites? \newline [Novice, Beginner, Intermediate, Advanced, Expert]
+    \item At the moment, do you find images in web pages accessible (i.e. how well are you able to understand what the image shows)? \newline [Struggle to understand, Understand a bit, Understand most, Fully understand]
+    \item At the moment, do you find tabular data in web pages accessible (i.e. how well are you able to find relevant data and understand trends)? \newline [Struggle to understand, Understand a bit, Understand most, Fully understand]
+    \item At the moment, do you find data visualisations, such as graphs and diagrams, in web pages accessible to you (i.e. how well are you able to understand the data they are trying to convey)? \newline [Struggle to understand, Understand a bit, Understand most, Fully understand]
+\end{itemize}
+
+\section{Post-Demo Questions}
+
+\begin{itemize}
+    \item Did you understand the subject of data that was being presented (i.e. the overarching title of the graph)? \newline [Yes, No, Partially (please specify)]
+    \item Did you understand the data that was associated with each data point (for example that a point was for Tuesday, and showed a value of 7)? \newline [Yes, No, Partially (please specify)]
+    \item Was it clear how to move between different data points (e.g. between bars in the bar charts and between pie chart segments)? \newline [Yes, No, Partially (please specify)]
+    \item This demo used the tab key for navigation, would you prefer to have different keyboard navigation available? \newline [Yes (please specify), No, Don’t Know]
+    \item In terms of the information given, would you say? \newline [The right amount of information was given, Too much information given, Too little information was given
+    \item Any other thoughts? [Text field for participant to answer]
+\end{itemize}
+
+
+\chapter{WCAG Evaluation}
+\label{appendix:wcagevaluation}
 
 \begin{center}
 \begin{longtable}{|p{2cm}|p{5cm}|p{2cm}|p{5cm}|}
@@ -1062,70 +1163,16 @@ The WCAG guidelines provide a framework for basic evaluation of an accessible pa
 \end{longtable}
 \end{center}
 
-\section{Open-Source Contributions}
 
-In the process formulating syntax for my solution, I did a lot of reading around the HTML specification\cite{htmlspec} in order to understand the HTML Accessibility API Mappings. One of the key sources of documentation for web development is the MDN Web Docs\cite{mdndocs}, which provide comprehensive web standards and other information for web developers.
 
-While reading through specifications and the MDN Web Docs, it became clear that there were undocumented syntactical features in the \texttt{Document} interface, and so I made some open-source contributions to the documentation there.
 
-% TODO - more detail on contributions
-
-% \section{Speed}
-
-% Test speed against other libraries
-
-\chapter{Conclusion and Future Work}
-
-Overall the solution produced did fairly well in user testing, with most users giving positive feedback around understanding the data presented and being able to navigate through the graph.
-
-However, it was clear from user comments that there are a wide variety of ways that users want data presented to them, and any single solution will not be accessible to everyone. To produce a solution that is truly accessible to the majority of people, there will need to be multiple data ordering and navigational methods available to the user within one chart. To have a solution that works consistently among major browsers and operating systems will also require a lot of careful use of syntax, and this may not be very easily possible until future years when HTML, ARIA and SVG specifications work uniformly across different software.
-
-As with any user-facing work, a lot of user-testing is required to develop a solution that works well with a variety of people. The testing for this project only covered blind and partially-blind users, whereas future testing should also cover colour-blind users and those with motor and cognitive disabilities.
-
-I hope to have the opportunity to develop the library further, there are several key areas that could be developed
-
-\begin{itemize}
-    \item Expanding to more graph types - most graphing libraries allow several dozen types of common graphs to be produced
-    \item Allowing customisable navigation
-        \begin{itemize}
-            \item Several users in the study voiced that they would like different key combinations to be used
-            \item Having arrow keys used may be more intuitive for users, but will require some more complex technical work, as there is very little consistency between different browsers in defining arrow key interactions on web pages
-            \item It may be useful for developers to be able to define navigational keys themselves, especially if they would like consistency between the graphs and other parts of the parent page
-            \item Developers may wish to have the option to pick between several specified navigation options, such as "tab key", "arrow keys", "letter keys" or turn off keyboard navigation altogether
-            \item Several users mentioned that their screen-readers have native keys for navigating through lists, so it will be a good idea to also integrate this into the solution
-        \end{itemize}
-    \item Customising colours
-        \begin{itemize}
-            \item Being able to choose the colours on the graphs will make it easier to make graphs that are in line with other presented visuals, or with brand guidelines
-            \item However due to the WCAG restrictions on colour contrast, it may be the case that developers have to pick from specific colour palettes
-        \end{itemize}
-\end{itemize}
-
-The solution I presented relies on navigating through the entire graph to understand each data point. This would work for smaller datasets, but users with cognitive disabilities may struggle to remember the graph topic as they navigate through multiple data points, and someone wanting to find a specific value may have to read through several unwanted values to get there.
-
-Visuals such as graphs are mainly presented as such because they give the viewer the ability to quickly see trends and relations, and find relevant information easily, e.g. a line graph can be a good way of illustrating that there is a strong upward trend over time, or that a value has been steady over a period of time.
-
-Another way of thinking about making graphical data accessible is to allow users to query certain aspects of the graph, such as having an interface that allows questions like "what was the trend between years 2000 and 2010", so this may be another possible way to create accessible data visualisations.
-
-% TODO - rewrite?
-
-\chapter{Glossary}
-
-When talking about web accessibility, it is useful to highlight some key terms
-
-\BlankLine
-%
-\glsaddall
-\printglossary[nonumberlist]
-
-\printbibliography
-
-% \chapter{Appendix}
 
 % TODO - move WCAG table here?
 % TODO - raw user survey results?
-% TODO - picture of demo
-% TODO - full list of questions asked
+
+\printbibliography
+
+
 
 
 % TODO - change both headings that are WCAG to differing ones? i.e. "implementing WCAG" and "WCAG compliance"
