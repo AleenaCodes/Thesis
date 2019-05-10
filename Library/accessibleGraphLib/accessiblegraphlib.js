@@ -1,3 +1,5 @@
+colours = ['#1E428A', '#EB6BB0', '#005500', '#FFB81C', '#AA0000', '#40B4E5'];
+
 function fillwithSVG(selector) {
   var parentDiv = document.getElementById(selector);
 
@@ -47,6 +49,17 @@ function sortData(array){
   });
 
   return sortedArray;
+}
+
+function sumData(array){
+  var value = 0;
+
+  for (i=0; i<array.length; i++){
+    value += array[i]["value"];
+  }
+
+  console.log(value);
+  return value;
 }
 
 function findChartEndNum(dataEndNum){
@@ -426,6 +439,7 @@ function makeLineChart(chartData, chartInfo, selector){
 
 function makePieChart(chartData, chartInfo, selector){
   chartData = sortData(chartData);
+  sumChartData = sumData(chartData);
 
   var parentDiv = document.getElementById(selector);
   parentDiv.innerHTML = '';
@@ -433,9 +447,9 @@ function makePieChart(chartData, chartInfo, selector){
   var containerWidth = parentDiv.offsetWidth;
   var containerHeight = parentDiv.offsetHeight;
 
-  chartEndNum = findChartEndNum(chartData[0]["value"]);
-
-  // something to find center of pie
+  var startPixelLegend = containerWidth - 200;
+  var pieWidth = Math.min((containerWidth - 200), containerHeight) - 100; // 50 pixels margin either side
+  var pieCenter = (pieWidth/2) + 50;
 
   // skip link
 
@@ -462,6 +476,84 @@ function makePieChart(chartData, chartInfo, selector){
       background.setAttributeNS(null, 'width', (containerWidth));
       background.setAttributeNS(null, 'height', (containerHeight));
       background.setAttributeNS(null, 'fill', 'rgb(255,255,255)');
+
+  mainSVG.appendChild(background);
+
+    var markerGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      markerGroup.setAttributeNS(null, 'aria-hidden', "true");
+      markerGroup.setAttribute('class', 'markerGroup');
+
+    for (i=0; i<chartData.length; i++){
+      var legendEntryGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+
+        var colourRect = document.createElementNS("http://www.w3.org/2000/svg","rect");
+          colourRect.setAttributeNS(null, 'x', startPixelLegend);
+          colourRect.setAttributeNS(null, 'y', ((containerHeight/(chartData.length))*i)+20);
+          colourRect.setAttributeNS(null, 'height', 10);
+          colourRect.setAttributeNS(null, 'width', 10);
+          colourRect.setAttributeNS(null, 'fill', colours[i]);
+
+        legendEntryGroup.appendChild(colourRect);
+
+        var legendText =  document.createElementNS("http://www.w3.org/2000/svg", "text");
+          legendText.setAttributeNS(null, 'x', startPixelLegend+15);
+          legendText.setAttributeNS(null, 'y', ((containerHeight/(chartData.length))*i)+20+5);
+          legendText.setAttributeNS(null, 'text-anchor', 'start');
+          legendText.setAttributeNS(null, 'dominant-baseline', 'middle');
+
+          var legendTextNode = document.createTextNode(chartData[i]["name"]);
+
+        legendText.appendChild(legendTextNode);
+
+      legendEntryGroup.appendChild(legendText);
+
+      markerGroup.appendChild(legendEntryGroup);
+    }
+
+  mainSVG.appendChild(markerGroup);
+
+    var segmentsGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      segmentsGroup.setAttribute('class', 'segmentsGroup');
+      segmentsGroup.setAttributeNS(null, 'role', 'list');
+      segmentsGroup.setAttribute(null, 'aria-label', (chartData.length) + " segments showing " + chartInfo["title"])
+
+      var segmentsTitle = document.createElementNS("http://www.w3.org/2000/svg", "title");
+        var segmentsTitleText = document.createTextNode((chartData.length) + " segments showing " + chartInfo["title"]);
+      segmentsTitle.appendChild(segmentsTitleText);
+
+    segmentsGroup.appendChild(segmentsTitle);
+
+      for (i=0; i<chartData.length; i++){
+
+        datapointPercent = chartData[i]["value"] / sumChartData;
+        datapointPercentRounded = Math.round(datapointPercent);
+
+        var singleSegmentGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+          singleSegmentGroup.setAttributeNS(null, 'role', 'listitem');
+          singleSegmentGroup.setAttributeNS(null, 'tabindex', 0);
+          singleSegmentGroup.setAttributeNS(null, 'aria-label', ("Segment " + (i+1) + " of " + chartData.length + ", " + chartData[i]["name"] + ", value" + chartData[i]["value"] + " " + chartInfo["units"] + ", " + datapointPercentRounded + "%"));
+
+          var singleSegmentPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            singleSegmentPath.setAttributeNS(null, 'd', 'M16.7 60.8 A 35 35, 0, 0, 0, 78.3 70.6 L 50 50 Z'); // TODO
+            singleSegmentPath.setAttributeNS(null, 'fill', colours[i]);
+            singleSegmentPath.setAttributeNS(null, 'stroke', '#fff');
+            singleSegmentPath.setAttributeNS(null, 'stroke-width', 0.5);
+            singleSegmentPath.setAttribute('class', 'segment');
+
+            var singleSegmentTitle = document.createElementNS("http://www.w3.org/2000/svg", "title");
+              var singleSegmentTitleText = document.createTextNode("Segment " + (i+1) + " of " + chartData.length + ", " + chartData[i]["name"] + ", value" + chartData[i]["value"] + " " + chartInfo["units"] + ", " + datapointPercentRounded + "%");
+            singleSegmentTitle.appendChild(singleSegmentTitleText);
+
+          singleSegmentPath.appendChild(singleSegmentTitle);
+
+        singleSegmentGroup.appendChild(singleSegmentPath);
+
+        segmentsGroup.appendChild(singleSegmentGroup);
+      }
+
+  mainSVG.appendChild(segmentsGroup);
+
+  parentDiv.appendChild(mainSVG);
 }
 
 var accessibleGrapher = {
@@ -475,34 +567,9 @@ var accessibleGrapher = {
   }
 }
 
-// main SVG
-  // viewbox?
-
-
-  // legendGroup/(called markergroup?) (g)
-    // aria-hidden
-    // loop to make legend (make g)
-      // rect
-        // attributes - x,y,width,height, style
-      // text
-        // attributes - x,y,text-anchor, font-size
-        // aria-hidden
-        // textnode
-
-  // segmentsGroup (g)
-    // role=list
-    // title
-      // textnode
-    // loop to make segments (g)
-      // role=listitem
-      // tabindex
-      // aria-label
-      //path
-        // attributes - d, fill, stroke, stroke-width, class
-        // title
-          // textnode
 
 // NOT DONE YET
+// - Viewbox on SVG?
 // - Highlighting smallest and biggest values on any of the graphs (should be part of aria-label)
 // - Highlighting general trend (should be part of graphDesc)
 // - Different colours and patterns
