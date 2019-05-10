@@ -23,7 +23,6 @@ function fillwithSVG(selector) {
 }
 
 function loadJSONandMakeChart(fileName, callback) {
-  console.log("loadJSON filename is " + fileName);
 
   var reqObj = new XMLHttpRequest();
   reqObj.overrideMimeType("application/json");
@@ -58,7 +57,6 @@ function sumData(array){
     value += array[i]["value"];
   }
 
-  console.log(value);
   return value;
 }
 
@@ -455,7 +453,10 @@ function makePieChart(chartData, chartInfo, selector){
 
   var startPixelLegend = containerWidth - 200;
   var pieWidth = Math.min((containerWidth - 200), containerHeight) - 100; // 50 pixels margin either side
+  var pieRadius = pieWidth / 2;
   var pieCentre = (pieWidth/2) + 50;
+  console.log("pieCentre is " + pieCentre);
+  console.log("pieRadius is " + pieRadius);
 
   // skip link
 
@@ -529,25 +530,35 @@ function makePieChart(chartData, chartInfo, selector){
 
     segmentsGroup.appendChild(segmentsTitle);
 
-      piePercentIterator = 0; // TODO - these are not correct, they're just segment percentages
+      var piePercentIterator = 0; // TODO - these are not correct, they're just segment percentages
+      var prevDatapointPercent = 0;
+      var datapointPercent = 0;
 
       for (i=0; i<chartData.length; i++){
 
-        segmentPercent = chartData[i]["value"] / sumChartData;
-        console.log(segmentPercent);
-        segmentPercentRounded = Math.round(segmentPercent*100);
+        console.log("for point" + i);
+        var segmentPercent = chartData[i]["value"] / sumChartData;
+        console.log("segmentPercent is " + segmentPercent);
+        var segmentPercentRounded = Math.round(segmentPercent*100);
+
+        prevDatapointPercent = (piePercentIterator*100) / sumChartData;
 
         piePercentIterator += segmentPercent;
 
-        if (i > 0){
-          prevDatapointPercent = chartData[i-1]["value"] / sumChartData;
-        }
-        else {
-          prevDatapointPercent = 0;
-        }
+        datapointPercent = (piePercentIterator*100) / sumChartData;
 
         var startArcPoint = getCoordinatesForPercentage(prevDatapointPercent, pieWidth, pieCentre);
-        var endArcPoint = getCoordinatesForPercentage(segmentPercent, pieWidth, pieCentre);
+        var endArcPoint = getCoordinatesForPercentage(datapointPercent, pieWidth, pieCentre);
+
+        // TAKE OUT
+
+
+
+        // END OF TAKE OUT
+        console.log("prevDatapointPercent is " + prevDatapointPercent);
+        console.log("datapointPercent is " + datapointPercent);
+        console.log("startArcPoint is " + startArcPoint);
+        console.log("endArcPoint is " + endArcPoint);
 
         var singleSegmentGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
           singleSegmentGroup.setAttributeNS(null, 'role', 'listitem');
@@ -556,7 +567,7 @@ function makePieChart(chartData, chartInfo, selector){
 
           var singleSegmentPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
             // singleSegmentPath.setAttributeNS(null, 'd', 'M16.7 60.8 A 35 35, 0, 0, 0, 78.3 70.6 L 50 50 Z'); // TODO
-            singleSegmentPath.setAttributeNS(null, 'd', 'M' + startArcPoint[0] + ' ' + startArcPoint[1] + ' A ' + pieCentre + ' ' + pieCentre + ', 0, 0, 0, ' + endArcPoint[0] + ' ' + endArcPoint[1] + ' L ' + pieCentre + ' ' + pieCentre + ' Z'); // TODO
+            singleSegmentPath.setAttributeNS(null, 'd', 'M ' + startArcPoint[0] + ' ' + startArcPoint[1] + ' A ' + pieRadius + ' ' + pieRadius + ', 0, 0, 1, ' + endArcPoint[0] + ' ' + endArcPoint[1] + ' L ' + pieCentre + ' ' + pieCentre + ' Z'); // TODO
             singleSegmentPath.setAttributeNS(null, 'fill', colours[i]);
             singleSegmentPath.setAttributeNS(null, 'stroke', '#fff');
             singleSegmentPath.setAttributeNS(null, 'stroke-width', 0.5);
