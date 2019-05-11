@@ -61,9 +61,8 @@ function sumData(array){
 }
 
 function getCoordinatesForPercentage(percentage, pieWidth, pieCentre){
-  // Change to make start point top instead of side
 
-  var moddedPercentage = percentage + 0.75 - 1;
+  var moddedPercentage = percentage + 0.75 - 1; // Change to make start point top instead of side
 
   var xCoord = (Math.cos(2 * Math.PI * moddedPercentage) * (pieWidth / 2)) + pieCentre;
   var yCoord = (Math.sin(2 * Math.PI * moddedPercentage) * (pieWidth / 2)) + pieCentre;
@@ -535,7 +534,7 @@ function makePieChart(chartData, chartInfo, selector){
 
     segmentsGroup.appendChild(segmentsTitle);
 
-      var piePercentIterator = 0; // TODO - these are not correct, they're just segment percentages
+      var piePercentIterator = 0;
       var prevDatapointPercent = 0;
       var datapointPercent = 0;
 
@@ -555,11 +554,6 @@ function makePieChart(chartData, chartInfo, selector){
         var startArcPoint = getCoordinatesForPercentage(prevDatapointPercent, pieWidth, pieCentre);
         var endArcPoint = getCoordinatesForPercentage(datapointPercent, pieWidth, pieCentre);
 
-        // TAKE OUT
-
-
-
-        // END OF TAKE OUT
         console.log("prevDatapointPercent is " + prevDatapointPercent);
         console.log("datapointPercent is " + datapointPercent);
         console.log("startArcPoint is " + startArcPoint);
@@ -571,7 +565,6 @@ function makePieChart(chartData, chartInfo, selector){
           singleSegmentGroup.setAttributeNS(null, 'aria-label', ("Segment " + (i+1) + " of " + chartData.length + ", " + chartData[i]["name"] + ", value " + chartData[i]["value"] + " " + chartInfo["units"] + ", " + segmentPercentRounded + "%"));
 
           var singleSegmentPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
-            // singleSegmentPath.setAttributeNS(null, 'd', 'M16.7 60.8 A 35 35, 0, 0, 0, 78.3 70.6 L 50 50 Z'); // TODO
             singleSegmentPath.setAttributeNS(null, 'd', 'M ' + startArcPoint[0] + ' ' + startArcPoint[1] + ' A ' + pieRadius + ' ' + pieRadius + ', 0, 0, 1, ' + endArcPoint[0] + ' ' + endArcPoint[1] + ' L ' + pieCentre + ' ' + pieCentre + ' Z'); // TODO
             singleSegmentPath.setAttributeNS(null, 'fill', colours[i]);
             singleSegmentPath.setAttributeNS(null, 'stroke', '#fff');
