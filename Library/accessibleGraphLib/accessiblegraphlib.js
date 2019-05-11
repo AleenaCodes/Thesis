@@ -61,8 +61,13 @@ function sumData(array){
 }
 
 function getCoordinatesForPercentage(percentage, pieWidth, pieCentre){
-  var xCoord = (Math.cos(2 * Math.PI * percentage) * (pieWidth / 2)) + pieCentre;
-  var yCoord = (Math.sin(2 * Math.PI * percentage) * (pieWidth / 2)) + pieCentre;
+  // Change to make start point top instead of side
+
+  var moddedPercentage = percentage + 0.75 - 1;
+
+  var xCoord = (Math.cos(2 * Math.PI * moddedPercentage) * (pieWidth / 2)) + pieCentre;
+  var yCoord = (Math.sin(2 * Math.PI * moddedPercentage) * (pieWidth / 2)) + pieCentre;
+
   return [xCoord, yCoord];
 }
 
@@ -563,7 +568,7 @@ function makePieChart(chartData, chartInfo, selector){
         var singleSegmentGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
           singleSegmentGroup.setAttributeNS(null, 'role', 'listitem');
           singleSegmentGroup.setAttributeNS(null, 'tabindex', 0);
-          singleSegmentGroup.setAttributeNS(null, 'aria-label', ("Segment " + (i+1) + " of " + chartData.length + ", " + chartData[i]["name"] + ", value" + chartData[i]["value"] + " " + chartInfo["units"] + ", " + segmentPercentRounded + "%"));
+          singleSegmentGroup.setAttributeNS(null, 'aria-label', ("Segment " + (i+1) + " of " + chartData.length + ", " + chartData[i]["name"] + ", value " + chartData[i]["value"] + " " + chartInfo["units"] + ", " + segmentPercentRounded + "%"));
 
           var singleSegmentPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
             // singleSegmentPath.setAttributeNS(null, 'd', 'M16.7 60.8 A 35 35, 0, 0, 0, 78.3 70.6 L 50 50 Z'); // TODO
@@ -574,7 +579,7 @@ function makePieChart(chartData, chartInfo, selector){
             singleSegmentPath.setAttribute('class', 'segment');
 
             var singleSegmentTitle = document.createElementNS("http://www.w3.org/2000/svg", "title");
-              var singleSegmentTitleText = document.createTextNode("Segment " + (i+1) + " of " + chartData.length + ", " + chartData[i]["name"] + ", value" + chartData[i]["value"] + " " + chartInfo["units"] + ", " + segmentPercentRounded + "%");
+              var singleSegmentTitleText = document.createTextNode("Segment " + (i+1) + " of " + chartData.length + ", " + chartData[i]["name"] + ", value " + chartData[i]["value"] + " " + chartInfo["units"] + ", " + segmentPercentRounded + "%");
             singleSegmentTitle.appendChild(singleSegmentTitleText);
 
           singleSegmentPath.appendChild(singleSegmentTitle);
