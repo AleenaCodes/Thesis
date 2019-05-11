@@ -72,6 +72,30 @@
 \makeglossaries
 \loadglsentries{defs}
 
+\usepackage{listings}
+\usepackage{color}
+\usepackage{textcomp}
+\lstset{
+	tabsize=4,
+	rulecolor=,
+	language=r,
+        basicstyle=\scriptsize,
+        upquote=true,
+        aboveskip={1.5\baselineskip},
+        columns=fixed,
+        showstringspaces=false,
+        extendedchars=true,
+        breaklines=true,
+        prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+        showtabs=false,
+        showspaces=false,
+        showstringspaces=false,
+        identifierstyle=\ttfamily,
+        keywordstyle=\color[rgb]{0,0,1},
+        commentstyle=\color[rgb]{0.133,0.545,0.133},
+        stringstyle=\color[rgb]{0.627,0.126,0.941},
+}
+
 \begin{document}
 
 % =============================================================================
@@ -242,12 +266,10 @@ Recent years have also seen \textit{Flexbox} and \textit{CSS Grid} being used fo
 With web development, there are many parts involved in the making and viewing of sites - developers use authoring and evaluation tools to make content, and then users use browsers, and optionally assistive technologies, to interact with the content. For an accessibility feature to become widely-used, it is crucial for it to be implemented in many or all of these parts - developers will have less motivation to use a feature if it is not implemented consistently across browsers, or if it hard to do in a language.
 
 \begin{figure}[h]
-\includegraphics[width=8cm]{images/W3Components.png}
+\includegraphics[width=8cm]{images/W3Components-v2.png}
 \centering
 \caption{Developers and users interacting with web content}
 \end{figure}
-
-% TODO - change to v2 of this picture
 
 \subsection{Web Accessibility Guidelines}
 With the growing complexity of websites, and more web developers than ever, the World Wide Web Consortium (W3C) regularly publish some guidelines and specifications around building accessibility into web pages.
@@ -623,6 +645,15 @@ var accessibleGrapher = {
     ...
   }
 }
+\end{lstlisting}
+
+\begin{lstlisting}
+<html>
+    <head>
+        <title>Hello</title>
+    </head>
+    <body>Hello</body>
+</html>
 \end{lstlisting}
 
 \subsection{Pulling in Data}
