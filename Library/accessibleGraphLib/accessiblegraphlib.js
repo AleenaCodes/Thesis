@@ -60,6 +60,32 @@ function sumData(array){
   return value;
 }
 
+function findTrend(array){
+  var sumX = 0;
+  var sumY = 0;
+  var sumXY = 0;
+  var sumXX = 0;
+
+  var x = 0;
+  var y = 0; // This will just increment by 1 every time - plotting points evenly spaced
+  var numValues = array.length;
+
+  // Run calculations over all values
+  for (var i = 0; i < numValues; i++) {
+      x = array[i]["value"];
+      y++;
+      sumX += x;
+      sumY += y;
+      sumXX += x*x;
+      sumXY += x*y;
+  }
+
+  // Calculate formula: y = x * m + b
+  var m = (numValues*sumXY - sumX*sumY) / (numValues*sumXX - sumX*sumX);
+
+  return m;
+}
+
 function getCoordinatesForPercentage(percentage, pieWidth, pieCentre){
 
   var moddedPercentage = percentage + 0.75 - 1; // Change to make start point top instead of side
@@ -111,6 +137,8 @@ function makeChart(chartData, chartInfo, selector){
   // console.log(chartData);
   // console.log(chartInfo);
 
+  // TODO check data size > 0 and that formatted correctly
+
   switch(chartInfo["chartType"]){
     case "bar":
       makeBarChart(chartData, chartInfo, selector);
@@ -138,7 +166,7 @@ function makeBarChart(chartData, chartInfo, selector){
 
   chartEndNum = findChartEndNum(chartData[0]["value"]);
 
-  // skip link
+  // TODO skip link
 
   var mainSVG = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     mainSVG.setAttributeNS(null, 'width', (containerWidth ));
@@ -251,7 +279,7 @@ function makeBarChart(chartData, chartInfo, selector){
             singleBarRect.setAttributeNS(null, 'y', (0.05*containerHeight)+(i*((0.75*containerHeight)/(chartData.length))));
             singleBarRect.setAttributeNS(null, 'width', ((chartData[i]["value"]/chartEndNum)*(0.75*containerWidth)));
             singleBarRect.setAttributeNS(null, 'height', (0.75*((0.75*containerHeight)/(chartData.length))));
-            singleBarRect.setAttributeNS(null, 'fill', "#7562e0");
+            singleBarRect.setAttributeNS(null, 'fill', colours[i]);
 
             var singleBarRectTitle = document.createElementNS("http://www.w3.org/2000/svg", "title");
               var singleBarRectTitleText = document.createTextNode("Bar " + (i+1) + " of " + (chartData.length) + ", " + chartData[i]["name"] + ", value " + chartData[i]["value"] + " " + chartInfo["units"]);
@@ -271,6 +299,16 @@ function makeBarChart(chartData, chartInfo, selector){
 
 function makeLineChart(chartData, chartInfo, selector){
 
+  var trend = findTrend(chartData);
+  var trendText = "";
+
+  if (trend > 0){
+    trendText = "There is an upward trend"
+  }
+  if (trend < 0){
+    trendText = "There is a downward trend"
+  }
+
   var parentDiv = document.getElementById(selector);
   parentDiv.innerHTML = '';
 
@@ -281,7 +319,7 @@ function makeLineChart(chartData, chartInfo, selector){
   biggestValue = findBiggestValue(chartData);
   chartEndNum = findChartEndNum(biggestValue);
 
-  // skip link
+  // TODO skip link
 
   var mainSVG = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     mainSVG.setAttributeNS(null, 'width', (containerWidth ));
@@ -295,7 +333,7 @@ function makeLineChart(chartData, chartInfo, selector){
   mainSVG.appendChild(graphTitle);
 
     var graphDesc = document.createElementNS("http://www.w3.org/2000/svg", "desc");
-      var graphDescText = document.createTextNode("X axis showing " + (chartData.length) + " points from " + chartData[0]["name"] + " to  " + chartData[(chartData.length)-1]["name"] + ", Y axis ranging from " + smallestValue + " " + chartInfo["units"] + " to " + biggestValue + " " + chartInfo["units"]);
+      var graphDescText = document.createTextNode("X axis showing " + (chartData.length) + " points from " + chartData[0]["name"] + " to  " + chartData[(chartData.length)-1]["name"] + ", Y axis ranging from " + smallestValue + " " + chartInfo["units"] + " to " + biggestValue + " " + chartInfo["units"] + " " + trendText);
     graphDesc.appendChild(graphDescText);
       graphDesc.setAttribute('id', ("graphDesc"+selector));
   mainSVG.appendChild(graphDesc);
@@ -383,7 +421,7 @@ function makeLineChart(chartData, chartInfo, selector){
           line.setAttributeNS(null, 'y1', ((((chartEndNum-chartData[i]["value"])/chartEndNum)*0.75*containerHeight)+(0.05*containerHeight)));
           line.setAttributeNS(null, 'x2', ((0.2*containerWidth)+((0.75/(chartData.length-1))*(i+1)*containerWidth)));
           line.setAttributeNS(null, 'y2', (((chartEndNum-chartData[(i+1)]["value"])/chartEndNum)*0.75*containerHeight)+(0.05*containerHeight));
-          line.setAttributeNS(null, 'stroke', "#7562e0");
+          line.setAttributeNS(null, 'stroke', colours[0]);
           line.setAttributeNS(null, 'stroke-width', "2");
 
         lineGroup.appendChild(line);
@@ -422,9 +460,9 @@ function makeLineChart(chartData, chartInfo, selector){
             singlePointDot.setAttributeNS(null, 'cx', ((0.2*containerWidth)+((0.75/(chartData.length-1))*i*containerWidth)));
             singlePointDot.setAttributeNS(null, 'cy', ((((chartEndNum-chartData[i]["value"])/chartEndNum)*0.75*containerHeight)+(0.05*containerHeight)));
             singlePointDot.setAttributeNS(null, 'r', "2");
-            singlePointDot.setAttributeNS(null, 'stroke', "#7562e0");
+            singlePointDot.setAttributeNS(null, 'stroke', colours[0]);
             singlePointDot.setAttributeNS(null, 'stroke-width', "3");
-            singlePointDot.setAttributeNS(null, 'fill', "#7562e0");
+            singlePointDot.setAttributeNS(null, 'fill', colours[0]);
 
             var singlePointDotTitle = document.createElementNS("http://www.w3.org/2000/svg", "title");
               var singlePointDotTitleText = document.createTextNode("Point " + (i+1) + " of " + chartData.length + ", " + chartData[i]["name"] + ", value " + chartData[i]["value"] + " " + chartInfo["units"]);
@@ -459,10 +497,8 @@ function makePieChart(chartData, chartInfo, selector){
   var pieWidth = Math.min((containerWidth - 200), containerHeight) - 100; // 50 pixels margin either side
   var pieRadius = pieWidth / 2;
   var pieCentre = (pieWidth/2) + 50;
-  console.log("pieCentre is " + pieCentre);
-  console.log("pieRadius is " + pieRadius);
 
-  // skip link
+  // TODO skip link
 
   var mainSVG = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     mainSVG.setAttributeNS(null, 'width', (containerWidth ));
@@ -540,9 +576,7 @@ function makePieChart(chartData, chartInfo, selector){
 
       for (i=0; i<chartData.length; i++){
 
-        console.log("for point" + i);
         var segmentPercent = chartData[i]["value"] / sumChartData;
-        console.log("segmentPercent is " + segmentPercent);
         var segmentPercentRounded = Math.round(segmentPercent*100);
 
         prevDatapointPercent = (piePercentIterator*100) / sumChartData;
@@ -553,11 +587,6 @@ function makePieChart(chartData, chartInfo, selector){
 
         var startArcPoint = getCoordinatesForPercentage(prevDatapointPercent, pieWidth, pieCentre);
         var endArcPoint = getCoordinatesForPercentage(datapointPercent, pieWidth, pieCentre);
-
-        console.log("prevDatapointPercent is " + prevDatapointPercent);
-        console.log("datapointPercent is " + datapointPercent);
-        console.log("startArcPoint is " + startArcPoint);
-        console.log("endArcPoint is " + endArcPoint);
 
         var singleSegmentGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
           singleSegmentGroup.setAttributeNS(null, 'role', 'listitem');
