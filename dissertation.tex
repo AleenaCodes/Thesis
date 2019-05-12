@@ -73,28 +73,6 @@
 \loadglsentries{defs}
 
 \usepackage{listings}
-\usepackage{color}
-\usepackage{textcomp}
-\lstset{
-	tabsize=4,
-	rulecolor=,
-	language=r,
-        basicstyle=\scriptsize,
-        upquote=true,
-        aboveskip={1.5\baselineskip},
-        columns=fixed,
-        showstringspaces=false,
-        extendedchars=true,
-        breaklines=true,
-        prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
-        showtabs=false,
-        showspaces=false,
-        showstringspaces=false,
-        identifierstyle=\ttfamily,
-        keywordstyle=\color[rgb]{0,0,1},
-        commentstyle=\color[rgb]{0.133,0.545,0.133},
-        stringstyle=\color[rgb]{0.627,0.126,0.941},
-}
 
 \begin{document}
 
@@ -150,16 +128,11 @@ of authorship may still be produced online via
 
 \makedecl
 
-\tableofcontents
+\chapter*{Acknowledgements}
 
-% LaTeX automatically generates a table of contents, plus associated lists
-% of figures, tables and algorithms.  The former is a compulsory part of the
-% dissertation, but if you do not require the latter they can be suppressed
-% by simply commenting out the associated macro.
+This is text
 
-\setlength{\parskip}{1em}
-
-\chapter{Abstract}
+\chapter*{Abstract}
 
 Web development is a constantly changing field, and so making websites accessible to those who have varying disabilities and needs is a matter of both social responsibility and smart business.
 
@@ -167,9 +140,18 @@ A variety of assistive technologies exist to help disabled users navigate comput
 
 In this project, I produce a solution for creating web accessible graphs, in the form of a JavaScript graphing library that has accessibility out of the box. The library is simple for developers to use, and produces graphs that give basic information about the data points, and also provides some detail on the trends for the user.
 
+\tableofcontents
+
+% LaTeX automatically generates a table of contents, plus associated lists
+% of figures, tables and algorithms.  The former is a compulsory part of the
+% dissertation, but if you do not require the latter they can be suppressed
+% by simply commenting out the associated macro.
+
 % TODO - rewrite to make nicer?
 
 \mainmatter
+
+\setlength{\parskip}{1em}
 
 \chapter{Background}
 
@@ -260,8 +242,6 @@ Responsive layouts are a necessity in a world where the internet is accessed on 
 Many are turning towards frameworks to provide out-of-the-box responsiveness rather than manually providing different layouts for each screen size, and these can be a good solution. For example, \textit{Bootstrap} provides a framework for responsive sites that can be used to make accessible websites, but it is down to the developer to ensure compliance with the WCAG, as there are many aspects that shouldn't be used, such as default button colours and carousels.\cite{bootstrapaccessibility} Others, such as \textit{Turret}, allow for things like screen-reader only content to be defined.\cite{turretaccessibility}
 
 Recent years have also seen \textit{Flexbox} and \textit{CSS Grid} being used for arranging elements on a page. These decouple the source order (i.e. the order of the elements declared in HTML) and their visual order on the screen. This is another thing that will have little repercussion on an average web user, but can mean that keyboard or screen-reader users are unable to access content in the right order.
-
-% TODO provide pic of unordered page?
 
 With web development, there are many parts involved in the making and viewing of sites - developers use authoring and evaluation tools to make content, and then users use browsers, and optionally assistive technologies, to interact with the content. For an accessibility feature to become widely-used, it is crucial for it to be implemented in many or all of these parts - developers will have less motivation to use a feature if it is not implemented consistently across browsers, or if it hard to do in a language.
 
@@ -444,16 +424,6 @@ One of the main technical challenges is making a solution that create graphs tha
 When trying to provide all the information that sighted users would see via audio, it will also be important to keep a balance. Providing too much information will be tedious for users who only want to understand the values and trends in a graph, and may also overwhelm users, but providing too little information will result in reduced understanding about the graph for users.
 
 From a usability standpoint, it will also need to be easy for developers to use, but still be able to be customised enough that developers can create custom graphics to their liking while maintaining the same level of accessibility. Developers (understandably) lean towards using technologies that provide the solution they need with a minimal amount of work, so it will be important to keep the API functional but quick to invoke.
-
-% \section{Related Work}
-
-% TODO - write
-% Some papers
-% Some books
-% Highcharts
-% Amcharts
-% Kendo UI
-% Evocharts
 
 \chapter{Design}
 
@@ -703,8 +673,6 @@ This data, along with the chart information that the developer supplied in the f
 
 The \texttt{Document} interface represents a web page in a browser, and is the standard way to query and modify a page's DOM. The method \texttt{document.getElementById} provided a way to get the unique \texttt{Element} object associated with a single HTML element on a web page, specified by a unique \texttt{id} attribute on the element.
 
-% TODO - diagram of HTML document interface?
-
 The methods \texttt{document.createElement} and \texttt{document.setAttribute} provided standard way to create new HTML elements and add required attributes onto them. However, since SVG is part of an XML namespace (as opposed to the pure HTML namespace), it had to be created via an extended function \texttt{document.createElementNS}. The DOM 2 specification (now almost 20 years old) tackled the issue of multiple XML namespaces having identical tags with each other or with HTML, and so the \texttt{createElementNS} method allows the developer to specify the namespace URI for an element.
 \newline
 \begin{lstlisting}
@@ -780,17 +748,38 @@ In the spirit of not wanting to use any external libraries, I wrote up a JavaScr
 
 The algorithm works to find the "line of best fit" through a set of 2D points, by finding the line that minimises the square of the residuals, i.e. the error between the line's predicted value and the actual observed value.
 
-The typical Least Squares algorithm takes in a list of points as $(x,y)$ co-ordinates, and so I used the SVG \texttt{width} and \texttt{height} to get the data point position, and then calculated its position relative to the bottom left corner (as opposed to the top left which SVG uses for its measurements).
+The typical Least Squares algorithm takes in a list of points as $(x,y)$ co-ordinates, but in this case I only used the chart data array to get the values for $y$ and simple incremented $x$ for each point, as it would be plotted on the graph as evenly-spaced
+
+\begin{lstlisting}
+function findTrend(array){
+  var sumX = 0; var sumY = 0; var sumXY = 0; var sumXX = 0;
+
+  var x = 0; var y = 0; 
+
+  for (var i = 0; i < numValues; i++) {
+    x = array[i]["value"];
+    y++;
+    sumX += x;
+    sumY += y;
+    sumXX += x*x;
+    sumXY += x*y;
+  }
+
+  var m = (numValues*sumXY - sumX*sumY) / (numValues*sumXX - sumX*sumX);
+
+  return m;
+}
+\end{lstlisting}
 
 When it came to drawing bar and line graphs, the mathematics was relatively simple to take in the data and draw \texttt{<rect>} of the correct width or \texttt{<circle>} at the correct position. However, drawing a pie chart required more maths to calculate and draw each segment correctly.
 
 For the pie chart SVG, I added a \texttt{viewbox} property to the SVG. This meant that regardless of the actual size in pixels on the page, the relative measurements would stay the same when specifying measurements for each individual element to draw.
 
-In order to draw the pie charts, I first calculated corresponding percentages for each data point out of the total of all values and then used this to work out the point on the circle for the edge of each segment.
+In order to draw the pie charts, I first calculated corresponding percentages for each data point out of the total of all values and then used this to work out the point on the circle for the edge of each segment, taking the pie size and positioning into account.
 
 \begin{lstlisting}
-var x = radius * Math.cos(2 * Math.PI * percent);
-var y = radius * Math.sin(2 * Math.PI * percent);
+var x = (Math.cos(2 * Math.PI * percent) * (pieWidth / 2)) + pieCentre;
+var y = (Math.sin(2 * Math.PI * percent) * (pieWidth / 2)) + pieCentre;
 \end{lstlisting}
 
 \begin{wrapfigure}{r}{0.25\textwidth}
@@ -798,7 +787,7 @@ var y = radius * Math.sin(2 * Math.PI * percent);
 \caption{Drawing an SVG arc}
 \end{wrapfigure}
 
-This could then be adjusted to the correct position relative to the centre of the circle, and then drawn using the SVG \texttt{<path>} attribute. The path had 3 parts
+The function returned the exact co-ordinates where each segment's arc would finish, and this could then be drawn using the SVG \texttt{<path>} attribute. The path had 3 parts
 
 \begin{itemize}
     \item \texttt{M} - \textit{Move} to the first point on the segment
@@ -807,8 +796,6 @@ This could then be adjusted to the correct position relative to the centre of th
 \end{itemize}
 
 Although this method only drew two lines of the segment, SVG filled in the third automatically (as a straight line from the centre back to the first point of the segment), and this area could then be filled in like a normal shape.
-
-% TODO - rewrite once implemented
 
 \section{Limitations}
 
@@ -975,7 +962,7 @@ Although the study tested understanding among blind and partially-blind users, a
 
 Another way to test the effectiveness of this solution would also be to test how much users understood from the graph as opposed to tabular data. By conducting a test in which participants saw both tables and graphs of the same data and compared the two, it would show whether the proposed solution is more of less effective than simply presenting raw data to users.
 
-\section{Evaluation Against the WCAG}
+\section{WCAG Compliance}
 
 The WCAG guidelines provide a framework for basic evaluation of an accessible page. The table in Appendix \ref{appendix:wcagevaluation} shows all relevant criteria and whether it has been fulfilled.
 
@@ -1194,19 +1181,7 @@ The following questions were asked in the study (with possible answers)
 \end{longtable}
 \end{center}
 
-
-
-
-
-% TODO - move WCAG table here?
-% TODO - raw user survey results?
-
 \printbibliography
-
-
-
-
-% TODO - change both headings that are WCAG to differing ones? i.e. "implementing WCAG" and "WCAG compliance"
 
 \end{document}
 
