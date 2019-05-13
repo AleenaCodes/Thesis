@@ -130,13 +130,13 @@ of authorship may still be produced online via
 
 \chapter*{Acknowledgements}
 
-This is text
+I would like to thank my supervisor Dr Simon Lock for his guidance and support throughout this project. I would also like to thank my parents for their continued support, and my sister for her invaluable proofreading.
 
 \chapter*{Abstract}
 
 Web development is a constantly changing field, and so making websites accessible to those who have varying disabilities and needs is a matter of both social responsibility and smart business.
 
-A variety of assistive technologies exist to help disabled users navigate computers and web pages efficiently, and the World Wide Web Consortium (W3C) maintain standards to support accessibility, both in the syntax of web languages, and also in providing guidelines for developers. Although text-based web pages and simple images tend to be accessible for most users, more complicated content such as graphs and data visualisations are often completely inaccessible to those using assistive technologies.
+A variety of assistive technologies exist to help disabled users navigate computers and web pages efficiently, and the World Wide Web Consortium (W3C) maintains standards to support accessibility, both in the syntax of web languages and also in providing guidelines for developers. Although text-based web pages and simple images tend to be accessible for most users, more complicated content such as graphs and data visualisations are often completely inaccessible to those using assistive technologies.
 
 In this project, I produce a solution for creating web accessible graphs, in the form of a JavaScript graphing library that has accessibility out of the box. The library is simple for developers to use, and produces graphs that give basic information about the data points, and also provides some detail on the trends for the user.
 
@@ -146,8 +146,6 @@ In this project, I produce a solution for creating web accessible graphs, in the
 % of figures, tables and algorithms.  The former is a compulsory part of the
 % dissertation, but if you do not require the latter they can be suppressed
 % by simply commenting out the associated macro.
-
-% TODO - rewrite to make nicer?
 
 \mainmatter
 
@@ -210,7 +208,7 @@ Through this, we can see that web accessibility supports the inclusion of people
 
 With so many disabled users worldwide, keeping web accessibility in mind makes sense from a business standpoint, and will result in a larger overall possible market. Increasing site accessibility often involves improved structuring and labelling, and so can result in much better search engine optimisation for a site. It also means that the site will be easier to view on multiple devices, and there will be reduced maintenance cost over time.\cite{WAIaccessibilityintro}
 
-Focusing on site accessibility not only demonstrates corporate social responsibility, but in many parts of the world it is required by law for certain sites, such as government services. This includes the Equality Act of 2010 in the UK and Section 508 in the USA. Access to information and communication technologies, including the web, is also defined as a basic human right in the United Nations Convention on the Rights of Persons with Disabilities (UN CRPD).\cite{accessibilityUN}
+Focusing on site accessibility not only demonstrates corporate social responsibility, but in many parts of the world, it is required by law for certain sites, such as government services. This includes the Equality Act of 2010 in the UK and Section 508 in the USA. Access to information and communication technologies, including the web, is also defined as a basic human right in the United Nations Convention on the Rights of Persons with Disabilities (UN CRPD).\cite{accessibilityUN}
 
 Many modern sites have tackled the recent move into mobile web browsing by offering up different versions of a site depending on the device being used to access the web page, so it may seem that this could be an approach to having accessible sites - one 'designed' site and one 'accessible' site for those who need it. However, there are many concerns associated with segregating users to the 'accessible' site, both around privacy and a lack of quality. Peter Blanck discusses these further in his book "The Struggle for Web Accessibility by Persons with Cognitive Disabilities".\cite[p.~157]{strugglewebaccessibility}
 
@@ -231,7 +229,7 @@ When the internet began, the idea of accessibility was at its core -
 
 Whereas web pages used to be static and have a linear layout, they are now much more dynamic with changing content (such as social media platforms with a livestream) and can be displayed in a variety of different layouts depending on device and screen size. While this satisfies consumers' needs to access current information on a variety of devices, it has resulted in a decrease in accessibility for some users. Changing layouts can mean that a screen-reader reads out information in a completely different order than it is displayed visually, and moving interfaces can become overloaded and confusing for users with cognitive and physical disabilities.
 
-A study in 2013 looking at specific criteria such as alt-text, image buttons and form inputs found that many websites, even government sites, present violations to WCAG criteria, however there has been steady improvement over a period of a decade, although this is likely due to changes in code practices rather than a new focus on accessibility.\cite{progressaccessibility}
+A study in 2013 looking at specific criteria such as alt-text, image buttons and form inputs found that many websites, even government sites, present violations to WCAG criteria. However, there has been a steady improvement over a period of a decade, although this is likely due to changes in code practices rather than a new focus on accessibility.\cite{progressaccessibility}
 
 A key idea that has been on the rise in the last few years, has been component-based design. With HTML5 having a finite (and mainly quite simple) type of element, web development has moved towards generating custom HTML elements which can provide new and novel types of interactivity on web pages.
 
@@ -241,9 +239,9 @@ Responsive layouts are a necessity in a world where the internet is accessed on 
 
 Many are turning towards frameworks to provide out-of-the-box responsiveness rather than manually providing different layouts for each screen size, and these can be a good solution. For example, \textit{Bootstrap} provides a framework for responsive sites that can be used to make accessible websites, but it is down to the developer to ensure compliance with the WCAG, as there are many aspects that shouldn't be used, such as default button colours and carousels.\cite{bootstrapaccessibility} Others, such as \textit{Turret}, allow for things like screen-reader only content to be defined.\cite{turretaccessibility}
 
-Recent years have also seen \textit{Flexbox} and \textit{CSS Grid} being used for arranging elements on a page. These decouple the source order (i.e. the order of the elements declared in HTML) and their visual order on the screen. This is another thing that will have little repercussion on an average web user, but can mean that keyboard or screen-reader users are unable to access content in the right order.
+Recent years have also seen \textit{Flexbox} and \textit{CSS Grid} being used for arranging elements on a page. These decouple the source order (i.e. the order of the elements declared in HTML) and their visual order on the screen. This is another thing that will have little repercussion on an average web user but can mean that keyboard or screen-reader users are unable to access content in the right order.
 
-With web development, there are many parts involved in the making and viewing of sites - developers use authoring and evaluation tools to make content, and then users use browsers, and optionally assistive technologies, to interact with the content. For an accessibility feature to become widely-used, it is crucial for it to be implemented in many or all of these parts - developers will have less motivation to use a feature if it is not implemented consistently across browsers, or if it hard to do in a language.
+With web development, there are many parts involved in the making and viewing of sites - developers use authoring and evaluation tools to make content, and then users use browsers, and optionally assistive technologies, to interact with the content. For an accessibility feature to become widely-used, it is crucial for it to be implemented in many or all of these parts - developers will have less motivation to use a feature if it is not implemented consistently across browsers, or if it is hard to do in a language.
 
 \begin{figure}[h]
 \includegraphics[width=8cm]{images/W3Components-v2.png}
@@ -268,7 +266,7 @@ The WCAG are organised under four principles:
     \item Robust - users must be able to access the content from a variety of user agents, including current assistive technologies
 \end{itemize}
 
-Each of these principles have a set of testable criteria, and these can be met at 3 levels - A, AA and AAA, indicating a minimum, good, and high level of conformance, although it is not always possible to reach level AAA with all content types.
+Each of these principles has a set of testable criteria, and these can be met at 3 levels - A, AA and AAA, indicating a minimum, good, and high level of conformance, although it is not always possible to reach level AAA with all content types.
 
 \subsubsection{WAI-ARIA}
 
@@ -286,7 +284,7 @@ The Web Accessibility Initiative – Accessible Rich Internet Applications (WAI-
 
 When aiming to develop an accessible website, there is no easy route - instead, it is important to keep accessibility in mind throughout the design and development process. The WCAG should be consulted when designing the site, and WAI-ARIA for guidelines on the semantics to use when developing the site.
 
-As HTML5 is designed to be accessible, it is key to try and keep things as simple as possible, and try to not do "hacky" things when developing a site, such as using CSS to change the ordering of how elements show on a page. It is also important to use the designated HTML elements for each component on a page, such as using a \texttt{<button>} tag for a button instead of adding a \texttt{<span>} and styling it into a button.
+As HTML5 is designed to be accessible, it is key to try and keep things as simple as possible and try to not do "hacky" things when developing a site, such as using CSS to change the ordering of how elements show on a page. It is also important to use the designated HTML elements for each component on a page, such as using a \texttt{<button>} tag for a button instead of adding a \texttt{<span>} and styling it into a button.
 
 Many web frameworks are built with accessibility considered, and so using frameworks like \textit{Bootstrap}, \textit{Turret}, \textit{Foundation} or \textit{Vanilla} for building the site, and then evaluating and fixing any accessibility issues can also be a good idea. A useful JavaScript library that is available is \textit{Ally.js}, which can be loaded into a JavaScript project and provides a set of modules to help simplify accessibility challenges, such as setting specific ordering for tab focuses.
 
@@ -419,11 +417,11 @@ The aim is to have a library that functions as a proof-of-concept for how web ac
 
 \subsection{Technical Challenges}
 
-One of the main technical challenges is making a solution that create graphs that are usable for people browsing with and without assistive technologies. It is also key to note that while the WCAG provides some guidelines on how to make web content that is accessible to people with varying needs, it is still hard to adapt for every use case due to the diverse needs of people using the internet.
+One of the main technical challenges is making a solution that creates graphs that are usable for people browsing with and without assistive technologies. It is also key to note that while the WCAG provides some guidelines on how to make web content that is accessible to people with varying needs, it is still hard to adapt for every use case due to the diverse needs of people using the internet.
 
 When trying to provide all the information that sighted users would see via audio, it will also be important to keep a balance. Providing too much information will be tedious for users who only want to understand the values and trends in a graph, and may also overwhelm users, but providing too little information will result in reduced understanding about the graph for users.
 
-From a usability standpoint, it will also need to be easy for developers to use, but still be able to be customised enough that developers can create custom graphics to their liking while maintaining the same level of accessibility. Developers (understandably) lean towards using technologies that provide the solution they need with a minimal amount of work, so it will be important to keep the API functional but quick to invoke.
+From a usability standpoint, it will also need to be easy for developers to use, but still be customisable enough that developers can create custom graphics to their liking while maintaining the same level of accessibility. Developers (understandably) lean towards using technologies that provide the solution they need with a minimal amount of work, so it will be important to keep the API functional but quick to invoke.
 
 \chapter{Design}
 
@@ -477,7 +475,7 @@ I also aimed to combine the use of contrasting colours with different patterns a
 
 When building a colour palette, I aimed to have 6 different colours in my colour palette, which would have a good amount of contrast with each other. Since I was making a graphing library, I initially thought of using a \textit{Brewer Palette} - colour combinations that are specifically selected for their properties for use in data visualisation and information design. These colours are selected based on human perception around which colours seem associated with each other, and so a \textit{Qualitative Brewer Palette} seemed like a good choice for the graphs I was creating. However, I found that these colours had little contrast between them by WCAG standards, and so would not be suitable for my use.
 
-In order to check the contrast between each colour, I used a colour contrast-checker from the design agency \textit{EightShapes} to load in multiple colours and see the contrast level between each colour.
+In order to check the contrast between each colour, I used the colour contrast-checker \textit{Contrast Grid} from the design agency \textit{EightShapes} to load in multiple colours and see the contrast level between each colour.
 
 \begin{figure}[h]
 \caption{Checking colour contrast with the EightShapes contrast checker tool}
@@ -485,15 +483,11 @@ In order to check the contrast between each colour, I used a colour contrast-che
 \includegraphics[width=0.5\textwidth]{images/EightShapeColourChecker.png}
 \end{figure}
 
-With this, I was able to build a palette of 6 colours which had a fairly high contrast level between most of the other colours (i.e. 3 or more). However, it proved very hard to find colours that had a high enough contrast between all other colours in the palette, and so I simple ordered the palette colours such that all neighbouring colours were high contrast.
-
-% TODO - add newline, this gets split weirdly
+With this, I was able to build a palette of 6 colours which had a fairly high contrast level between most of the other colours (i.e. 3 or more). However, it proved very hard to find colours that had a high enough contrast between all other colours in the palette, and so I simply ordered the palette colours such that all neighbouring colours were high contrast.
 
 \section{Accessibility Tree}
 
 When looking at web accessibility, a key concept is the accessibility tree - a tree structure created from a web page's Document Object Model (DOM), which then interact with assistive technologies. One of the major technical issues with this project was that different web browsers may generate slightly different accessibility trees from the same HTML code and different assistive technologies may also interpret the same accessibility tree differently. Thus it would be hard to make a solution that worked across all of the common assistive technology/browser/operating system combinations.
-
-% TODO - diagram of how assistive tech uses accessibility trees?
 
 Many browsers, such as Mozilla Firefox, provide tools to directly view the accessibility tree, and so I aimed to use syntax to create as clean an accessibility tree as possible (and by extension the DOM would also be clean).
 
@@ -533,7 +527,7 @@ A sectioning root is an HTML element that can have its own outline, but the sect
 
 \subsection{ARIA syntax}
 
-As discussed before, I aimed to create as much of the accessibility tree as possible from using inbuilt HTML properties (e.g. using \texttt{<h1>}) for headers as opposed to adding an ARIA role to achieve this. ARIA provides custom roles for elements, but many of these double up with those assigned to native HTML elements (such as \texttt{role="button"}, which can also be assigned by using \texttt{<button>}). However, for an ARIA role that overlaps with a HTML element, using the ARIA role requires some extra attributes to be defined, such as making the element focusable and defining event handlers, whereas the HTML element will have these defined by default. Hence, it is not usually recommended to use an ARIA role when there is a native HTML element available.
+As discussed before, I aimed to create as much of the accessibility tree as possible from using inbuilt HTML properties (e.g. using \texttt{<h1>}) for headers as opposed to adding an ARIA role to achieve this. ARIA provides custom roles for elements, but many of these double up with those assigned to native HTML elements (such as \texttt{role="button"}, which can also be assigned by using \texttt{<button>}). However, for an ARIA role that overlaps with an HTML element, using the ARIA role requires some extra attributes to be defined, such as making the element focusable and defining event handlers, whereas the HTML element will have these defined by default. Hence, it is not usually recommended to use an ARIA role when there is a native HTML element available.
 
 While I was initially using the element \texttt{<figure>} as the parent element, I found that it was easier to use the ARIA role \texttt{figure} directly as an attribute of the \texttt{<svg>} tag, thus making it act as a \texttt{<figure>} tag when it came to creating the DOM, and also meaning that it showed up directly as \texttt{figure} in the accessibility tree, as opposed to being an only-child \texttt{svg} nested inside a \texttt{figure}.
 
@@ -594,7 +588,7 @@ Although many of the criteria didn't apply to this project, especially those to 
 
 When testing on Windows machines with the two most popular screen-readers (\textit{NVDA} and \textit{JAWS}), the system of having a \texttt{<title>} tag for each \texttt{listitem} meant that when the user focused on each element, the specified \texttt{title} was read out.
 
-However on MacOS with the native screen-reader \textit{Voiceover}, this did not work at all, with no label being read out. This was a good example of large inconsistencies between browsers, even amongst the more well-maintained browsers.
+Howeve,r on MacOS with the native screen-reader \textit{Voiceover} this did not work at all, with no label being read out. This was a good example of large inconsistencies between browsers, even amongst the more well-maintained browsers.
 
 In order to have the graph function as intended, I had to add an extra layer of labelling that \textit{Voiceover} would pick up on. For this I used the \texttt{aria-label} attribute to label each data point, with the same information that was specified in the \texttt{<title>} tag. The \texttt{aria-label} attribute is similar to \texttt{aria-labelledby} but uses a direct string to read out, as opposed to referencing another HTML element as a label. It was suitable for use here as the label was fairly short, but would not have been suitable for a long-form description to be included.
 
@@ -684,8 +678,6 @@ I also used the corresponding \texttt{document.setAttributeNS} method in my libr
 The bulk of the graph-making functions were simple translations from the previously-created HTML to creating those elements as HTML elements via JavaScript and setting the attributes as required. SVG also has many alignment properties for text that allowed me to position things without using CSS, such as \texttt{text-anchor} and \texttt{dominant-baseline} for the SVG \texttt{<text>} tag.
 
 The information for the ARIA labels was mainly made by looking through the provided data to get properties such as the number of elements, and the smallest and biggest elements. These, combined with the \texttt{"units"} property from the method call were used to create labels that read like natural language.
-
-% TODO - some example of the natural language labels?
 
 \subsection{Making Readable Axis}
 
@@ -960,25 +952,19 @@ The combined quantitative and qualitative feedback showed the range of opinions 
 
 Although the study tested understanding among blind and partially-blind users, a more comprehensive study would also include people with more varying abilities, especially colour-blind users, and users using assistive technologies for physical disabilities.
 
-Another way to test the effectiveness of this solution would also be to test how much users understood from the graph as opposed to tabular data. By conducting a test in which participants saw both tables and graphs of the same data and compared the two, it would show whether the proposed solution is more of less effective than simply presenting raw data to users.
+Another way to test the effectiveness of this solution would also be to test how much users understood from the graph as opposed to tabular data. By conducting a test in which participants saw both tables and graphs of the same data and compared the two, it would show whether the proposed solution is more or less effective than simply presenting raw data to users.
 
 \section{WCAG Compliance}
 
 The WCAG guidelines provide a framework for basic evaluation of an accessible page. The table in Appendix \ref{appendix:wcagevaluation} shows all relevant criteria and whether it has been fulfilled.
 
-The only criteria that wasn't fully fulfilled was \textit{Criterion 1.4.11 - Non-Text Contrast}. This is due to the difficulty in find multiple colours with a contrast $\textgreater$4.5:1, although all colours do have a contrast of $\textgreater$3:1, which is fairly high. White space was also left between neighbouring blocks in order to help users identify a change in block.
+The only criterion that wasn't fully fulfilled was \textit{Criterion 1.4.11 - Non-Text Contrast}. This is due to the difficulty in finding multiple colours with a contrast ratio $\textgreater$4.5:1, although all colours do have a contrast ratio of $\textgreater$3:1, which is fairly high. White space was also left between neighbouring blocks in order to help users identify a change in block.
 
 \section{Open-Source Contributions}
 
-In the process formulating syntax for my solution, I did a lot of reading around the HTML specification\cite{htmlspec} in order to understand the HTML Accessibility API Mappings. One of the key sources of documentation for web development is the MDN Web Docs\cite{mdndocs}, which provide comprehensive web standards and other information for web developers.
+In the process of formulating syntax for my solution, I did a lot of reading around the HTML specification\cite{htmlspec} in order to understand the HTML Accessibility API Mappings. One of the key sources of documentation for web development is the MDN Web Docs\cite{mdndocs}, which provide comprehensive web standards and other information for web developers.
 
 While reading through specifications and the MDN Web Docs, it became clear that there were undocumented syntactical features in the \texttt{Document} interface, and so I made some open-source contributions to the documentation there.
-
-% TODO - more detail on contributions
-
-% \section{Speed}
-
-% Test speed against other libraries
 
 \chapter{Conclusion and Future Work}
 
@@ -1012,8 +998,6 @@ The solution I presented relies on navigating through the entire graph to unders
 Visuals such as graphs are mainly presented as such because they give the viewer the ability to quickly see trends and relations, and find relevant information easily, e.g. a line graph can be a good way of illustrating that there is a strong upward trend over time, or that a value has been steady over a period of time.
 
 Another way of thinking about making graphical data accessible is to allow users to query certain aspects of the graph, such as having an interface that allows questions like "what was the trend between years 2000 and 2010", so this may be another possible way to create accessible data visualisations.
-
-% TODO - rewrite?
 
 \chapter{Glossary}
 
