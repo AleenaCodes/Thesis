@@ -30,3 +30,6 @@ aria-describedby for description - but not on all platforms, can double-up on la
 - Add button to show as table as well
 
 == Other Notes ==
+
+Need to make bunch of patterns (using chose colour palette)
+Need to have range read out in description
